@@ -1,0 +1,22 @@
+properties:
+  form_name:
+    type: string
+  questions:
+    type: array
+    items:
+      type: object
+      properties:
+        title:
+          type: string
+          enum:
+            - TEXT
+            - PULLDOWN
+            - CHECKBOX
+        description:
+          type: string
+        question_type:
+          type: string
+        choices:
+          type: array
+          items:
+            type: string
