@@ -21,29 +21,37 @@ properties:
   form_name:
     type: string
     example: お問い合わせフォーム
+  question_title:
+    type: string
+    example: 質問1
+  question_description:
+    type: string
+    example: 質問1の説明
+  question_type:
+    type: string
+    example: TEXT
+    enum:
+      - TEXT
+      - PULLDOWN
+      - CHECKBOX
+  question_choices:
+    type: array
+    items:
+      type: string
+      example: "選択肢"
   questions:
     type: array
     items:
       type: object
       properties:
         title:
-          type: string
-          example: 質問1
+          $ref: '#/properties/question_title'
         description:
-          type: string
-          example: 質問1の説明
+          $ref: '#/properties/question_description'
         question_type:
-          type: string
-          example: TEXT
-          enum:
-            - TEXT
-            - PULLDOWN
-            - CHECKBOX
+          $ref: '#/properties/question_type'
         choices:
-          type: array
-          items:
-            type: string
-            example: "選択肢"
+          $ref: '#/properties/question_choices'
 
 examples:
   example-1:
