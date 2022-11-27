@@ -2,7 +2,9 @@ post:
   operationId: post-create
   responses:
     '200':
-      description: OK
+      description: フォーム作成成功
+    '500':
+      description: データベースエラー
   requestBody:
     content:
       application/json:
