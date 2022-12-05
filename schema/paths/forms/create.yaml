@@ -3,6 +3,16 @@ post:
   responses:
     '200':
       description: フォーム作成成功
+      schema:
+        type: "object"
+        properties:
+          id:
+            type: "integer"
+            format: "int64"
+      examples:
+        success:
+          summary: "作成成功時のレスポンス例"
+          value: { "id": 1 }
     '500':
       description: データベースエラー
   requestBody:
