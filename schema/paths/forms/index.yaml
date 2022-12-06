@@ -3,16 +3,14 @@ post:
   summary: フォームを作成する
   responses:
     '200':
-      schema:
-        type: "object"
-        properties:
-          id:
-            type: "integer"
-            format: "int64"
-      examples:
-        success:
-          summary: "作成成功時のレスポンス例"
-          value: { "id": 1 }
+      description: フォームの作成に成功
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: '../../types/form.yaml#/schemas/form_id'
     '500':
       application/json:
         schema:
