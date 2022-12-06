@@ -1,0 +1,20 @@
+form_id:
+  type: integer
+  example: 0
+form_name:
+  type: string
+  example: お問い合わせフォーム
+form_description:
+  type: string
+  example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+form:
+  type: object
+  properties:
+    id:
+      $ref: '#/form_id'
+    name:
+      $ref: '#/form_name'
+    description:
+      $ref: '#/form_description'
+    questions:
+      $ref: './question.yaml#/questions'

@@ -1,0 +1,33 @@
+question_title:
+  type: string
+  example: 質問1
+question_description:
+  type: string
+  example: 質問1の説明
+question_type:
+  type: string
+  example: TEXT
+  enum:
+    - TEXT
+    - PULLDOWN
+    - CHECKBOX
+question_choices:
+  type: array
+  items:
+    type: string
+    example: '選択肢'
+question:
+  type: object
+  properties:
+    title:
+      $ref: '#/question_title'
+    description:
+      $ref: '#/question_description'
+    question_type:
+      $ref: '#/question_type'
+    choices:
+      $ref: '#/question_choices'
+questions:
+  type: array
+  items:
+    $ref: '#/question'
