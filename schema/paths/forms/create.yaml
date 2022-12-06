@@ -19,102 +19,56 @@ post:
           type: object
           properties:
             form_name:
-              $ref: '#/properties/form_name'
+              $ref: '../../types/form.yaml#/form_name'
             questions:
-              $ref: '#/properties/questions'
+              $ref: '../../types/question.yaml#/questions'
           required:
             - form_name
             - questions
         examples:
           TEXTフォーム:
-            $ref: '#/examples/TEXTフォーム'
+            value:
+              form_name: お問い合わせフォーム
+              questions:
+                - title: 名前
+                  description: 名前を入力してください
+                  question_type: TEXT
           PULLDOWNフォーム:
-            $ref: '#/examples/PULLDOWNフォーム'
+            value:
+              form_name: お問い合わせフォーム
+              questions:
+                - title: 問い合わせ内容
+                  description: 問い合わせの内容を選択してください
+                  question_type: PULLDOWN
+                  choices:
+                    - 処罰への異議申し立て
+                    - Mod使用可否
           CHECKBOXフォーム:
-            $ref: '#/examples/CHECKBOXフォーム'
+            value:
+              form_name: お問い合わせフォーム
+              questions:
+                - title: 問い合わせ内容
+                  description: 問い合わせの内容を選択してください
+                  question_type: CHECKBOX
+                  choices:
+                    - 処罰への異議申し立て
+                    - Mod使用可否
           複合フォーム:
-            $ref: '#/examples/複合フォーム'
-
-properties:
-  form_name:
-    type: string
-    example: お問い合わせフォーム
-  question_title:
-    type: string
-    example: 質問1
-  question_description:
-    type: string
-    example: 質問1の説明
-  question_type:
-    type: string
-    example: TEXT
-    enum:
-      - TEXT
-      - PULLDOWN
-      - CHECKBOX
-  question_choices:
-    type: array
-    items:
-      type: string
-      example: '選択肢'
-  questions:
-    type: array
-    items:
-      type: object
-      properties:
-        title:
-          $ref: '#/properties/question_title'
-        description:
-          $ref: '#/properties/question_description'
-        question_type:
-          $ref: '#/properties/question_type'
-        choices:
-          $ref: '#/properties/question_choices'
-
-examples:
-  TEXTフォーム:
-    value:
-      form_name: お問い合わせフォーム
-      questions:
-        - title: 名前
-          description: 名前を入力してください
-          question_type: TEXT
-  PULLDOWNフォーム:
-    value:
-      form_name: お問い合わせフォーム
-      questions:
-        - title: 問い合わせ内容
-          description: 問い合わせの内容を選択してください
-          question_type: PULLDOWN
-          choices:
-            - 処罰への異議申し立て
-            - Mod使用可否
-  CHECKBOXフォーム:
-    value:
-      form_name: お問い合わせフォーム
-      questions:
-        - title: 問い合わせ内容
-          description: 問い合わせの内容を選択してください
-          question_type: CHECKBOX
-          choices:
-            - 処罰への異議申し立て
-            - Mod使用可否
-  複合フォーム:
-    value:
-      form_name: お問い合わせフォーム
-      questions:
-        - title: 名前
-          description: 名前を入力してください
-          question_type: TEXT
-        - title: 問い合わせ内容
-          description: 問い合わせの内容を選択してください
-          question_type: PULLDOWN
-          choices:
-            - 処罰への異議申し立て
-            - Mod使用可否
-        - title: 選択
-          description: 選択肢の説明
-          question_type: CHECKBOX
-          choices:
-            - 選択肢1
-            - 選択肢2
+            value:
+              form_name: お問い合わせフォーム
+              questions:
+                - title: 名前
+                  description: 名前を入力してください
+                  question_type: TEXT
+                - title: 問い合わせ内容
+                  description: 問い合わせの内容を選択してください
+                  question_type: PULLDOWN
+                  choices:
+                    - 処罰への異議申し立て
+                    - Mod使用可否
+                - title: 選択
+                  description: 選択肢の説明
+                  question_type: CHECKBOX
+                  choices:
+                    - 選択肢1
+                    - 選択肢2
