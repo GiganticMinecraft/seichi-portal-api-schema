@@ -1,5 +1,5 @@
 post:
-  operationId: post-create-form
+  operationId: createForm
   summary: フォームを作成する
   responses:
     '200':
@@ -26,34 +26,7 @@ post:
             - form_name
             - questions
         examples:
-          TEXTフォーム:
-            value:
-              form_name: お問い合わせフォーム
-              questions:
-                - title: 名前
-                  description: 名前を入力してください
-                  question_type: TEXT
-          PULLDOWNフォーム:
-            value:
-              form_name: お問い合わせフォーム
-              questions:
-                - title: 問い合わせ内容
-                  description: 問い合わせの内容を選択してください
-                  question_type: PULLDOWN
-                  choices:
-                    - 処罰への異議申し立て
-                    - Mod使用可否
-          CHECKBOXフォーム:
-            value:
-              form_name: お問い合わせフォーム
-              questions:
-                - title: 問い合わせ内容
-                  description: 問い合わせの内容を選択してください
-                  question_type: CHECKBOX
-                  choices:
-                    - 処罰への異議申し立て
-                    - Mod使用可否
-          複合フォーム:
+          form:
             value:
               form_name: お問い合わせフォーム
               questions:
@@ -72,3 +45,40 @@ post:
                   choices:
                     - 選択肢1
                     - 選択肢2
+get:
+  operationId: listForms
+  summary: フォームの一覧を取得する
+  parameters:
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        required: false
+      description: 取得件数の最大値
+    - in: query
+      name: offset
+      schema:
+        type: integer
+        required: false
+      description: 取得の開始位置
+  responses:
+    '200':
+      description: フォーム一覧の取得に成功
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                # TODO: 繰り返さない
+                id:
+                  $ref: '../../types/form.yaml#/form_id'
+                name:
+                  $ref: '../../types/form.yaml#/form_name'
+                description:
+                  $ref: '../../types/form.yaml#/form_description'
+              required:
+                - id
+                - name
+                - description
