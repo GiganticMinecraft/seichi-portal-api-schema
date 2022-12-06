@@ -10,5 +10,5 @@ servers:
     description: seichi-portal-backend(開発環境)
 
 paths:
-  /api/form/create:
+  /api/forms/create:
     $ref: './paths/forms/create.yaml'
