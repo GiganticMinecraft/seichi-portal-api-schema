@@ -1,5 +1,5 @@
 post:
-  operationId: post-create
+  operationId: post-create-form
   summary: フォームを作成する
   responses:
     '200':
