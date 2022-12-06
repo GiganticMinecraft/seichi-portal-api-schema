@@ -1,5 +1,6 @@
 post:
   operationId: post-create
+  summary: フォームを作成する
   responses:
     '200':
       description: フォーム作成成功
