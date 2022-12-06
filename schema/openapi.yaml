@@ -12,3 +12,5 @@ servers:
 paths:
   /api/forms/create:
     $ref: './paths/forms/create.yaml'
+  /api/forms:
+    $ref: './paths/forms/list.yaml'

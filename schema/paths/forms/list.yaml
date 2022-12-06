@@ -1,0 +1,37 @@
+get:
+  operationId: get-list-forms
+  summary: フォームの一覧を取得
+  parameters:
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        required: false
+      description: 取得件数の最大値
+    - in: query
+      name: offset
+      schema:
+        type: integer
+        required: false
+      description: 取得の開始位置
+  responses:
+    '200':
+      description: フォーム一覧の取得に成功
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                # TODO: 繰り返さない
+                id:
+                  $ref: '../../types/form.yaml#/form_id'
+                name:
+                  $ref: '../../types/form.yaml#/form_name'
+                description:
+                  $ref: '../../types/form.yaml#/form_description'
+              required:
+                - id
+                - name
+                - description
