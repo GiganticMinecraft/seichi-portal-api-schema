@@ -1,7 +1,4 @@
 extends: default
-yaml-files:
-  - '**/*.yaml'
-  - '**/*.yml'
 rules:
   document-start: disable
   line-length:
