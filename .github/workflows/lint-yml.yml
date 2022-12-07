@@ -15,4 +15,4 @@ jobs:
           reporter: github-pr-review
           fail_on_error: 'true'
           level: warning
-          yamllint_flags: schema/
+          yamllint_flags: '-c yamllint.yml schema/'
