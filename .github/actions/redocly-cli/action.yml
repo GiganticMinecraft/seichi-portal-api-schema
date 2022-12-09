@@ -1,0 +1,14 @@
+name: redocly-cli
+description: Run redocly-cli
+inputs:
+  command-args:
+    description: Args to pass to the CLI
+    required: true
+    default: 'bundle'
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - name: Run redocly-cli
+      run: docker run --rm -v $PWD:/spec redocly/cli ${{ inputs.command-args }}
+      shell: bash

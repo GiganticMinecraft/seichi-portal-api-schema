@@ -11,4 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Lint
-        run: docker run --rm -v $PWD:/spec redocly/cli lint /spec/schema/openapi.yml
+        uses:  ./.github/actions/redocly-cli
+        with:
+          command-args: lint /spec/schema/openapi.yml

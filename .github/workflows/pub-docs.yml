@@ -22,7 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Bundle
-        run: docker run --rm -v $PWD:/spec redocly/cli bundle schema/openapi.yml -o docs/index.html
+        uses:  ./.github/actions/redocly-cli
+        with:
+          command-args: bundle schema/openapi.yml -o docs/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
