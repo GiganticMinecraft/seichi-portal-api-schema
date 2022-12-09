@@ -1,4 +1,4 @@
-name: Publish OpenAPI Documents
+name: Lint and Publish OpenAPI Documents
 on:
   push:
     branches:
