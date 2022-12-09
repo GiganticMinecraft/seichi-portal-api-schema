@@ -13,5 +13,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Bundle
         run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/schema/openapi.yml --output /spec/bundled.yml
-      - name: Check files
-        run: ls | grep yml
+      - name: Lint
+        run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/bundled.yml
