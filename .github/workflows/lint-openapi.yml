@@ -11,14 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Init as Node.js project
-        run: npm init -y
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm install -D redoc-cli
       - name: Bundle
-        run: redoc-cli bundle schema/openapi.yml --output bundled.yml
-      - name: Lint
-        run: redoc-cli lint bundled.yaml
+        run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/schema/openapi.yml --output /spec/bundled.yml
+      - name: Check files
+        run: ls | grep yml
