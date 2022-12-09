@@ -14,6 +14,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: './form.yml#/schemas/form'
+            $ref: './types/form.yml#/schemas/form'
     '404':
       description: フォームが存在しない
