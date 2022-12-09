@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - run: npm install -g redoc-cli
+      - run: npm install -D redoc-cli
       - name: Bundle
         run: redoc-cli bundle schema/openapi.yml --output bundled.yml
       - name: Lint
