@@ -3,7 +3,7 @@ get:
   summary: 指定したフォームと質問を取得する
   parameters:
     - in: path
-      name: id
+      name: formId
       schema:
         type: integer
         required: false
