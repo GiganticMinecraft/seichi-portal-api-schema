@@ -1,26 +1,6 @@
 post:
   operationId: createForm
   summary: フォームを作成する
-  responses:
-    '201':
-      description: フォームの作成に成功
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              id:
-                $ref: './types/form.yml#/schemas/form_id'
-    '400':
-      description: 構文エラー
-    '401':
-      description: 認証がされていない
-    '403':
-      description: 権限が不足
-    '415':
-      description: 対応していないメディア形式
-    '500':
-      description: データベースエラー
   requestBody:
     description: 作成するフォームの内容
     required: true
@@ -58,6 +38,26 @@ post:
                   choices:
                     - 選択肢1
                     - 選択肢2
+  responses:
+    '201':
+      description: フォームの作成に成功
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: './types/form.yml#/schemas/form_id'
+    '400':
+      description: 構文エラー
+    '401':
+      description: 認証がされていない
+    '403':
+      description: 権限が不足
+    '415':
+      description: 対応していないメディア形式
+    '500':
+      description: データベースエラー
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
