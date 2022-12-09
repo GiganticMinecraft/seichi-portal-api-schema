@@ -12,6 +12,11 @@ post:
               id:
                 $ref: './types/form.yml#/schemas/form_id'
     '500':
+      description: データベースエラー
+  requestBody:
+    description: 作成するフォームの内容
+    required: true
+    content:
       application/json:
         schema:
           type: object
