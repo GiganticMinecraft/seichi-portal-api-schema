@@ -53,13 +53,13 @@ get:
       name: limit
       schema:
         type: integer
-        required: false
+      required: false
       description: 取得件数の最大値
     - in: query
       name: offset
       schema:
         type: integer
-        required: false
+      required: false
       description: 取得の開始位置
   responses:
     '200':
