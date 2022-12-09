@@ -17,3 +17,5 @@ get:
             $ref: './types/form.yml#/schemas/form'
     '404':
       description: フォームが存在しない
+    '500':
+      description: データベースエラー

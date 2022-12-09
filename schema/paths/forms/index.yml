@@ -86,3 +86,5 @@ get:
                 - description
     '401':
         description: 認証がされていない
+    '500':
+      description: データベースエラー
