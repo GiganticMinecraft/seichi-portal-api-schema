@@ -6,7 +6,7 @@ get:
       name: formId
       schema:
         type: integer
-        required: false
+      required: false
       description: 取得したいフォームのID
   responses:
     '200':
