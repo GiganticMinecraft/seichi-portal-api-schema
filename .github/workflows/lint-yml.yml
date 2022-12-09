@@ -12,7 +12,7 @@ jobs:
         uses: reviewdog/action-yamllint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: github-pr-check
           fail_on_error: 'true'
           level: warning
           yamllint_flags: '-c yamllint.yml schema/'
