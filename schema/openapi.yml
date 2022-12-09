@@ -6,7 +6,7 @@ info:
   version: 1.0.0
 
 servers:
-  - url: 'http://localhost:9000/'
+  - url: 'http://localhost:9000'
     description: seichi-portal-backend(開発環境)
 
 paths:
