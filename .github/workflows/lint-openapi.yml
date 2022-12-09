@@ -1,4 +1,4 @@
-name: Lint OpenAPI files
+name: Lint OpenAPI
 on:
   push:
     branches:
