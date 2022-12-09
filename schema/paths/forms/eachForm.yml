@@ -17,6 +17,8 @@ get:
             $ref: './types/form.yml#/schemas/form'
     '401':
       description: 認証がされていない
+    '403':
+      description: 権限が不足
     '404':
       description: フォームが存在しない
     '500':
