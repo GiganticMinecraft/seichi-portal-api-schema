@@ -9,6 +9,7 @@ services:
     volumes:
       - ./schema/openapi.yaml:/openapi.yaml
       - ./schema/paths:/paths
+      - ./schema/types:/types
     environment:
       SWAGGER_JSON: /openapi.yaml
     restart: always

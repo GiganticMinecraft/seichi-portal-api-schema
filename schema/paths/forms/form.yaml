@@ -1,0 +1,31 @@
+params:
+  form_id:
+    in: path
+    required: true
+    schema:
+      type: integer
+      example: 0
+schemas:
+  form_dynamic_props:
+    type: object
+    properties:
+      name:
+        type: string
+        example: お問い合わせフォーム
+      description:
+        type: string
+        example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+    required:
+      - name
+  form_id:
+    type: integer
+    example: 0
+  form:
+    type: object
+    allOf:
+      - $ref: '#/schemas/form_dynamic_props'
+      - properties:
+          id:
+            $ref: '#/schemas/form_id'
+          questions:
+            $ref: './question.yaml#/schemas/questions'
