@@ -13,6 +13,8 @@ post:
                 $ref: './types/form.yml#/schemas/form_id'
     '400':
       description: 構文エラー
+    '415':
+      description: 対応していないメディア形式
     '500':
       description: データベースエラー
   requestBody:
