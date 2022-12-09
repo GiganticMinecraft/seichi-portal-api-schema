@@ -10,18 +10,18 @@ post:
             type: object
             properties:
               id:
-                $ref: './form.yml#/schemas/form_id'
+                $ref: './types/form.yml#/schemas/form_id'
     '500':
       application/json:
         schema:
           type: object
           allOf:
-            - $ref: './form.yml#/schemas/form_dynamic_props'
+            - $ref: './types/form.yml#/schemas/form_dynamic_props'
             - properties:
                 questions:
                   type: array
                   items:
-                    $ref: './question.yml#/schemas/question_dynamic_props'
+                    $ref: './types/question.yml#/schemas/question_dynamic_props'
           required:
             - name
             - questions
@@ -73,8 +73,8 @@ get:
               allOf:
                 - properties:
                     id:
-                      $ref: './form.yml#/schemas/form_id'
-                - $ref: './form.yml#/schemas/form_dynamic_props'
+                      $ref: './types/form.yml#/schemas/form_id'
+                - $ref: './types/form.yml#/schemas/form_dynamic_props'
               required:
                 - id
                 - name
