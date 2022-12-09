@@ -14,4 +14,4 @@ jobs:
       - name: Bundle
         run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/schema/openapi.yml --output /spec/bundled.yml
       - name: Lint
-        run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/bundled.yml
+        run: docker run --rm -v $PWD:/spec redocly/cli lint /spec/bundled.yml
