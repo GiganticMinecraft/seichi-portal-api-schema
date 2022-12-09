@@ -1,0 +1,5 @@
+organization: giganticminecraft
+extends:
+  - recommended
+rules:
+  security-defined: off

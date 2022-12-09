@@ -4,9 +4,12 @@ info:
   title: SeichiAPISchema
   description: 整地鯖のAPIのドキュメントをまとめるOpenAPIサーバー
   version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: https://github.com/GiganticMinecraft/seichi-api-schema/blob/main/LICENSE
 
 servers:
-  - url: 'http://localhost:9000/'
+  - url: 'http://localhost:9000'
     description: seichi-portal-backend(開発環境)
 
 paths:
