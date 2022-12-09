@@ -11,6 +11,8 @@ post:
             properties:
               id:
                 $ref: './types/form.yml#/schemas/form_id'
+    '400':
+      description: 構文エラー
     '500':
       description: データベースエラー
   requestBody:
