@@ -2,7 +2,7 @@ post:
   operationId: createForm
   summary: フォームを作成する
   responses:
-    '200':
+    '201':
       description: フォームの作成に成功
       content:
         application/json:
