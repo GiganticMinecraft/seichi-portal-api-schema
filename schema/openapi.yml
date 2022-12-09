@@ -11,4 +11,4 @@ servers:
 
 paths:
   /api/forms:
-    $ref: './paths/forms/index.yaml'
+    $ref: './paths/forms/index.yml'

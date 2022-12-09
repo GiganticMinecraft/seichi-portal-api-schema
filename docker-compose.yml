@@ -7,9 +7,9 @@ services:
     ports:
       - "8081:8080"
     volumes:
-      - ./schema/openapi.yaml:/openapi.yaml
+      - ./schema/openapi.yml:/openapi.yml
       - ./schema/paths:/paths
       - ./schema/types:/types
     environment:
-      SWAGGER_JSON: /openapi.yaml
+      SWAGGER_JSON: /openapi.yml
     restart: always
