@@ -3,8 +3,7 @@ params:
     in: path
     required: true
     schema:
-      type: integer
-      example: 0
+      $ref: '#/schemas/form_id'
 schemas:
   form_dynamic_props:
     type: object
