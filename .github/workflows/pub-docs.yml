@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Bundle
-        uses:  ./.github/actions/redocly-cli
+        uses: ./.github/actions/redocly-cli
         with:
           command-args: bundle schema/openapi.yml -o docs/index.html
       - name: Upload artifact
