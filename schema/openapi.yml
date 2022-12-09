@@ -13,4 +13,4 @@ paths:
   /api/forms:
     $ref: './paths/forms/index.yml'
   /api/forms/{formId}:
-    $ref: './paths/forms/[formId].yml'
+    $ref: './paths/forms/eachForm.yml'
