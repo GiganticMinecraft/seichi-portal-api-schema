@@ -1,0 +1,19 @@
+get:
+  operationId: getFormAndQuestions
+  summary: 指定したフォームと質問を取得する
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: integer
+        required: false
+      description: 取得したいフォームのID
+  responses:
+    '200':
+      description: フォームの取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: './form.yml#/schemas/form'
+    '404':
+      description: フォームが存在しない
