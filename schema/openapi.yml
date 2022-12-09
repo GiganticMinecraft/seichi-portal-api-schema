@@ -12,5 +12,5 @@ servers:
 paths:
   /api/forms:
     $ref: './paths/forms/index.yml'
-  /api/forms/[id]:
+  /api/forms/{id}:
     $ref: './paths/forms/[id].yml'
