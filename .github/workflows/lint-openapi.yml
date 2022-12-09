@@ -11,7 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - name: Bundle
-      #   run: docker run --rm -v $PWD:/spec redocly/cli bundle /spec/schema/openapi.yml --output /spec/bundled.yml
       - name: Lint
         run: docker run --rm -v $PWD:/spec redocly/cli lint /spec/schema/openapi.yml
