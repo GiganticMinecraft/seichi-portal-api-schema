@@ -8,6 +8,7 @@ on:
       - main
 jobs:
   lint:
+    name: Lint OpenAPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
