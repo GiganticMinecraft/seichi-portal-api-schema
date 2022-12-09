@@ -84,3 +84,5 @@ get:
                 - id
                 - name
                 - description
+    '403':
+        description: 認証がされていない
