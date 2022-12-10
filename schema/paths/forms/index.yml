@@ -21,7 +21,7 @@ post:
         examples:
           form:
             value:
-              name: お問い合わせフォーム
+              form_name: お問い合わせフォーム
               questions:
                 - title: 名前
                   description: 名前を入力してください
