@@ -48,6 +48,8 @@ post:
             properties:
               id:
                 $ref: './types/form.yml#/schemas/form_id'
+            required:
+              - id
     '400':
       description: 構文エラー
     '401':
