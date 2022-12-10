@@ -16,7 +16,7 @@ post:
                   items:
                     $ref: './types/question.yml#/schemas/question_dynamic_props'
           required:
-            - name
+            - form_name
             - questions
         examples:
           form:
@@ -90,7 +90,7 @@ get:
                 - $ref: './types/form.yml#/schemas/form_dynamic_props'
               required:
                 - id
-                - name
+                - form_name
                 - description
     '401':
       description: 認証がされていない

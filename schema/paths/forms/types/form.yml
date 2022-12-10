@@ -8,7 +8,7 @@ schemas:
   form_dynamic_props:
     type: object
     properties:
-      name:
+      form_name:
         type: string
         example: お問い合わせフォーム
       description:
