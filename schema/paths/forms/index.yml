@@ -91,7 +91,6 @@ get:
               required:
                 - id
                 - form_name
-                - description
     '401':
       description: 認証がされていない
     '500':
