@@ -4,7 +4,6 @@ inputs:
   command-args:
     description: Args to pass to the CLI
     required: true
-    default: 'bundle'
 runs:
   using: composite
   steps:
