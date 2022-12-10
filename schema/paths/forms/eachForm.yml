@@ -15,6 +15,11 @@ get:
         application/json:
           schema:
             $ref: './types/form.yml#/schemas/form'
+      headers:
+        Location:
+          description: 作成されたフォームへのURL
+          schema:
+            type: string
     '401':
       description: 認証がされていない
     '403':
