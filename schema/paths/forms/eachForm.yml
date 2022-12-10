@@ -20,6 +20,8 @@ get:
           description: 作成されたフォームへのURL
           schema:
             type: string
+    '400':
+      description: 構文エラー
     '401':
       description: 認証がされていない
     '403':
