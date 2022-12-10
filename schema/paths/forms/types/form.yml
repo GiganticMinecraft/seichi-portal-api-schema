@@ -10,17 +10,21 @@ schemas:
     properties:
       form_name:
         type: string
+        description: フォームの名前
         example: お問い合わせフォーム
       description:
         type: string
+        description: フォームの説明
         example: このフォームはお問い合わせをする際にご回答いただくフォームです。
     required:
       - name
   form_id:
+    description: フォームのID
     type: integer
     example: 0
   form:
     type: object
+    description: フォーム
     allOf:
       - $ref: '#/schemas/form_dynamic_props'
       - properties:
