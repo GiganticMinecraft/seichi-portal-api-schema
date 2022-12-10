@@ -30,5 +30,5 @@ schemas:
             $ref: './question.yml#/schemas/questions'
     required:
       - id
-      - name
+      - form_name
       - questions
