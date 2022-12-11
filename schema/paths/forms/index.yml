@@ -39,27 +39,23 @@ post:
                     - 選択肢1
                     - 選択肢2
   responses:
-    '201':
-      description: フォームの作成に成功
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              id:
-                $ref: './types/form.yml#/schemas/form_id'
-            required:
-              - id
-    '400':
-      description: 構文エラー
-    '401':
-      description: 認証がされていない
-    '403':
-      description: 権限が不足
-    '415':
-      description: 対応していないメディア形式
-    '500':
-      description: データベースエラー
+    allOf:
+      - '201':
+          description: フォームの作成に成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    $ref: './types/form.yml#/schemas/form_id'
+                required:
+                  - id
+      - $ref: './types/error.yml#/schemas/bad_request'
+      - $ref: './types/error.yml#/schemas/unauthorized'
+      - $ref: './types/error.yml#/schemas/permission_denied'
+      - $ref: './types/error.yml#/schemas/unsupported_media_type'
+      - $ref: './types/error.yml#/schemas/database_error'
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -77,23 +73,22 @@ get:
       required: false
       description: 取得の開始位置
   responses:
-    '200':
-      description: フォーム一覧の取得に成功
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              type: object
-              allOf:
-                - properties:
-                    id:
-                      $ref: './types/form.yml#/schemas/form_id'
-                - $ref: './types/form.yml#/schemas/form_dynamic_props'
-              required:
-                - id
-                - form_name
-    '401':
-      description: 認証がされていない
-    '500':
-      description: データベースエラー
+    allOf:
+      - '200':
+          description: フォーム一覧の取得に成功
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                    - properties:
+                        id:
+                          $ref: './types/form.yml#/schemas/form_id'
+                    - $ref: './types/form.yml#/schemas/form_dynamic_props'
+                  required:
+                    - id
+                    - form_name
+      - $ref: './types/error.yml#/schemas/unauthorized'
+      - $ref: './types/error.yml#/schemas/database_error'
