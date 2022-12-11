@@ -9,19 +9,22 @@ get:
       required: false
       description: 取得したいフォームのID
   responses:
-    allOf:
-      - '200':
-          description: フォームの取得に成功
-          content:
-            application/json:
-              schema:
-                $ref: './types/form.yml#/schemas/form'
-          headers:
-            Location:
-              description: 作成されたフォームへのURL
-              schema:
-                type: string
-      - $ref: './types/error.yml#/schemas/unauthorized'
-      - $ref: './types/error.yml#/schemas/permission_denied'
-      - $ref: './types/error.yml#/schemas/form_not_found'
-      - $ref: './types/error.yml#/schemas/database_error'
+    '200':
+      description: フォームの取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: './types/form.yml#/schemas/form'
+      headers:
+        Location:
+          description: 作成されたフォームへのURL
+          schema:
+            type: string
+    '401':
+      description: 認証がされていない
+    '403':
+      description: 権限が不足
+    '404':
+      description: フォームが存在しない
+    '500':
+      description: データベースエラー
