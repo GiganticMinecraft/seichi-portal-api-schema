@@ -23,8 +23,8 @@ get:
     '401':
       description: 認証がされていない
     '403':
-      description: 権限が不足
+      description: 権限が不足している
     '404':
       description: フォームが存在しない
     '500':
-      description: データベースエラー
+      description: データベースでエラー
