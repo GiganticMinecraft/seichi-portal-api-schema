@@ -18,6 +18,8 @@ schemas:
       - name
   form_id:
     type: integer
+    format: int64
+    minimum: 0
     example: 0
   form:
     type: object

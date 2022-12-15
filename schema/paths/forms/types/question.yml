@@ -23,6 +23,7 @@ schemas:
           - CHECKBOX
       choices:
         type: array
+        uniqueItems: true
         items:
           type: string
           example: '選択肢'
@@ -31,6 +32,8 @@ schemas:
       - question_type
   question_id:
     type: integer
+    format: int64
+    minimum: 0
     example: 0
   question:
     type: object
@@ -41,5 +44,6 @@ schemas:
       - $ref: '#/schemas/question_dynamic_props'
   questions:
     type: array
+    uniqueItems: true
     items:
       $ref: '#/schemas/question'

@@ -13,6 +13,7 @@ post:
             - properties:
                 questions:
                   type: array
+                  uniqueItems: true
                   items:
                     $ref: './types/question.yml#/schemas/question_dynamic_props'
           required:
@@ -81,6 +82,7 @@ get:
         application/json:
           schema:
             type: array
+            uniqueItems: true
             items:
               type: object
               allOf:
