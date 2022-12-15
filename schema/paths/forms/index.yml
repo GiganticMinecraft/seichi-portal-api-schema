@@ -94,6 +94,8 @@ get:
                 - id
                 - form_name
                 - description
+    '400':
+      description: 構文エラー
     '401':
       description: 認証がされていない
     '500':
