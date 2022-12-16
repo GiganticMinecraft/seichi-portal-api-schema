@@ -21,6 +21,8 @@ schemas:
   form_id:
     description: フォームのID
     type: integer
+    format: int64
+    minimum: 0
     example: 0
   form:
     type: object

@@ -27,6 +27,7 @@ schemas:
       choices:
         type: array
         description: 選択肢
+        uniqueItems: true
         items:
           type: string
           example: '選択肢'
@@ -36,6 +37,8 @@ schemas:
   question_id:
     type: integer
     description: 質問のID
+    format: int64
+    minimum: 0
     example: 0
   question:
     type: object
@@ -48,5 +51,6 @@ schemas:
   questions:
     type: array
     description: 質問群
+    uniqueItems: true
     items:
       $ref: '#/schemas/question'
