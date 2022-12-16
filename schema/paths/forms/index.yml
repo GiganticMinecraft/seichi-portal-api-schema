@@ -49,16 +49,18 @@ post:
             properties:
               id:
                 $ref: './types/form.yml#/schemas/form_id'
+            required:
+              - id
     '400':
-      description: 構文エラー
+      description: リクエストの構文が間違っている
     '401':
       description: 認証がされていない
     '403':
-      description: 権限が不足
+      description: 権限が不足している
     '415':
-      description: 対応していないメディア形式
+      description: 対応していないメディア形式が指定されている
     '500':
-      description: データベースエラー
+      description: データベースでエラー
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -93,10 +95,9 @@ get:
               required:
                 - id
                 - form_name
-                - description
     '400':
       description: 構文エラー
     '401':
       description: 認証がされていない
     '500':
-      description: データベースエラー
+      description: データベースでエラー
