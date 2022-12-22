@@ -17,7 +17,7 @@ schemas:
         description: フォームの説明
         example: このフォームはお問い合わせをする際にご回答いただくフォームです。
     required:
-      - name
+      - form_name
   form_id:
     description: フォームのID
     type: integer
