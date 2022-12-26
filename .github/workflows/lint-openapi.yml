@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Lint
+      - name: Bundle OpenAPI yml
         uses: ./.github/actions/redocly-cli
         with:
           command-args: bundle /spec/schema/openapi.yml -o /spec/bundled-openapi.yml
