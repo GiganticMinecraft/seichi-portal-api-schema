@@ -14,3 +14,16 @@ jobs:
         uses: ./.github/actions/redocly-cli
         with:
           command-args: lint /spec/schema/openapi.yml
+  lint-examples:
+    name: Lint examples of OpenAPI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Lint
+        uses: ./.github/actions/redocly-cli
+        with:
+          command-args: bundle /spec/schema/openapi.yml -o /spec/bundled-openapi.ym
+      - name: Install a lib
+        run: npm install -g openapi-examples-validator
+      - name: Lint examples
+        run: openapi-examples-validator ./bundled-openapi.yml
