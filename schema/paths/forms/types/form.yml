@@ -1,7 +1,6 @@
 params:
   form_id:
     in: path
-    name: formId
     required: true
     schema:
       $ref: '#/schemas/form_id'
