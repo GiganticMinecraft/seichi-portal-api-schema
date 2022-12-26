@@ -2,10 +2,8 @@ get:
   operationId: getFormAndQuestions
   summary: 指定したフォームと質問を取得する
   parameters:
-    - allOf:
-        - $ref: './types/form.yml#/params/form_id'
-        - name: formId
-        - description: 取得したいフォームのID
+    - $ref: './types/form.yml#/params/form_id'
+      description: 取得したいフォームのID
   responses:
     '200':
       description: フォームの取得に成功
