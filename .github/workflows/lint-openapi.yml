@@ -6,7 +6,7 @@ on:
   workflow_call:
 jobs:
   lint:
-    name: Lint OpenAPI
+    name: Lint OpenAPI definitions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,7 +15,7 @@ jobs:
       - name: Lint OpenAPI yml
         run: redocly lint ./schema/openapi.yml
   lint-examples:
-    name: Lint examples of OpenAPI
+    name: Lint OpenAPI examples
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
