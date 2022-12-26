@@ -22,7 +22,7 @@ jobs:
       - name: Lint
         uses: ./.github/actions/redocly-cli
         with:
-          command-args: bundle /spec/schema/openapi.yml -o /spec/bundled-openapi.ym
+          command-args: bundle /spec/schema/openapi.yml -o /spec/bundled-openapi.yml
       - name: Install a lib
         run: npm install -g openapi-examples-validator
       - name: Lint examples
