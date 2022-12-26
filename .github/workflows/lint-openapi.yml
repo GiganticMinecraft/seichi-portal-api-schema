@@ -13,7 +13,7 @@ jobs:
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Lint OpenAPI yml
-        run: lint ./schema/openapi.yml
+        run: redocly lint ./schema/openapi.yml
   lint-examples:
     name: Lint examples of OpenAPI
     runs-on: ubuntu-latest
@@ -22,7 +22,7 @@ jobs:
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Bundle OpenAPI yml
-        run: bundle ./schema/openapi.yml -o ./schema/bundled-openapi.yml
+        run: redocly bundle ./schema/openapi.yml -o ./schema/bundled-openapi.yml
       - name: Install openapi-examples-validator
         run: npm install -g openapi-examples-validator
       - name: Lint examples

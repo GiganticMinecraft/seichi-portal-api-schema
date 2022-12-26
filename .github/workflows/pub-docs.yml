@@ -24,7 +24,7 @@ jobs:
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Build docs
-        run: build-docs ./schema/openapi.yml -o ./docs/index.html -t ./.github/template.hbs
+        run: redocly build-docs ./schema/openapi.yml -o ./docs/index.html -t ./.github/template.hbs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
