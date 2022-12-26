@@ -47,6 +47,8 @@ schemas:
       - properties:
           id:
             $ref: '#/schemas/question_id'
+        required:
+          - id
       - $ref: '#/schemas/question_dynamic_props'
   questions:
     type: array

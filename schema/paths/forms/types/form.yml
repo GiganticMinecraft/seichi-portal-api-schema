@@ -1,6 +1,7 @@
 params:
   form_id:
     in: path
+    name: formId
     required: true
     schema:
       $ref: '#/schemas/form_id'
@@ -34,7 +35,6 @@ schemas:
             $ref: '#/schemas/form_id'
           questions:
             $ref: './question.yml#/schemas/questions'
-    required:
-      - id
-      - form_name
-      - questions
+        required:
+          - id
+          - questions
