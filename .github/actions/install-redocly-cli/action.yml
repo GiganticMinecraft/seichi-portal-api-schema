@@ -1,0 +1,8 @@
+name: install-redocly-cli
+description: Install redocly-cli
+runs:
+  using: composite
+  steps:
+    - name: Install redocly-cli
+      run: npm install -g @redocly/cli
+      shell: bash
