@@ -21,10 +21,10 @@ jobs:
       - lint
     steps:
       - uses: actions/checkout@v3
-      - name: Bundle
-        uses: ./.github/actions/redocly-cli
-        with:
-          command-args: build-docs /spec/schema/openapi.yml -o /spec/docs/index.html -t /spec/.github/template.hbs
+      - name: Install redocly-cli
+        uses: ./.github/actions/install-redocly-cli
+      - name: Build docs
+        run: build-docs ./schema/openapi.yml -o ./docs/index.html -t ./.github/template.hbs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

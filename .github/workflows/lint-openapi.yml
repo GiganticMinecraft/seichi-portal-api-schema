@@ -10,20 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Lint
-        uses: ./.github/actions/redocly-cli
-        with:
-          command-args: lint /spec/schema/openapi.yml
+      - name: Install redocly-cli
+        uses: ./.github/actions/install-redocly-cli
+      - name: Lint OpenAPI yml
+        run: lint ./schema/openapi.yml
   lint-examples:
     name: Lint examples of OpenAPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install redocly-cli
+        uses: ./.github/actions/install-redocly-cli
       - name: Bundle OpenAPI yml
-        uses: ./.github/actions/redocly-cli
-        with:
-          command-args: bundle /spec/schema/openapi.yml -o /spec/bundled-openapi.yml
-      - name: Install a lib
+        run: bundle ./schema/openapi.yml -o ./schema/bundled-openapi.yml
+      - name: Install openapi-examples-validator
         run: npm install -g openapi-examples-validator
       - name: Lint examples
         run: openapi-examples-validator ./bundled-openapi.yml
