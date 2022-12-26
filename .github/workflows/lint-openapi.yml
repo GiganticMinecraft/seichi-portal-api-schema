@@ -22,7 +22,7 @@ jobs:
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Bundle OpenAPI yml
-        run: redocly bundle ./schema/openapi.yml -o ./schema/bundled-openapi.yml
+        run: redocly bundle ./schema/openapi.yml -o ./bundled-openapi.yml
       - name: Install openapi-examples-validator
         run: npm install -g openapi-examples-validator
       - name: Lint examples
