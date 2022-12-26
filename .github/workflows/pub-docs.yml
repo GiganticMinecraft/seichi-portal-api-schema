@@ -21,6 +21,8 @@ jobs:
       - lint
     steps:
       - uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Build docs
