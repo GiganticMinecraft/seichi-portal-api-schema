@@ -1,9 +1,3 @@
-params:
-  form_id:
-    in: path
-    required: true
-    schema:
-      $ref: '#/schemas/form_id'
 schemas:
   form_dynamic_props:
     type: object
