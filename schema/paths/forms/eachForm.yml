@@ -2,9 +2,11 @@ get:
   operationId: getFormAndQuestions
   summary: 指定したフォームと質問を取得する
   parameters:
-    - $ref: './types/form.yml#/params/form_id'
+    - in: path
       name: formId
-      description: 取得したいフォームのID
+      schema:
+        $ref: './types/form.yml#/schemas/form_id'
+      required: true
   responses:
     '200':
       description: フォームの取得に成功
