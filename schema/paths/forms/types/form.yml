@@ -10,8 +10,6 @@ schemas:
         type: string
         description: フォームの説明
         example: このフォームはお問い合わせをする際にご回答いただくフォームです。
-    required:
-      - form_name
   form_id:
     description: フォームのID
     type: integer
@@ -28,6 +26,3 @@ schemas:
             $ref: '#/schemas/form_id'
           questions:
             $ref: './question.yml#/schemas/questions'
-        required:
-          - id
-          - questions

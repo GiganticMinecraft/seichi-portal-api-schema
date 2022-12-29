@@ -17,7 +17,12 @@ get:
       content:
         application/json:
           schema:
-            $ref: './types/form.yml#/schemas/form'
+            allOf:
+              - $ref: './types/form.yml#/schemas/form'
+              - required:
+                - id
+                - form_name
+                - questions
       headers:
         Location:
           description: 作成されたフォームへのURL
