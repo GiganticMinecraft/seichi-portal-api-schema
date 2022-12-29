@@ -1,9 +1,3 @@
-params:
-  question_id:
-    in: path
-    required: true
-    schema:
-      $ref: '#/schemas/question_id'
 schemas:
   question_dynamic_props:
     type: object
