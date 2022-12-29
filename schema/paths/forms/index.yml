@@ -96,7 +96,7 @@ get:
                 - id
                 - form_name
     '400':
-      description: 構文エラー
+      description: リクエストの構文が間違っている
     '401':
       description: 認証がされていない
     '500':
