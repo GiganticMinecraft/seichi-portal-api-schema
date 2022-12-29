@@ -17,17 +17,7 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: './types/form.yml#/schemas/form'
-              - required:
-                - id
-                - form_name
-                - questions
-      headers:
-        Location:
-          description: 作成されたフォームへのURL
-          schema:
-            type: string
+            $ref: './types/form.yml#/schemas/form'
     '400':
       description: リクエストの構文が間違っている
     '401':
