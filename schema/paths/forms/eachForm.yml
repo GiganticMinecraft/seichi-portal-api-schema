@@ -4,9 +4,13 @@ get:
   parameters:
     - in: path
       name: formId
-      schema:
-        $ref: './types/form.yml#/schemas/form_id'
       required: true
+      schema:
+        description: フォームのID
+        type: integer
+        format: int64
+        minimum: 0
+        example: 0
   responses:
     '200':
       description: フォームの取得に成功
