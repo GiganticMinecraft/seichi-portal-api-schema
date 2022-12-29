@@ -29,7 +29,7 @@ get:
     '500':
       description: データベースでエラー
 patch:
-  operationId: updateFormAndQuestions
+  operationId: updateForm
   summary: 指定したフォームを更新する
   parameters:
     - in: path
