@@ -24,7 +24,77 @@ get:
           schema:
             type: string
     '400':
-      description: 構文エラー
+      description: リクエストの構文が間違っている
+    '401':
+      description: 認証がされていない
+    '403':
+      description: 権限が不足している
+    '404':
+      description: フォームが存在しない
+    '500':
+      description: データベースでエラー
+patch:
+  operationId: updateFormAndQuestions
+  summary: 指定したフォームと質問を適宜更新する
+  parameters:
+    - in: path
+      name: formId
+      required: true
+      schema:
+        description: フォームのID
+        type: integer
+        format: int64
+        minimum: 0
+        example: 0
+  requestBody:
+    description: 更新するフォームや質問の内容
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          allOf:
+            - $ref: './types/form.yml#/schemas/form_dynamic_props'
+            - required:
+                - id
+            # TODO: Questionsはこれでいいか？（特にrequired）
+            - properties:
+                questions:
+                  type: array
+                  uniqueItems: true
+                  items:
+                    $ref: './types/question.yml#/schemas/question'
+  responses:
+    '200':
+      description: フォームの更新に成功
+    '400':
+      description: リクエストの構文が間違っている
+    '401':
+      description: 認証がされていない
+    '403':
+      description: 権限が不足している
+    '404':
+      description: フォームが存在しない
+    '500':
+      description: データベースでエラー
+delete:
+  operationId: removeForm
+  summary: 指定されたフォームを削除する
+  parameters:
+    - in: path
+      name: formId
+      required: true
+      schema:
+        description: フォームのID
+        type: integer
+        format: int64
+        minimum: 0
+        example: 0
+  responses:
+    '200':
+      description: フォームの削除に成功
+    '400':
+      description: リクエストの構文が間違っている
     '401':
       description: 認証がされていない
     '403':
