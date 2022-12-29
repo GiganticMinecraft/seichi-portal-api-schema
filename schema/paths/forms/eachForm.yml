@@ -40,7 +40,7 @@ get:
       description: データベースでエラー
 patch:
   operationId: updateFormAndQuestions
-  summary: 指定したフォームと質問を適宜更新する
+  summary: 指定したフォームを更新する
   parameters:
     - in: path
       name: formId
@@ -52,7 +52,7 @@ patch:
         minimum: 0
         example: 0
   requestBody:
-    description: 更新するフォームや質問の内容
+    description: 更新するフォームの内容
     required: true
     content:
       application/json:
@@ -60,15 +60,13 @@ patch:
           type: object
           allOf:
             - $ref: './types/form.yml#/schemas/form_dynamic_props'
-            - required:
-                - id
-            # TODO: Questionsはこれでいいか？（特にrequired）
             - properties:
                 questions:
                   type: array
                   uniqueItems: true
+                  minItems: 1
                   items:
-                    $ref: './types/question.yml#/schemas/question'
+                    $ref: './types/question.yml#/schemas/question_id'
   responses:
     '200':
       description: フォームの更新に成功
