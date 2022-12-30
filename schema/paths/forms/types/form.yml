@@ -25,7 +25,7 @@ schemas:
           id:
             $ref: '#/schemas/form_id'
           questions:
-            $ref: './question.yml#/schemas/questions'
+            $ref: '../../questions/types/question.yml#/schemas/questions'
         required:
           - id
           - form_name

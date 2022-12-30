@@ -16,7 +16,7 @@ post:
                   uniqueItems: true
                   minItems: 1
                   items:
-                    $ref: './types/question.yml#/schemas/question_id'
+                    $ref: '../questions/types/question.yml#/schemas/question_id'
           required:
             - form_name
             - questions
