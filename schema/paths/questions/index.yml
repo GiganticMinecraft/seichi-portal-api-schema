@@ -34,7 +34,7 @@ post:
     '415':
       description: 対応していないメディア形式が指定されている
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 get:
   operationId: listQuestions
   summary: 質問の一覧を取得する
@@ -63,4 +63,4 @@ get:
     '401':
       description: 認証がされていない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー

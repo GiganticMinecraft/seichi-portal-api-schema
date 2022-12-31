@@ -27,7 +27,7 @@ get:
     '404':
       description: 質問が存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 patch:
   operationId: updateQuestion
   summary: 指定したフォームを更新する
@@ -60,7 +60,7 @@ patch:
     '404':
       description: 質問が存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 delete:
   operationId: removeQuestion
   summary: 指定された質問を削除する
@@ -86,4 +86,4 @@ delete:
     '404':
       description: 質問が存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー

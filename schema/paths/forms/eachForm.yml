@@ -27,7 +27,7 @@ get:
     '404':
       description: フォームが存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 patch:
   operationId: updateForm
   summary: 指定したフォームを更新する
@@ -69,7 +69,7 @@ patch:
     '404':
       description: フォームが存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 delete:
   operationId: removeForm
   summary: 指定されたフォームを削除する
@@ -95,4 +95,4 @@ delete:
     '404':
       description: フォームが存在しない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
