@@ -21,3 +21,5 @@ paths:
     $ref: './paths/questions/index.yml'
   /questions/{questionId}:
     $ref: './paths/questions/eachQuestion.yml'
+  /recaptcha:
+    $ref: './paths/recaptcha/index.yml'
