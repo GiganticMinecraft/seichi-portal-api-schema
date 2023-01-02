@@ -14,8 +14,9 @@ post:
                 questions:
                   type: array
                   uniqueItems: true
+                  minItems: 1
                   items:
-                    $ref: './types/question.yml#/schemas/question_dynamic_props'
+                    $ref: '../questions/types/question.yml#/schemas/question_id'
           required:
             - form_name
             - questions
@@ -24,21 +25,8 @@ post:
             value:
               form_name: お問い合わせフォーム
               questions:
-                - title: 名前
-                  description: 名前を入力してください
-                  question_type: TEXT
-                - title: 問い合わせ内容
-                  description: 問い合わせの内容を選択してください
-                  question_type: PULLDOWN
-                  choices:
-                    - 処罰への異議申し立て
-                    - Mod使用可否
-                - title: 選択
-                  description: 選択肢の説明
-                  question_type: CHECKBOX
-                  choices:
-                    - 選択肢1
-                    - 選択肢2
+                - 1
+                - 2
   responses:
     '201':
       description: フォームの作成に成功
@@ -51,6 +39,11 @@ post:
                 $ref: './types/form.yml#/schemas/form_id'
             required:
               - id
+      headers:
+        Location:
+          description: 作成されたフォームへのURL
+          schema:
+            type: string
     '400':
       description: リクエストの構文が間違っている
     '401':
@@ -60,7 +53,7 @@ post:
     '415':
       description: 対応していないメディア形式が指定されている
     '500':
-      description: データベースでエラー
+      description: サーバーエラー
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -85,6 +78,7 @@ get:
           schema:
             type: array
             uniqueItems: true
+            minItems: 1
             items:
               type: object
               allOf:
@@ -96,8 +90,8 @@ get:
                 - id
                 - form_name
     '400':
-      description: 構文エラー
+      description: リクエストの構文が間違っている
     '401':
       description: 認証がされていない
     '500':
-      description: データベースでエラー
+      description: サーバーエラー

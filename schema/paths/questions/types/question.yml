@@ -22,6 +22,7 @@ schemas:
         type: array
         description: 選択肢
         uniqueItems: true
+        minItems: 1
         items:
           type: string
           example: '選択肢'
@@ -48,5 +49,6 @@ schemas:
     type: array
     description: 質問群
     uniqueItems: true
+    minItems: 1
     items:
       $ref: '#/schemas/question'

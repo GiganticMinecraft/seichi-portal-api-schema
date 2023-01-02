@@ -1,0 +1,66 @@
+post:
+  operationId: createQuestion
+  summary: 質問を作成する
+  requestBody:
+    description: 作成する質問の内容
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: './types/question.yml#/schemas/question_dynamic_props'
+  responses:
+    '201':
+      description: 質問の作成に成功
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                $ref: './types/question.yml#/schemas/question_id'
+            required:
+              - id
+      headers:
+        Location:
+          description: 作成された質問へのURL
+          schema:
+            type: string
+    '400':
+      description: リクエストの構文が間違っている
+    '401':
+      description: 認証がされていない
+    '403':
+      description: 権限が不足している
+    '415':
+      description: 対応していないメディア形式が指定されている
+    '500':
+      description: サーバーエラー
+get:
+  operationId: listQuestions
+  summary: 質問の一覧を取得する
+  parameters:
+    - in: query
+      name: limit
+      schema:
+        type: integer
+      required: false
+      description: 取得件数の最大値
+    - in: query
+      name: offset
+      schema:
+        type: integer
+      required: false
+      description: 取得の開始位置
+  responses:
+    '200':
+      description: 質問一覧の取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: './types/question.yml#/schemas/questions'
+    '400':
+      description: リクエストの構文が間違っている
+    '401':
+      description: 認証がされていない
+    '500':
+      description: サーバーエラー
