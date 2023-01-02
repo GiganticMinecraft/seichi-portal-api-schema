@@ -1,6 +1,6 @@
 post:
   operationId: verifyRecaptcha
-  summary: Recaptchaの検証をする
+  summary: reCAPTCHAの検証をする
   requestBody:
     description: 検証内容
     required: true
