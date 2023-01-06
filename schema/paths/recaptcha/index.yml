@@ -1,0 +1,25 @@
+post:
+  operationId: verifyRecaptcha
+  summary: reCAPTCHAの検証をする
+  requestBody:
+    description: 検証内容
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          description: クライアントのトークン
+          properties:
+            token:
+              type: string
+          required:
+            - token
+  responses:
+    '200':
+      description: 検証に成功
+    '400':
+      description: リクエストの構文が間違っている
+    '415':
+      description: 対応していないメディア形式が指定されている
+    '500':
+      description: サーバーエラー
