@@ -16,17 +16,27 @@ schemas:
     format: int64
     minimum: 0
     example: 0
+  form_name:
+    type: string
+    description: フォームの名前
+    example: お問い合わせフォーム
+  description:
+    type: string
+    description: フォームの説明
+    example: このフォームはお問い合わせをする際にご回答いただくフォームです。
   form:
     type: object
     description: フォーム
-    allOf:
-      - $ref: '#/schemas/form_dynamic_props'
-      - properties:
-          id:
-            $ref: '#/schemas/form_id'
-          questions:
-            $ref: '../../questions/types/question.yml#/schemas/questions'
-        required:
-          - id
-          - form_name
-          - questions
+    properties:
+      id:
+        $ref: '#/schemas/form_id'
+      form_name:
+        $ref: '#/schemas/form_name'
+      description:
+        $ref: '#/schemas/description'
+      questions:
+        $ref: '../../questions/types/question.yml#/schemas/questions'
+    required:
+      - id
+      - form_name
+      - questions
