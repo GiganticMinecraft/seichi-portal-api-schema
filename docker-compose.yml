@@ -7,9 +7,9 @@ services:
     ports:
       - 8081:8080
     volumes:
-      - .:/work
+      - ./schema:/work
     environment:
-      SWAGGER_JSON: /work/schema/openapi.yml
+      SWAGGER_JSON: /work/openapi.yml
     restart: always
   redocly:
     image: redocly/redoc
