@@ -20,3 +20,4 @@ services:
       - ./schema:/usr/share/nginx/html/api
     environment:
       SPEC_URL: api/openapi.yml
+    restart: always
