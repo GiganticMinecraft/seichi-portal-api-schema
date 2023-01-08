@@ -8,25 +8,11 @@ post:
       application/json:
         schema:
           type: object
-          allOf:
-            - $ref: './types/form.yml#/schemas/form_dynamic_props'
-            - properties:
-                questions:
-                  type: array
-                  uniqueItems: true
-                  minItems: 1
-                  items:
-                    $ref: '../questions/types/question.yml#/schemas/question_id'
+          properties:
+            form_name:
+              $ref: './types/form.yml#/schemas/form_name'
           required:
             - form_name
-            - questions
-        examples:
-          form:
-            value:
-              form_name: お問い合わせフォーム
-              questions:
-                - 1
-                - 2
   responses:
     '201':
       description: フォームの作成に成功
@@ -80,15 +66,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              type: object
-              allOf:
-                - properties:
-                    id:
-                      $ref: './types/form.yml#/schemas/form_id'
-                - $ref: './types/form.yml#/schemas/form_dynamic_props'
-              required:
-                - id
-                - form_name
+              $ref: './types/form.yml#/schemas/form'
     '400':
       description: リクエストの構文が間違っている
     '401':
