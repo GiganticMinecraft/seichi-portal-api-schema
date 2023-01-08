@@ -15,7 +15,8 @@ services:
     image: redocly/redoc
     container_name: redocly
     ports:
-      - 8082:80
+      # 80番ポートでないとファイルの変更を反映してくれない
+      - 80:80
     volumes:
       - ./schema:/usr/share/nginx/html/api
     environment:
