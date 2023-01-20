@@ -1,4 +1,12 @@
 schemas:
+  question_title:
+    type: string
+    description: 質問のタイトル
+    example: 質問
+  description:
+    type: string
+    description: 質問の説明
+    example: 質問の説明
   question_dynamic_props:
     type: object
     properties:
