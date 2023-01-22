@@ -11,6 +11,14 @@ components:
             $ref: './questions.yml#/schemas/text_question'
         required:
           - text_question
+  question:
+    allOf:
+      - properties:
+          id:
+            $ref: '#/schemas/question_id'
+        required:
+          - id
+      - $ref: '#/schemas/question_dynamic_props'
 schemas:
   question_title:
     type: string
