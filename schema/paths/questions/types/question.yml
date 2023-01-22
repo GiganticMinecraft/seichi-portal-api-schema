@@ -1,3 +1,16 @@
+components:
+  questions:
+    oneOf:
+      - properties:
+          choice_question:
+            $ref: './questions.yml#/schemas/choice_question'
+        required:
+          - choice_question
+      - properties:
+          text_question:
+            $ref: './questions.yml#/schemas/text_question'
+        required:
+          - text_question
 schemas:
   question_title:
     type: string

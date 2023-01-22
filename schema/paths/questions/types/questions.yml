@@ -1,0 +1,34 @@
+schemas:
+  choice_question:
+    description: 選択可能な質問
+    type: object
+    properties:
+      question_type:
+        description: 質問への答え方の種類
+        type: string
+        enum:
+          - RADIO
+          - CHECKBOX
+          - DROP_DOWN
+        example: RADIO
+      choices:
+        type: array
+        description: 選択肢
+        uniqueItems: true
+        minItems: 1
+        items:
+          type: string
+          example: '選択肢'
+    required:
+      - question_type
+      - choices
+  text_question:
+    description: テキストを入力させる質問
+    type: object
+    properties:
+      is_paragraph:
+        description: 段落を含むテキストかどうか
+        type: boolean
+        example: false
+    required:
+      - is_paragraph
