@@ -9,10 +9,10 @@ post:
         schema:
           type: object
           properties:
-            form_name:
-              $ref: './types/form.yml#/schemas/form_name'
+            title:
+              $ref: './types/form.yml#/schemas/form_title'
           required:
-            - form_name
+            - title
   responses:
     '201':
       description: フォームの作成に成功

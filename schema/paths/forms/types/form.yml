@@ -17,11 +17,11 @@ schemas:
     format: int64
     minimum: 0
     example: 0
-  form_name:
+  form_title:
     type: string
     description: フォームの名前
     example: お問い合わせフォーム
-  description:
+  form_description:
     type: string
     description: フォームの説明
     example: このフォームはお問い合わせをする際にご回答いただくフォームです。
@@ -31,13 +31,13 @@ schemas:
     properties:
       id:
         $ref: '#/schemas/form_id'
-      form_name:
-        $ref: '#/schemas/form_name'
+      title:
+        $ref: '#/schemas/form_title'
       description:
-        $ref: '#/schemas/description'
+        $ref: '#/schemas/form_description'
       questions:
         $ref: '../../questions/types/question.yml#/schemas/questions'
     required:
       - id
-      - form_name
+      - title
       - questions
