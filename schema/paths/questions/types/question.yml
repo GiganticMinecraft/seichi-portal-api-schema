@@ -28,6 +28,7 @@ schemas:
     type: string
     description: 質問の説明
     example: 質問の説明
+  # TODO: Deprecated schema: Use #question_title, #description, and each question schemas
   question_dynamic_props:
     type: object
     properties:
