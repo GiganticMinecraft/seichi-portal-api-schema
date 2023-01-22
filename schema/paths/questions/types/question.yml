@@ -66,8 +66,6 @@ schemas:
     minimum: 0
     example: 0
   question:
-    type: object
-    description: 質問
     allOf:
       - properties:
           id:
