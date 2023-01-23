@@ -1,5 +1,5 @@
 components:
-  questions:
+  question_contents:
     oneOf:
       - properties:
           choice_question:
@@ -18,7 +18,7 @@ components:
             $ref: '#/schemas/question_id'
         required:
           - id
-      - $ref: '#/schemas/question_dynamic_props'
+      - $ref: '#/components/question_contents'
 schemas:
   question_title:
     type: string
