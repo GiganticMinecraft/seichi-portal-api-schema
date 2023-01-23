@@ -1,0 +1,39 @@
+# TODO: 説明をもうちょっとなんとかする
+schemas:
+  question_item:
+    description: 1個の質問
+    type: object
+    properties:
+      question:
+        $ref: './question.yml#/components/question'
+      image:
+        $ref: './medias.yml#/schemas/image'
+    required:
+      - question
+  # TODO: 実装するか？
+  question_group_item:
+    type: object
+  page_break_item:
+    description: セクション区切り
+    type: object
+  text_item:
+    description: テキスト（タイトルと説明だけを表す）
+    type: object
+  image_item:
+    description: 画像
+    type: object
+    properties:
+      image:
+        $ref: './medias.yml#/schemas/image'
+    required:
+      - image
+  video_item:
+    description: 動画
+    type: object
+    properties:
+      video:
+        $ref: './medias.yml#/schemas/video'
+      caption:
+        type: string
+    required:
+      - video
