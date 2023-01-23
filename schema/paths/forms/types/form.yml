@@ -23,9 +23,8 @@ schemas:
         $ref: '#/schemas/form_title'
       description:
         $ref: '#/schemas/form_description'
-      # TODO: replace questions with items
       items:
-        $ref: './question.yml#/schemas/questions'
+        $ref: './item.yml#/schemas/items'
     required:
       - id
       - title
