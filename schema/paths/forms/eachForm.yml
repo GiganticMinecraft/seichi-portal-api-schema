@@ -55,6 +55,25 @@ post:
   responses:
     '200':
       description: フォームの更新に成功
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              replies:
+                type: array
+                uniqueItems: true
+                items:
+                  type: object
+                  properties:
+                    item_id:
+                      $ref: './types/item.yml#/components/schemas/item_id'
+                    question_id:
+                      description: 質問のID群
+                      type: array
+                      uniqueItems: true
+                      items:
+                        $ref: './types/question.yml#/components/schemas/question_id'
     '400':
       description: リクエストの構文が間違っている
     '401':
