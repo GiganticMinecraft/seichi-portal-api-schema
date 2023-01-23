@@ -1,8 +1,7 @@
 components:
-  # TODO: 説明をもうちょっとなんとかする
   schemas:
     question_item:
-      description: 1個の質問
+      description: 質問
       type: object
       properties:
         question:
