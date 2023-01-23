@@ -29,9 +29,11 @@ components:
       type: object
       properties:
         start_at:
+          description: 回答の受付を開始する日時
           type: string
           format: date-time
         end_at:
+          description: 回答の受付を終了する日時
           type: string
           format: date-time
     form_settings:
