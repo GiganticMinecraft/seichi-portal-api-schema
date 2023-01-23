@@ -71,13 +71,11 @@ get:
               properties:
                 id:
                   $ref: './types/form.yml#/components/schemas/form_id'
-                title:
-                  $ref: './types/form.yml#/components/schemas/form_title'
-                description:
-                  $ref: './types/form.yml#/components/schemas/form_description'
+                info:
+                  $ref: './types/form.yml#/components/schemas/form_info'
               required:
                 - id
-                - title
+                - info
     '400':
       description: リクエストの構文が間違っている
     '401':

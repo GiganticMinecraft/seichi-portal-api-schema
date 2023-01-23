@@ -14,6 +14,16 @@ components:
       type: string
       description: フォームの説明
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+    form_info:
+      description: フォームの情報
+      type: object
+      properties:
+        title:
+          $ref: '#/components/schemas/form_title'
+        description:
+          $ref: '#/components/schemas/form_description'
+      required:
+        - title
     form:
       type: object
       description: フォーム
@@ -22,13 +32,11 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/form_id'
-        title:
-          $ref: '#/components/schemas/form_title'
-        description:
-          $ref: '#/components/schemas/form_description'
+        info:
+          $ref: '#/components/schemas/form_info'
         items:
           $ref: './item.yml#/components/schemas/items'
       required:
         - id
-        - title
+        - info
         - items
