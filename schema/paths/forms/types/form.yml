@@ -24,6 +24,22 @@ components:
           $ref: '#/components/schemas/form_description'
       required:
         - title
+    response_period:
+      description: 回答可能期間
+      type: object
+      properties:
+        start_at:
+          type: string
+          format: date-time
+        end_at:
+          type: string
+          format: date-time
+    form_settings:
+      description: フォームの設定
+      type: object
+      properties:
+        response_period:
+          $ref: '#/components/schemas/response_period'
     form:
       description: フォーム
       type: object
@@ -36,6 +52,8 @@ components:
           $ref: '#/components/schemas/form_info'
         items:
           $ref: './item.yml#/components/schemas/items'
+        settings:
+          $ref: '#/components/schemas/form_settings'
       required:
         - id
         - info
