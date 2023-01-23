@@ -66,7 +66,18 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              $ref: './types/form.yml#/schemas/form'
+              type: object
+              description: フォーム
+              properties:
+                id:
+                  $ref: './types/form.yml#/schemas/form_id'
+                title:
+                  $ref: './types/form.yml#/schemas/form_title'
+                description:
+                  $ref: './types/form.yml#/schemas/form_description'
+              required:
+                - id
+                - title
     '400':
       description: リクエストの構文が間違っている
     '401':
