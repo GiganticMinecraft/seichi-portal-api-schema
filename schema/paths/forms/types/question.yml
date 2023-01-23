@@ -20,14 +20,6 @@ components:
           - id
       - $ref: '#/components/question_contents'
 schemas:
-  question_title:
-    type: string
-    description: 質問のタイトル
-    example: 質問
-  description:
-    type: string
-    description: 質問の説明
-    example: 質問の説明
   question_id:
     type: integer
     description: 質問のID
