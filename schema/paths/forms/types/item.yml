@@ -22,11 +22,6 @@ components:
           required:
             - question_item
         - properties:
-            question_group_item:
-              $ref: './items.yml#/components/schemas/question_group_item'
-          required:
-            - question_group_item
-        - properties:
             page_break_item:
               $ref: './items.yml#/components/schemas/page_break_item'
           required:

@@ -11,9 +11,6 @@ components:
           $ref: './medias.yml#/components/schemas/image'
       required:
         - question
-    # TODO: 実装するか？
-    question_group_item:
-      type: object
     page_break_item:
       description: セクション区切り
       type: object
