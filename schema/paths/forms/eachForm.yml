@@ -1,6 +1,6 @@
 get:
-  operationId: getFormAndQuestions
-  summary: 指定したフォームと質問を取得する
+  operationId: getFormAndContents
+  summary: 指定したフォームとその内容を取得する
   parameters:
     - in: path
       name: formId

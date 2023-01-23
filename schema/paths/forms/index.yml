@@ -67,7 +67,7 @@ get:
             minItems: 1
             items:
               type: object
-              description: フォーム
+              description: フォームの概要（詳細な内容を含まない）
               properties:
                 id:
                   $ref: './types/form.yml#/schemas/form_id'
