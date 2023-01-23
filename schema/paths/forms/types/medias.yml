@@ -37,6 +37,9 @@ components:
           type: string
           format: uri
           writeOnly: true
+      required:
+        - content_uri
+        - source_uri
     video:
       description: YouTube動画
       type: object
