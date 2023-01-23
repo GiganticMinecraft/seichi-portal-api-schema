@@ -19,7 +19,9 @@ components:
       description: フォーム
       properties:
         id:
-          $ref: '#/components/schemas/form_id'
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/form_id'
         title:
           $ref: '#/components/schemas/form_title'
         description:
