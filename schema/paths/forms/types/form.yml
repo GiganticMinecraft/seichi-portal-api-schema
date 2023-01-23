@@ -1,31 +1,32 @@
-schemas:
-  form_id:
-    description: フォームのID
-    type: integer
-    format: int64
-    minimum: 0
-    example: 0
-  form_title:
-    type: string
-    description: フォームの名前
-    example: お問い合わせフォーム
-  form_description:
-    type: string
-    description: フォームの説明
-    example: このフォームはお問い合わせをする際にご回答いただくフォームです。
-  form:
-    type: object
-    description: フォーム
-    properties:
-      id:
-        $ref: '#/schemas/form_id'
-      title:
-        $ref: '#/schemas/form_title'
-      description:
-        $ref: '#/schemas/form_description'
-      items:
-        $ref: './item.yml#/schemas/items'
-    required:
-      - id
-      - title
-      - items
+components:
+  schemas:
+    form_id:
+      description: フォームのID
+      type: integer
+      format: int64
+      minimum: 0
+      example: 0
+    form_title:
+      type: string
+      description: フォームの名前
+      example: お問い合わせフォーム
+    form_description:
+      type: string
+      description: フォームの説明
+      example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+    form:
+      type: object
+      description: フォーム
+      properties:
+        id:
+          $ref: '#/components/schemas/form_id'
+        title:
+          $ref: '#/components/schemas/form_title'
+        description:
+          $ref: '#/components/schemas/form_description'
+        items:
+          $ref: './item.yml#/components/schemas/items'
+      required:
+        - id
+        - title
+        - items

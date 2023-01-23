@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: './types/form.yml#/schemas/form'
+            $ref: './types/form.yml#/components/schemas/form'
     '400':
       description: リクエストの構文が間違っている
     '401':

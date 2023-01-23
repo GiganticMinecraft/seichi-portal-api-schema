@@ -1,67 +1,67 @@
 components:
-  item_contents:
-    oneOf:
-      - properties:
-          question_item:
-            $ref: './items.yml#/schemas/question_item'
-        required:
-          - question_item
-      - properties:
-          question_group_item:
-            $ref: './items.yml#/schemas/question_group_item'
-        required:
-          - question_group_item
-      - properties:
-          page_break_item:
-            $ref: './items.yml#/schemas/page_break_item'
-        required:
-          - page_break_item
-      - properties:
-          text_item:
-            $ref: './items.yml#/schemas/text_item'
-        required:
-          - text_item
-      - properties:
-          image_item:
-            $ref: './items.yml#/schemas/image_item'
-        required:
-          - image_item
-      - properties:
-          video_item:
-            $ref: './items.yml#/schemas/video_item'
-        required:
-          - video_item
-schemas:
-  item_id:
-    description: アイテムのID
-    type: integer
-    format: int64
-    minimum: 0
-    example: 0
-  item_title:
-    type: string
-    description: アイテムの名前
-    example: アイテムのタイトル
-  item_description:
-    type: string
-    description: アイテムの説明
-    example: アイテムの説明です。
-  item:
-    allOf:
-      - properties:
-          id:
-            $ref: '#/schemas/item_id'
-          title:
-            $ref: '#/schemas/item_title'
-          description:
-            $ref: '#/schemas/item_description'
-        required:
-          - id
-          - title
-      - $ref: '#/components/item_contents'
-  items:
-    type: array
-    description: アイテム群
-    minItems: 1
+  schemas:
+    item_id:
+      description: アイテムのID
+      type: integer
+      format: int64
+      minimum: 0
+      example: 0
+    item_title:
+      type: string
+      description: アイテムの名前
+      example: アイテムのタイトル
+    item_description:
+      type: string
+      description: アイテムの説明
+      example: アイテムの説明です。
+    item_contents:
+      oneOf:
+        - properties:
+            question_item:
+              $ref: './items.yml#/components/schemas/question_item'
+          required:
+            - question_item
+        - properties:
+            question_group_item:
+              $ref: './items.yml#/components/schemas/question_group_item'
+          required:
+            - question_group_item
+        - properties:
+            page_break_item:
+              $ref: './items.yml#/components/schemas/page_break_item'
+          required:
+            - page_break_item
+        - properties:
+            text_item:
+              $ref: './items.yml#/components/schemas/text_item'
+          required:
+            - text_item
+        - properties:
+            image_item:
+              $ref: './items.yml#/components/schemas/image_item'
+          required:
+            - image_item
+        - properties:
+            video_item:
+              $ref: './items.yml#/components/schemas/video_item'
+          required:
+            - video_item
+    item:
+      allOf:
+        - properties:
+            id:
+              $ref: '#/components/schemas/item_id'
+            title:
+              $ref: '#/components/schemas/item_title'
+            description:
+              $ref: '#/components/schemas/item_description'
+          required:
+            - id
+            - title
+        - $ref: '#/components/schemas/item_contents'
     items:
-      $ref: '#/schemas/item'
+      type: array
+      description: アイテム群
+      minItems: 1
+      items:
+        $ref: '#/components/schemas/item'

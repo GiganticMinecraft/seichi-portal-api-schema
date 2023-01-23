@@ -10,7 +10,7 @@ post:
           type: object
           properties:
             title:
-              $ref: './types/form.yml#/schemas/form_title'
+              $ref: './types/form.yml#/components/schemas/form_title'
           required:
             - title
   responses:
@@ -22,7 +22,7 @@ post:
             type: object
             properties:
               id:
-                $ref: './types/form.yml#/schemas/form_id'
+                $ref: './types/form.yml#/components/schemas/form_id'
             required:
               - id
       headers:
@@ -70,11 +70,11 @@ get:
               description: フォームの概要（詳細な内容を含まない）
               properties:
                 id:
-                  $ref: './types/form.yml#/schemas/form_id'
+                  $ref: './types/form.yml#/components/schemas/form_id'
                 title:
-                  $ref: './types/form.yml#/schemas/form_title'
+                  $ref: './types/form.yml#/components/schemas/form_title'
                 description:
-                  $ref: './types/form.yml#/schemas/form_description'
+                  $ref: './types/form.yml#/components/schemas/form_description'
               required:
                 - id
                 - title

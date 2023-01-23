@@ -1,43 +1,35 @@
 components:
-  question_contents:
-    oneOf:
-      - properties:
-          choice_question:
-            $ref: './questions.yml#/schemas/choice_question'
-        required:
-          - choice_question
-      - properties:
-          text_question:
-            $ref: './questions.yml#/schemas/text_question'
-        required:
-          - text_question
-  question:
-    allOf:
-      - properties:
-          id:
-            $ref: '#/schemas/question_id'
-        required:
-          - id
-      - $ref: '#/components/question_contents'
-schemas:
-  question_id:
-    type: integer
-    description: 質問のID
-    format: int64
-    minimum: 0
-    example: 0
-  question:
-    allOf:
-      - properties:
-          id:
-            $ref: '#/schemas/question_id'
-        required:
-          - id
-      - $ref: '#/components/question'
-  questions:
-    type: array
-    description: 質問群
-    uniqueItems: true
-    minItems: 1
-    items:
-      $ref: '#/schemas/question'
+  schemas:
+    question_id:
+      type: integer
+      description: 質問のID
+      format: int64
+      minimum: 0
+      example: 0
+    question_contents:
+      oneOf:
+        - properties:
+            choice_question:
+              $ref: './questions.yml#/components/schemas/choice_question'
+          required:
+            - choice_question
+        - properties:
+            text_question:
+              $ref: './questions.yml#/components/schemas/text_question'
+          required:
+            - text_question
+    question:
+      allOf:
+        - properties:
+            id:
+              $ref: '#/components/schemas/question_id'
+          required:
+            - id
+        - $ref: '#/components/schemas/question_contents'
+    questions:
+      type: array
+      description: 質問群
+      uniqueItems: true
+      minItems: 1
+      items:
+        $ref: '#/components/schemas/question'
