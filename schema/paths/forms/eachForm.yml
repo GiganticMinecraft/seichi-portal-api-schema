@@ -41,22 +41,23 @@ post:
         format: int64
         minimum: 0
         example: 0
-  requestBody:
-    description: 更新するフォームの内容
-    required: true
-    content:
-      application/json:
-        schema:
-          type: object
-          allOf:
-            - $ref: './types/form.yml#/schemas/form_dynamic_props'
-            - properties:
-                questions:
-                  type: array
-                  uniqueItems: true
-                  minItems: 1
-                  items:
-                    $ref: '../questions/types/question.yml#/schemas/question_id'
+  # # TODO: 戻す
+  # requestBody:
+  #   description: 更新するフォームの内容
+  #   required: true
+  #   content:
+  #     application/json:
+  #       schema:
+  #         type: object
+  #         allOf:
+  #           - $ref: './types/form.yml#/schemas/form_dynamic_props'
+  #           - properties:
+  #               questions:
+  #                 type: array
+  #                 uniqueItems: true
+  #                 minItems: 1
+  #                 items:
+  #                   $ref: '../questions/types/question.yml#/schemas/question_id'
   responses:
     '200':
       description: フォームの更新に成功
