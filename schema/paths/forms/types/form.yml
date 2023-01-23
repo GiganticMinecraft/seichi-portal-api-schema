@@ -1,16 +1,4 @@
 schemas:
-  # TODO: Deprecated schema: Use #form_name and #description
-  form_dynamic_props:
-    type: object
-    properties:
-      form_name:
-        type: string
-        description: フォームの名前
-        example: お問い合わせフォーム
-      description:
-        type: string
-        description: フォームの説明
-        example: このフォームはお問い合わせをする際にご回答いただくフォームです。
   form_id:
     description: フォームのID
     type: integer
@@ -35,9 +23,10 @@ schemas:
         $ref: '#/schemas/form_title'
       description:
         $ref: '#/schemas/form_description'
-      questions:
-        $ref: '../../questions/types/question.yml#/schemas/questions'
+      # TODO: replace questions with items
+      items:
+        $ref: './question.yml#/schemas/questions'
     required:
       - id
       - title
-      - questions
+      - items
