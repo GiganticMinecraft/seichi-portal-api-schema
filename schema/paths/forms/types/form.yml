@@ -7,12 +7,12 @@ components:
       minimum: 0
       example: 0
     form_title:
-      type: string
       description: フォームの名前
+      type: string
       example: お問い合わせフォーム
     form_description:
-      type: string
       description: フォームの説明
+      type: string
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
     form_info:
       description: フォームの情報
@@ -25,8 +25,8 @@ components:
       required:
         - title
     form:
-      type: object
       description: フォーム
+      type: object
       properties:
         id:
           readOnly: true

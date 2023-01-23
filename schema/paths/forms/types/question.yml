@@ -1,8 +1,8 @@
 components:
   schemas:
     question_id:
-      type: integer
       description: 質問のID
+      type: integer
       format: int64
       minimum: 0
       example: 0
@@ -27,8 +27,8 @@ components:
             - id
         - $ref: '#/components/schemas/question_contents'
     questions:
-      type: array
       description: 質問群
+      type: array
       uniqueItems: true
       minItems: 1
       items:

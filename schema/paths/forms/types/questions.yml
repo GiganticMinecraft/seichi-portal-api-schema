@@ -13,8 +13,8 @@ components:
             - DROP_DOWN
           example: RADIO
         choices:
-          type: array
           description: 選択肢
+          type: array
           uniqueItems: true
           minItems: 1
           items:
