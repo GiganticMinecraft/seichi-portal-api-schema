@@ -78,6 +78,20 @@ get:
               required:
                 - id
                 - info
+          examples:
+            full_of_fields:
+              summary: 説明文を含んだフォーム概要
+              value:
+                - id: 0
+                  info:
+                    title: お問い合わせフォーム
+                    description: これはお問い合わせフォームです。
+            no_description:
+              summary: 説明文を含んでいないフォーム概要
+              value:
+                - id: 0
+                  info:
+                    title: お問い合わせフォーム
     '400':
       description: リクエストの構文が間違っている
     '401':
