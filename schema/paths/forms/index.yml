@@ -46,16 +46,16 @@ get:
   parameters:
     - in: query
       name: limit
+      description: 取得件数の最大値
       schema:
         type: integer
       required: false
-      description: 取得件数の最大値
     - in: query
       name: offset
+      description: 取得の開始位置。例えば1を指定すると2件目から取得できる
       schema:
         type: integer
       required: false
-      description: 取得の開始位置
   responses:
     '200':
       description: フォーム一覧の取得に成功
