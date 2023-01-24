@@ -47,6 +47,7 @@ post:
               replies:
                 type: array
                 uniqueItems: true
+                minItems: 0
                 items:
                   type: object
                   properties:
