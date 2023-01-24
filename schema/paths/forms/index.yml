@@ -80,12 +80,12 @@ get:
                 - info
           examples:
             full_of_fields:
-              summary: 説明文を含んだフォーム概要
+              summary: すべてのフィールドを含んだフォーム概要
               value:
                 - id: 0
                   info:
                     title: お問い合わせフォーム
-                    description: これはお問い合わせフォームです。
+                    description: このフォームはお問い合わせをする際にご回答いただくフォームです。
             no_description:
               summary: 説明文を含んでいないフォーム概要
               value:

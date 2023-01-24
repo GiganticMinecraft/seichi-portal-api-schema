@@ -10,6 +10,61 @@ get:
         application/json:
           schema:
             $ref: './types/form.yml#/components/schemas/form'
+          examples:
+            with_description:
+              summary: フォームの説明文を含んだフォーム
+              value:
+                id: 0
+                info:
+                  title: お問い合わせフォーム
+                  description: このフォームはお問い合わせをする際にご回答いただくフォームです。
+                items:
+                  - id: 0
+                    title: アイテムのタイトル
+                    description: アイテムの説明文です。
+                    text_item: null
+                  - id: 1
+                    title: 質問1
+                    description: 質問1の説明文です。
+                    question_item:
+                      question:
+                        id: 0
+                        text_question:
+                          is_paragraph: false
+                  - id: 2
+                    title: 質問2
+                    description: 質問2の説明文です。
+                    question_item:
+                      question:
+                        id: 1
+                        text_question:
+                          is_paragraph: true
+                  - id: 3
+                    title: 質問3
+                    description: 質問3の説明文です。
+                    question_item:
+                      question:
+                        id: 2
+                        choice_question:
+                          question_type: RADIO
+                          choices:
+                            - 選択肢1
+                            - 選択肢2
+            with_period:
+              summary: 回答可能期間が過ぎているフォーム
+              value:
+                id: 0
+                info:
+                  title: お問い合わせフォーム
+                items:
+                  - id: 0
+                    title: アイテムのタイトル
+                    description: アイテムの説明文です。
+                    text_item: null
+                settings:
+                  response_period:
+                    start_at: '2022-01-01T00:00:00Z'
+                    end_at: '2022-01-31T23:59:59Z'
     '400':
       description: リクエストの構文が間違っている
     '401':
