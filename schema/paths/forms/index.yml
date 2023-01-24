@@ -53,7 +53,7 @@ get:
       required: false
     - in: query
       name: offset
-      description: 取得の開始位置。例えば1を指定すると2件目から取得できる
+      description: 取得の開始位置。例えば1を指定すると2件目から取得できます
       schema:
         type: integer
         minimum: 1
