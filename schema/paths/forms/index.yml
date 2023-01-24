@@ -49,12 +49,14 @@ get:
       description: 取得件数の最大値
       schema:
         type: integer
+        minimum: 1
       required: false
     - in: query
       name: offset
       description: 取得の開始位置。例えば1を指定すると2件目から取得できる
       schema:
         type: integer
+        minimum: 1
       required: false
   responses:
     '200':
