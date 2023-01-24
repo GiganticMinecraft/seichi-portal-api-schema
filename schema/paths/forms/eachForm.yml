@@ -66,6 +66,24 @@ post:
                     - item_id
             required:
               - replies
+          examples:
+            no_created:
+              summary: 何も作成されたものがない
+              value:
+                replies: []
+            item_created:
+              summary: アイテムが作成された（質問は作成されなかった）
+              value:
+                replies:
+                  - item_id: 0
+            all_created:
+              summary: アイテムも質問もどちらも作成された
+              value:
+                replies:
+                  - item_id: 0
+                    question_id:
+                      - 0
+                      - 1
     '400':
       description: リクエストの構文が間違っている
     '401':
