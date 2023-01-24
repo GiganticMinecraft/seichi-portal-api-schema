@@ -56,7 +56,7 @@ post:
                       description: 質問のID群
                       type: array
                       uniqueItems: true
-                      minLength: 1
+                      minItems: 1
                       items:
                         $ref: './types/question.yml#/components/schemas/question_id'
                   required:
