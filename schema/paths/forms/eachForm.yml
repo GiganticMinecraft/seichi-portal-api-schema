@@ -58,6 +58,10 @@ post:
                       uniqueItems: true
                       items:
                         $ref: './types/question.yml#/components/schemas/question_id'
+                  required:
+                    - item_id
+            required:
+              - replies
     '400':
       description: リクエストの構文が間違っている
     '401':
