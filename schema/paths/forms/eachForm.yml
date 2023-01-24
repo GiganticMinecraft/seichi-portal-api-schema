@@ -52,9 +52,11 @@ post:
                   type: object
                   properties:
                     item_id:
-                      $ref: './types/item.yml#/components/schemas/item_id'
+                      description: 作成されたアイテムのID
+                      allOf:
+                        - $ref: './types/item.yml#/components/schemas/item_id'
                     question_id:
-                      description: 質問のID群
+                      description: アイテムの作成に伴って作成された質問のID群
                       type: array
                       uniqueItems: true
                       minItems: 1
