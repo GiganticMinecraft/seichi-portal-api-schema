@@ -60,3 +60,10 @@ components:
         - id
         - info
         - items
+  parameters:
+    form_id_path:
+      in: path
+      name: formId
+      required: true
+      schema:
+        $ref: '#/components/schemas/form_id'

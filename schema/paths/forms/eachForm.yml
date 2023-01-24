@@ -2,15 +2,7 @@ get:
   operationId: getFormAndContents
   summary: 指定したフォームとその内容を取得する
   parameters:
-    - in: path
-      name: formId
-      required: true
-      schema:
-        description: フォームのID
-        type: integer
-        format: int64
-        minimum: 0
-        example: 0
+    - $ref: './types/form.yml#/components/parameters/form_id_path'
   responses:
     '200':
       description: フォームの取得に成功
@@ -32,15 +24,7 @@ post:
   operationId: updateForm
   summary: 指定したフォームを更新する
   parameters:
-    - in: path
-      name: formId
-      required: true
-      schema:
-        description: フォームのID
-        type: integer
-        format: int64
-        minimum: 0
-        example: 0
+    - $ref: './types/form.yml#/components/parameters/form_id_path'
   requestBody:
     description: 更新するフォームの内容
     required: true
@@ -88,15 +72,7 @@ delete:
   operationId: removeForm
   summary: 指定されたフォームを削除する
   parameters:
-    - in: path
-      name: formId
-      required: true
-      schema:
-        description: フォームのID
-        type: integer
-        format: int64
-        minimum: 0
-        example: 0
+    - $ref: './types/form.yml#/components/parameters/form_id_path'
   responses:
     '200':
       description: フォームの削除に成功
