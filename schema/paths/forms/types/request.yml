@@ -1,0 +1,6 @@
+components:
+  schemas:
+    request:
+      description: 更新するフォームの内容
+      allOf:
+        - $ref: './requests.yml#/components/schemas/request_contents'

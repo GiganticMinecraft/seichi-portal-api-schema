@@ -35,7 +35,27 @@ post:
           uniqueItems: true
           minItems: 1
           items:
-            $ref: './types/requests.yml#/components/schemas/request_contents'
+            $ref: './types/request.yml#/components/schemas/request'
+        examples:
+          single_request:
+            summary: 1つだけの更新リクエスト
+            value:
+              - move_item:
+                  original_location:
+                    index: 0
+                  new_location:
+                    index: 1
+          multiple_requests:
+            summary: 複数の更新リクエスト
+            value:
+              - move_item:
+                  original_location:
+                    index: 0
+                  new_location:
+                    index: 1
+              - delete_item:
+                  location:
+                    index: 0
   responses:
     '200':
       description: フォームの更新に成功
