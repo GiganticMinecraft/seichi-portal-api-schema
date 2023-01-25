@@ -75,6 +75,8 @@ get:
                   $ref: './types/form.yml#/components/schemas/form_id'
                 info:
                   $ref: './types/form.yml#/components/schemas/form_info'
+                settings:
+                  $ref: '#/components/schemas/form_settings'
               required:
                 - id
                 - info
@@ -86,12 +88,26 @@ get:
                   info:
                     title: お問い合わせフォーム
                     description: このフォームはお問い合わせをする際にご回答いただくフォームです。
-            no_description:
+                  settings:
+                    with_response_period:
+                      start_at: '2020-01-01T00:00:00Z'
+                      end_at: '2100-01-01T00:00:00Z'
+            with_description:
               summary: 説明文を含んでいないフォーム概要
               value:
                 - id: 0
                   info:
                     title: お問い合わせフォーム
+                    description: このフォームはお問い合わせをする際にご回答いただくフォームです。
+            with_expired_response_period:
+              value:
+                - id: 0
+                  info:
+                    title: お問い合わせフォーム
+                  settings:
+                    with_response_period:
+                      start_at: '2022-01-01T00:00:00Z'
+                      end_at: '2022-01-01T00:00:00Z'
     '400':
       description: リクエストの構文が間違っている
     '401':
