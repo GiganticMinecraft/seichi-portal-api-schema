@@ -76,7 +76,7 @@ get:
                 info:
                   $ref: './types/form.yml#/components/schemas/form_info'
                 settings:
-                  $ref: '#/components/schemas/form_settings'
+                  $ref: './types/form.yml#/components/schemas/form_settings'
               required:
                 - id
                 - info
