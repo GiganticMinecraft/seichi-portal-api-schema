@@ -20,6 +20,9 @@ components:
           items:
             type: string
             example: '選択肢'
+        is_shuffled:
+          description: 選択肢をシャッフルして表示するかどうか
+          type: boolean
       required:
         - question_type
         - choices
