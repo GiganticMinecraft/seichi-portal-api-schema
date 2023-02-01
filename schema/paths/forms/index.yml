@@ -89,7 +89,7 @@ get:
                     title: お問い合わせフォーム
                     description: このフォームはお問い合わせをする際にご回答いただくフォームです。
                   settings:
-                    with_response_period:
+                    response_period:
                       start_at: '2020-01-01T00:00:00Z'
                       end_at: '2100-01-01T00:00:00Z'
             with_description:
@@ -106,7 +106,7 @@ get:
                   info:
                     title: お問い合わせフォーム
                   settings:
-                    with_response_period:
+                    response_period:
                       start_at: '2022-01-01T00:00:00Z'
                       end_at: '2022-01-01T00:00:00Z'
     '400':
