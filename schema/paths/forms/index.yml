@@ -100,6 +100,7 @@ get:
                     title: お問い合わせフォーム
                     description: このフォームはお問い合わせをする際にご回答いただくフォームです。
             with_expired_response_period:
+              summary: 回答期限が切れたフォーム概要
               value:
                 - id: 0
                   info:
