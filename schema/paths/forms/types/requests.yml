@@ -1,0 +1,101 @@
+components:
+  schemas:
+    request_contents:
+      oneOf:
+        - properties:
+            update_form_info_request:
+              $ref: '#/components/schemas/update_form_info_request'
+          required:
+            - update_form_info_request
+        - properties:
+            update_settings_request:
+              $ref: '#/components/schemas/update_settings_request'
+          required:
+            - update_settings_request
+        - properties:
+            create_item:
+              $ref: '#/components/schemas/create_item'
+          required:
+            - create_item
+        - properties:
+            move_item:
+              $ref: '#/components/schemas/move_item'
+          required:
+            - move_item
+        - properties:
+            delete_item:
+              $ref: '#/components/schemas/delete_item'
+          required:
+            - delete_item
+        - properties:
+            update_item:
+              $ref: '#/components/schemas/update_item'
+          required:
+            - update_item
+    location:
+      description: フォームにおける位置
+      type: object
+      properties:
+        index:
+          description: フォームにおける位置の番号
+          type: integer
+          minimum: 0
+      required:
+        - index
+    update_form_info_request:
+      description: フォームの情報を更新する
+      type: object
+      properties:
+        info:
+          $ref: './form.yml#/components/schemas/form_info'
+      required:
+        - info
+    update_settings_request:
+      description: フォームの設定を更新する
+      type: object
+      properties:
+        settings:
+          $ref: './form.yml#/components/schemas/form_settings'
+      required:
+        - settings
+    create_item:
+      description: アイテムを作成する
+      type: object
+      properties:
+        item:
+          $ref: './item.yml#/components/schemas/item'
+        location:
+          $ref: '#/components/schemas/location'
+      required:
+        - item
+        - location
+    move_item:
+      description: アイテムを移動する
+      type: object
+      properties:
+        original_location:
+          $ref: '#/components/schemas/location'
+        new_location:
+          $ref: '#/components/schemas/location'
+      required:
+        - original_location
+        - new_location
+    delete_item:
+      description: アイテムを削除する
+      type: object
+      properties:
+        location:
+          $ref: '#/components/schemas/location'
+      required:
+        - location
+    update_item:
+      description: アイテムを更新する
+      type: object
+      properties:
+        item:
+          $ref: './item.yml#/components/schemas/item'
+        location:
+          $ref: '#/components/schemas/location'
+      required:
+        - item
+        - location

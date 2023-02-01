@@ -1,32 +1,69 @@
-schemas:
-  form_dynamic_props:
-    type: object
-    properties:
-      form_name:
-        type: string
-        description: フォームの名前
-        example: お問い合わせフォーム
-      description:
-        type: string
-        description: フォームの説明
-        example: このフォームはお問い合わせをする際にご回答いただくフォームです。
-  form_id:
-    description: フォームのID
-    type: integer
-    format: int64
-    minimum: 0
-    example: 0
-  form:
-    type: object
-    description: フォーム
-    allOf:
-      - $ref: '#/schemas/form_dynamic_props'
-      - properties:
-          id:
-            $ref: '#/schemas/form_id'
-          questions:
-            $ref: '../../questions/types/question.yml#/schemas/questions'
-        required:
-          - id
-          - form_name
-          - questions
+components:
+  schemas:
+    form_id:
+      description: フォームのID
+      type: integer
+      format: int64
+      minimum: 0
+      example: 0
+    form_title:
+      description: フォームの名前
+      type: string
+      example: お問い合わせフォーム
+    form_description:
+      description: フォームの説明
+      type: string
+      example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+    form_info:
+      description: フォームの情報
+      type: object
+      properties:
+        title:
+          $ref: '#/components/schemas/form_title'
+        description:
+          $ref: '#/components/schemas/form_description'
+      required:
+        - title
+    response_period:
+      description: 回答可能期間
+      type: object
+      properties:
+        start_at:
+          description: 回答の受付を開始する日時
+          type: string
+          format: date-time
+        end_at:
+          description: 回答の受付を終了する日時
+          type: string
+          format: date-time
+    form_settings:
+      description: フォームの設定
+      type: object
+      properties:
+        response_period:
+          $ref: '#/components/schemas/response_period'
+    form:
+      description: フォーム
+      type: object
+      properties:
+        id:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/form_id'
+        info:
+          $ref: '#/components/schemas/form_info'
+        items:
+          $ref: './item.yml#/components/schemas/items'
+        settings:
+          $ref: '#/components/schemas/form_settings'
+      required:
+        - id
+        - info
+        - items
+  parameters:
+    form_id_path:
+      in: path
+      name: formId
+      required: true
+      schema:
+        $ref: '#/components/schemas/form_id'

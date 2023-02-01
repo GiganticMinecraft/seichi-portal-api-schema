@@ -5,19 +5,21 @@ services:
     image: swaggerapi/swagger-ui
     container_name: swagger-ui
     ports:
-      - 8081:8080
+      - 127.0.0.1:8081:8080
     volumes:
-      - ./schema:/work
+      - ./schema:/schema
     environment:
-      SWAGGER_JSON: /work/openapi.yml
+      SWAGGER_JSON: /schema/openapi.yml
     restart: always
   redocly:
-    image: redocly/redoc
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
     container_name: redocly
     ports:
-      - 8082:80
+      - 127.0.0.1:8082:8080
     volumes:
-      - ./schema:/usr/share/nginx/html/api
+      - ./schema:/schema
     environment:
-      SPEC_URL: api/openapi.yml
+      SPEC_URL: /schema/openapi.yml
     restart: always
