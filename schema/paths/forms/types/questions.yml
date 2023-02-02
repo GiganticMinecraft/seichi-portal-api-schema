@@ -1,5 +1,17 @@
 components:
   schemas:
+    question_contents:
+      oneOf:
+        - properties:
+            choice_question:
+              $ref: '#/components/schemas/choice_question'
+          required:
+            - choice_question
+        - properties:
+            text_question:
+              $ref: '#/components/schemas/text_question'
+          required:
+            - text_question
     choice_question:
       description: 選択可能な質問
       type: object

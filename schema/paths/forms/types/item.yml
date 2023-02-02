@@ -14,33 +14,6 @@ components:
       description: アイテムの説明
       type: string
       example: アイテムの説明です。
-    item_contents:
-      oneOf:
-        - properties:
-            question_item:
-              $ref: './items.yml#/components/schemas/question_item'
-          required:
-            - question_item
-        - properties:
-            page_break_item:
-              $ref: './items.yml#/components/schemas/page_break_item'
-          required:
-            - page_break_item
-        - properties:
-            text_item:
-              $ref: './items.yml#/components/schemas/text_item'
-          required:
-            - text_item
-        - properties:
-            image_item:
-              $ref: './items.yml#/components/schemas/image_item'
-          required:
-            - image_item
-        - properties:
-            video_item:
-              $ref: './items.yml#/components/schemas/video_item'
-          required:
-            - video_item
     item:
       allOf:
         - properties:
@@ -53,7 +26,7 @@ components:
           required:
             - id
             - title
-        - $ref: '#/components/schemas/item_contents'
+        - $ref: './items.yml#/components/schemas/item_contents'
     items:
       description: アイテム群
       type: array
