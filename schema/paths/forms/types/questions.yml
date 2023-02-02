@@ -46,5 +46,12 @@ components:
           description: 段落を含むテキストかどうか
           type: boolean
           example: false
+        validations:
+          description: 入力の検証ルール群
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            $ref: './validation.yml#/components/schemas/validation'
       required:
         - is_paragraph

@@ -1,0 +1,6 @@
+components:
+  schemas:
+    validation:
+      description: 入力の検証ルール
+      allOf:
+        - $ref: './validations.yml#/components/schemas/validation_contents'
