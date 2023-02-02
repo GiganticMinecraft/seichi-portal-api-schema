@@ -1,5 +1,11 @@
 components:
   schemas:
+    revision_id:
+      description: リビジョンID
+      type: integer
+      format: int64
+      minimum: 0
+      example: 0
     form_id:
       description: フォームのID
       type: integer
@@ -56,10 +62,15 @@ components:
           $ref: './item.yml#/components/schemas/items'
         settings:
           $ref: '#/components/schemas/form_settings'
+        revision_id:
+          readOnly: true
+          allOf:
+            - $ref: '#/components/schemas/revision_id'
       required:
         - id
         - info
         - items
+        - revision_id
   parameters:
     form_id_path:
       in: path
