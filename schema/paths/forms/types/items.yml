@@ -1,5 +1,32 @@
 components:
   schemas:
+    item_contents:
+      oneOf:
+        - properties:
+            question_item:
+              $ref: '#/components/schemas/question_item'
+          required:
+            - question_item
+        - properties:
+            page_break_item:
+              $ref: '#/components/schemas/page_break_item'
+          required:
+            - page_break_item
+        - properties:
+            text_item:
+              $ref: '#/components/schemas/text_item'
+          required:
+            - text_item
+        - properties:
+            image_item:
+              $ref: '#/components/schemas/image_item'
+          required:
+            - image_item
+        - properties:
+            video_item:
+              $ref: '#/components/schemas/video_item'
+          required:
+            - video_item
     question_item:
       description: 質問
       type: object
