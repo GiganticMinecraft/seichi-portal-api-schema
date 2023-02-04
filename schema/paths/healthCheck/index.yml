@@ -1,0 +1,6 @@
+get:
+  operationId: healthCheck
+  summary: サーバーが起動しているかどうかを確認するためのエンドポイント
+  responses:
+    '200':
+      description: サーバーが起動している
