@@ -17,5 +17,5 @@ paths:
     $ref: './paths/forms/index.yml'
   /forms/{formId}:
     $ref: './paths/forms/eachForm.yml'
-  /recaptcha:
-    $ref: './paths/recaptcha/index.yml'
+  /reCaptcha:
+    $ref: './paths/reCaptcha/index.yml'
