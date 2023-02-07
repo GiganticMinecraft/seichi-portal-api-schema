@@ -40,11 +40,11 @@ components:
     page_break_item:
       description: セクション区切り
       type: object
-      nullable: true
+      additionalProperties: true
     text_item:
       description: テキスト（タイトルと説明だけを表す）
       type: object
-      nullable: true
+      additionalProperties: true
     image_item:
       description: 画像
       type: object
