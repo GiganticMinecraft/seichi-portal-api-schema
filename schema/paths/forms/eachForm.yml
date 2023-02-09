@@ -60,7 +60,7 @@ get:
                   - id: 0
                     title: アイテムのタイトル
                     description: アイテムの説明文です。
-                    text_item: null
+                    text_item: {}
                 settings:
                   response_period:
                     start_at: '2022-01-01T00:00:00Z'
