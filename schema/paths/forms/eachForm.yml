@@ -22,7 +22,7 @@ get:
                   - id: 0
                     title: アイテムのタイトル
                     description: アイテムの説明文です。
-                    text_item: null
+                    text_item: {}
                   - id: 1
                     title: 質問1
                     description: 質問1の説明文です。
@@ -60,7 +60,7 @@ get:
                   - id: 0
                     title: アイテムのタイトル
                     description: アイテムの説明文です。
-                    text_item: null
+                    text_item: {}
                 settings:
                   response_period:
                     start_at: '2022-01-01T00:00:00Z'
