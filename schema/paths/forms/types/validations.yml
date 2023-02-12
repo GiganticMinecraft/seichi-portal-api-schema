@@ -1,0 +1,165 @@
+components:
+  schemas:
+    validation_contents:
+      oneOf:
+        - $ref: '#/components/schemas/length'
+        - $ref: '#/components/schemas/regex'
+        - $ref: '#/components/schemas/text'
+    length:
+      oneOf:
+        - properties:
+            max_length:
+              description: 文字数の最大数
+              type: integer
+              format: int64
+              minimum: 0
+              example: 0
+          required:
+            - max_length
+        - properties:
+            min_length:
+              description: 文字数の最小数
+              type: integer
+              format: int64
+              minimum: 0
+              example: 0
+          required:
+            - min_length
+    regex:
+      oneOf:
+        - properties:
+            contains:
+              description: 正規表現を含む
+              type: string
+              format: regex
+          required:
+            - contains
+        - properties:
+            not_contains:
+              description: 正規表現を含まない
+              type: string
+              format: regex
+          required:
+            - not_contains
+        - properties:
+            matches:
+              description: 正規表現に一致する
+              type: string
+              format: regex
+          required:
+            - matches
+        - properties:
+            not_matches:
+              description: 正規表現に一致しない
+              type: string
+              format: regex
+          required:
+            - not_matches
+    text:
+      oneOf:
+        - properties:
+            contains:
+              description: テキストを含む
+              type: string
+          required:
+            - contains
+        - properties:
+            not_contains:
+              description: テキストを含まない
+              type: string
+          required:
+            - not_contains
+        - properties:
+            email:
+              description: 電子メールアドレス
+              type: object
+          required:
+            - email
+        - properties:
+            url:
+              description: URL
+              type: object
+          required:
+            - url
+    number:
+      oneOf:
+        - properties:
+            more_than:
+              description: より大きい
+              type: number
+          required:
+            - more_than
+        - properties:
+            or_more:
+              description: 以上
+              type: number
+          required:
+            - or_more
+        - properties:
+            less_than:
+              description: より小きい
+              type: number
+          required:
+            - less_than
+        - properties:
+            or_less:
+              description: 以下
+              type: number
+          required:
+            - or_less
+        - properties:
+            equal:
+              description: 等しい
+              type: number
+          required:
+            - equal
+        - properties:
+            not_equal:
+              description: 等しくない
+              type: number
+          required:
+            - not_equal
+        - properties:
+            between:
+              description: 値の間にある
+              type: object
+              properties:
+                min:
+                  description: 下限値
+                  type: number
+                max:
+                  description: 上限値
+                  type: number
+              required:
+                - min
+                - max
+          required:
+            - between
+        - properties:
+            not_between:
+              description: 値の間にない
+              type: object
+              properties:
+                min:
+                  description: 下限値
+                  type: number
+                max:
+                  description: 上限値
+                  type: number
+              required:
+                - min
+                - max
+          required:
+            - not_between
+        - properties:
+            integer:
+              description: 整数
+              type: integer
+          required:
+            - integer
+        - properties:
+            natural:
+              description: 自然数
+              type: integer
+          required:
+            - natural
