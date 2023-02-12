@@ -66,4 +66,8 @@ components:
       name: formId
       required: true
       schema:
-        $ref: '#/components/schemas/form_id'
+        description: フォームのID
+        type: integer
+        format: int64
+        minimum: 0
+        example: 0

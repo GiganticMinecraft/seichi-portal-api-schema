@@ -19,5 +19,5 @@ paths:
     $ref: './paths/forms/eachForm.yml'
   /healthCheck:
     $ref: './paths/healthCheck/index.yml'
-  /recaptcha:
+  /reCaptcha:
     $ref: './paths/recaptcha/index.yml'
