@@ -20,4 +20,4 @@ paths:
   /healthCheck:
     $ref: './paths/healthCheck/index.yml'
   /reCaptcha:
-    $ref: './paths/recaptcha/index.yml'
+    $ref: './paths/reCaptcha/index.yml'
