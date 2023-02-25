@@ -50,6 +50,7 @@ get:
                           choices:
                             - 選択肢1
                             - 選択肢2
+                version_number: 0
             with_period:
               summary: 回答可能期間が過ぎているフォーム
               value:
@@ -65,6 +66,7 @@ get:
                   response_period:
                     start_at: '2022-01-01T00:00:00Z'
                     end_at: '2022-01-31T23:59:59Z'
+                version_number: 0
     '400':
       description: リクエストの構文が間違っている
     '401':
@@ -86,31 +88,45 @@ post:
     content:
       application/json:
         schema:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            $ref: './types/request.yml#/components/schemas/request'
+          description: 更新内容
+          type: object
+          properties:
+            requests:
+              description: 更新リクエスト群
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                $ref: './types/request.yml#/components/schemas/request'
+            target_version_number:
+              $ref: './types/form.yml#/components/schemas/version_number'
+          required:
+            - requests
+            - target_version_number
         examples:
           single_request:
             summary: 1つだけの更新リクエスト
             value:
-              - move_item:
-                  original_location:
-                    index: 0
-                  new_location:
-                    index: 1
+              requests:
+                - move_item:
+                    original_location:
+                      index: 0
+                    new_location:
+                      index: 1
+              target_version_number: 0
           multiple_requests:
             summary: 複数の更新リクエスト
             value:
-              - move_item:
-                  original_location:
-                    index: 0
-                  new_location:
-                    index: 1
-              - delete_item:
-                  location:
-                    index: 0
+              requests:
+                - move_item:
+                    original_location:
+                      index: 0
+                    new_location:
+                      index: 1
+                - delete_item:
+                    location:
+                      index: 0
+              target_version_number: 0
   responses:
     '200':
       description: フォームの更新に成功
@@ -139,18 +155,23 @@ post:
                         $ref: './types/question.yml#/components/schemas/question_id'
                   required:
                     - item_id
+              version_number:
+                $ref: './types/form.yml#/components/schemas/version_number'
             required:
               - replies
+              - version_number
           examples:
             no_created:
               summary: 何も作成されたものがない
               value:
                 replies: []
+                version_number: 0
             item_created:
               summary: アイテムが作成された（質問は作成されなかった）
               value:
                 replies:
                   - item_id: 0
+                version_number: 0
             all_created:
               summary: アイテムも質問もどちらも作成された
               value:
@@ -159,6 +180,7 @@ post:
                     question_id:
                       - 0
                       - 1
+                version_number: 0
     '400':
       description: リクエストの構文が間違っている
     '401':
