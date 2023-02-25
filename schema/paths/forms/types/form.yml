@@ -1,7 +1,7 @@
 components:
   schemas:
-    revision_id:
-      description: リビジョンID
+    version_number:
+      description: バージョン番号
       type: integer
       format: int64
       minimum: 0
@@ -62,15 +62,15 @@ components:
           $ref: './item.yml#/components/schemas/items'
         settings:
           $ref: '#/components/schemas/form_settings'
-        revision_id:
+        version_number:
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/revision_id'
+            - $ref: '#/components/schemas/version_number'
       required:
         - id
         - info
         - items
-        - revision_id
+        - version_number
   parameters:
     form_id_path:
       in: path
