@@ -10,6 +10,31 @@
 
 [GitHub Pages上に公開](https://giganticminecraft.github.io/seichi-api-schema/)もされており、視覚的に確認できるようになっています。これは`main`ブランチに更新があると、自動的にGitHub Actionsによって反映されます。
 
+### スキーマの構造
+
+```tree
+├── openapi.yml: 大元のファイル。ここでそれぞれのエンドポイントを指定している。
+└── paths: 各エンドポイントごとにディレクトリも区切っている。
+    ├── forms: フォームに関連するもの
+    │   ├── eachForm.yml: フォームIDを指定して操作するもの
+    │   ├── index.yml: フォームIDを指定しないで操作するもの
+    │   └── types: 各スキーマで再利用できる型をまとめている
+    │       ├── form.yml
+    │       ├── item.yml
+    │       ├── items.yml
+    │       ├── medias.yml
+    │       ├── question.yml
+    │       ├── questions.yml
+    │       ├── request.yml
+    │       ├── requests.yml
+    │       ├── validation.yml
+    │       └── validations.yml
+    ├── healthCheck: サーバーが起動しているかを確認する
+    │   └── index.yml
+    └── reCaptcha: Google reCaptchaの認証に使用する
+        └── index.yml
+```
+
 ### ローカルで確認する
 
 `docker compose`を利用することで、ローカル環境で、スキーマを視覚的に確認することができます。
