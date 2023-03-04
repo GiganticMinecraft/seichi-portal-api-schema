@@ -21,3 +21,4 @@ services:
     environment:
       SPEC_URL: /schema/openapi.yml
     restart: always
+    init: true
