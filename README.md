@@ -19,16 +19,7 @@
     │   ├── eachForm.yml: フォームIDを指定して操作するもの
     │   ├── index.yml: フォームIDを指定しないで操作するもの
     │   └── types: 各スキーマで再利用できる型をまとめている
-    │       ├── form.yml
-    │       ├── item.yml
-    │       ├── items.yml
-    │       ├── medias.yml
-    │       ├── question.yml
-    │       ├── questions.yml
-    │       ├── request.yml
-    │       ├── requests.yml
-    │       ├── validation.yml
-    │       └── validations.yml
+    │       ├── ...
     ├── healthCheck: サーバーが起動しているかを確認する
     │   └── index.yml
     └── reCaptcha: Google reCaptchaの認証に使用する
