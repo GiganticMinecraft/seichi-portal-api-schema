@@ -1,4 +1,4 @@
-# seichi-api-schema
+# seichi-portal-api-schema
 
 このリポジトリは、Seichi Portalにおいて、フロントエンドとバックエンド間の通信に必要なスキーマの定義を行っています。
 
