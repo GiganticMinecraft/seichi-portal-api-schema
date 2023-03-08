@@ -11,6 +11,8 @@ post:
           properties:
             title:
               $ref: './types/form.yml#/components/schemas/form_title'
+            description:
+              $ref: './types/form.yml#/components/schemas/form_description'
           required:
             - title
   responses:
@@ -48,6 +50,9 @@ get:
       - フォームID
       - フォーム名
       - フォームの説明
+      - 設定
+        - 回答開始日時
+        - 回答期限日時
 
     また、取得パラメータとしてlimitとoffsetを指定し、取得件数を絞り込むことができます。
     レスポンス内容はid基準とし、昇順ソートしたものになります。
@@ -100,6 +105,10 @@ get:
                 - id: 0
                   title: お問い合わせフォーム
                   description: このフォームはお問い合わせをする際にご回答いただくフォームです。
+                  settings:
+                    response_period:
+                      start_at: '2020-01-01T00:00:00Z'
+                      end_at: '2100-01-01T00:00:00Z'
     '400':
       description: リクエストの構文が間違っている
     '401':
