@@ -42,16 +42,10 @@ components:
       description: テキストを入力させる質問
       type: object
       properties:
-        is_paragraph:
-          description: 段落を含むテキストかどうか
-          type: boolean
-          example: false
         validations:
           description: 入力の検証ルール群
           type: array
           uniqueItems: true
-          minItems: 1
+          minItems: 0
           items:
             $ref: './validation.yml#/components/schemas/validation'
-      required:
-        - is_paragraph
