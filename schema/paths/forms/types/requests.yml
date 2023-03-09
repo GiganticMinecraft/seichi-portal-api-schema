@@ -3,10 +3,25 @@ components:
     request_contents:
       oneOf:
         - properties:
-            update_form_info_request:
-              $ref: '#/components/schemas/update_form_info_request'
+            update_form_title_request:
+              $ref: '#/components/schemas/update_form_title_request'
           required:
-            - update_form_info_request
+            - update_form_title_request
+        - properties:
+            create_form_description_request:
+              $ref: '#/components/schemas/create_form_description_request'
+          required:
+            - create_form_description_request
+        - properties:
+            update_form_description_request:
+              $ref: '#/components/schemas/update_form_description_request'
+          required:
+            - update_form_description_request
+        - properties:
+            delete_form_description_request:
+              $ref: '#/components/schemas/delete_form_description_request'
+          required:
+            - delete_form_description_request
         - properties:
             update_settings_request:
               $ref: '#/components/schemas/update_settings_request'
@@ -42,14 +57,34 @@ components:
           minimum: 0
       required:
         - index
-    update_form_info_request:
-      description: フォームの情報を更新する
+    update_form_title_request:
+      description: フォームのタイトルを更新する
       type: object
       properties:
-        info:
-          $ref: './form.yml#/components/schemas/form_info'
+        title:
+          $ref: './form.yml#/components/schemas/form_title'
       required:
-        - info
+        - title
+    create_form_description_request:
+      description: フォームの説明を追加する
+      type: object
+      properties:
+        description:
+          $ref: './form.yml#/components/schemas/form_description'
+      required:
+        - description
+    update_form_description_request:
+      description: フォームの説明を更新する
+      type: object
+      properties:
+        description:
+          $ref: './form.yml#/components/schemas/form_description'
+      required:
+        - description
+    delete_form_description_request:
+      description: フォームの説明を削除する
+      type: object
+      properties: {}
     update_settings_request:
       description: フォームの設定を更新する
       type: object
