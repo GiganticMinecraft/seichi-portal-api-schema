@@ -8,6 +8,21 @@ components:
           required:
             - update_form_title_request
         - properties:
+            create_form_description_request:
+              $ref: '#/components/schemas/create_form_description_request'
+          required:
+            - create_form_description_request
+        - properties:
+            update_form_description_request:
+              $ref: '#/components/schemas/update_form_description_request'
+          required:
+            - update_form_description_request
+        - properties:
+            delete_form_description_request:
+              $ref: '#/components/schemas/delete_form_description_request'
+          required:
+            - delete_form_description_request
+        - properties:
             update_settings_request:
               $ref: '#/components/schemas/update_settings_request'
           required:
@@ -50,6 +65,26 @@ components:
           $ref: './form.yml#/components/schemas/form_title'
       required:
         - title
+    create_form_description_request:
+      description: フォームの説明を追加する
+      type: object
+      properties:
+        description:
+          $ref: './form.yml#/components/schemas/form_description'
+      required:
+        - description
+    update_form_description_request:
+      description: フォームの説明を更新する
+      type: object
+      properties:
+        description:
+          $ref: './form.yml#/components/schemas/form_description'
+      required:
+        - description
+    delete_form_description_request:
+      description: フォームの説明を削除する
+      type: object
+      properties: {}
     update_settings_request:
       description: フォームの設定を更新する
       type: object
