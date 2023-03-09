@@ -72,7 +72,7 @@ get:
       name: limit
       description: |
         取得件数の上限値
-        limitを10とすると10番目までのデータが取得できます。
+        例えば、limitを10とすると10番目までのデータが取得できます。
       schema:
         type: integer
         minimum: 1
