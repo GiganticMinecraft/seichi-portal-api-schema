@@ -171,6 +171,7 @@ post:
               value:
                 replies:
                   - item_id: 0
+                    question_id: []
                 version_number: 0
             all_created:
               summary: アイテムも質問もどちらも作成された
