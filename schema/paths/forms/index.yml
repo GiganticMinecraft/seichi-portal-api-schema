@@ -63,7 +63,7 @@ get:
       name: offset
       description: |
         取得件数の下限値
-        offsetを1とすると2件目からのデータが取得できます。
+        例えば、offsetを1とすると2件目からのデータが取得できます。
       schema:
         type: integer
         minimum: 1
