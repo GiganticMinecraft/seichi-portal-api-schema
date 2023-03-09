@@ -150,7 +150,7 @@ post:
                       description: アイテムの作成に伴って作成された質問のID群
                       type: array
                       uniqueItems: true
-                      minItems: 1
+                      minItems: 0
                       items:
                         $ref: './types/question.yml#/components/schemas/question_id'
                   required:
