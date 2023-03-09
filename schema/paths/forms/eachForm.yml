@@ -30,7 +30,6 @@ get:
                       question:
                         id: 0
                         text_question:
-                          is_paragraph: false
                   - id: 2
                     title: 質問2
                     description: 質問2の説明文です。
@@ -38,7 +37,6 @@ get:
                       question:
                         id: 1
                         text_question:
-                          is_paragraph: true
                   - id: 3
                     title: 質問3
                     description: 質問3の説明文です。
