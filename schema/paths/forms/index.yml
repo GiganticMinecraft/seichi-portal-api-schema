@@ -99,7 +99,6 @@ get:
               required:
                 - id
                 - title
-                - description
           examples:
             all_forms:
               value:
