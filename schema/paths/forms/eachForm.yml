@@ -15,9 +15,8 @@ get:
               summary: フォームの説明文を含んだフォーム
               value:
                 id: 0
-                info:
-                  title: お問い合わせフォーム
-                  description: このフォームはお問い合わせをする際にご回答いただくフォームです。
+                title: お問い合わせフォーム
+                description: このフォームはお問い合わせをする際にご回答いただくフォームです。
                 items:
                   - id: 0
                     title: アイテムのタイトル
@@ -55,8 +54,7 @@ get:
               summary: 回答可能期間が過ぎているフォーム
               value:
                 id: 0
-                info:
-                  title: お問い合わせフォーム
+                title: お問い合わせフォーム
                 items:
                   - id: 0
                     title: アイテムのタイトル

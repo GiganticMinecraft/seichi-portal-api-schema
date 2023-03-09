@@ -20,16 +20,6 @@ components:
       description: フォームの説明
       type: string
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
-    form_info:
-      description: フォームの情報
-      type: object
-      properties:
-        title:
-          $ref: '#/components/schemas/form_title'
-        description:
-          $ref: '#/components/schemas/form_description'
-      required:
-        - title
     response_period:
       description: 回答可能期間
       type: object
@@ -56,8 +46,10 @@ components:
           readOnly: true
           allOf:
             - $ref: '#/components/schemas/form_id'
-        info:
-          $ref: '#/components/schemas/form_info'
+        title:
+          $ref: '#/components/schemas/form_title'
+        description:
+          $ref: '#/components/schemas/form_description'
         items:
           $ref: './item.yml#/components/schemas/items'
         settings:
@@ -68,7 +60,7 @@ components:
             - $ref: '#/components/schemas/version_number'
       required:
         - id
-        - info
+        - title
         - items
         - version_number
   parameters:
