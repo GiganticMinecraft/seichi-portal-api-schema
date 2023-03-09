@@ -11,6 +11,8 @@ post:
           properties:
             title:
               $ref: './types/form.yml#/components/schemas/form_title'
+            description:
+              $ref: './types/form.yml#/components/schemas/form_description'
           required:
             - title
   responses:
@@ -43,17 +45,34 @@ post:
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
+  description: |
+    このAPIでは以下の内容のみ返します。
+      - フォームID
+      - フォーム名
+      - フォームの説明
+      - 設定
+        - 回答開始日時
+        - 回答期限日時
+
+    また、取得パラメータとしてlimitとoffsetを指定し、取得件数を絞り込むことができます。
+
+    レスポンス内容はid基準とし、昇順ソートしたものになります。
+    ※各フォームの詳細情報などは別APIを利用することを想定しています。
   parameters:
     - in: query
-      name: limit
-      description: 取得件数の最大値
+      name: offset
+      description: |
+        取得件数の下限値
+        例えば、offsetを1とすると2件目からのデータが取得できます。
       schema:
         type: integer
         minimum: 1
       required: false
     - in: query
-      name: offset
-      description: 取得の開始位置。例えば1を指定すると2件目から取得できます
+      name: limit
+      description: |
+        取得件数の上限値
+        例えば、limitを10とすると10番目までのデータが取得できます。
       schema:
         type: integer
         minimum: 1
@@ -69,46 +88,27 @@ get:
             minItems: 1
             items:
               type: object
-              description: フォームの概要（詳細な内容を含まない）
+              description: フォームの概要
               properties:
                 id:
                   $ref: './types/form.yml#/components/schemas/form_id'
-                info:
-                  $ref: './types/form.yml#/components/schemas/form_info'
-                settings:
-                  $ref: './types/form.yml#/components/schemas/form_settings'
+                title:
+                  $ref: './types/form.yml#/components/schemas/form_title'
+                description:
+                  $ref: './types/form.yml#/components/schemas/form_description'
               required:
                 - id
-                - info
+                - title
           examples:
-            full_of_fields:
-              summary: すべてのフィールドを含んだフォーム概要
+            all_forms:
               value:
                 - id: 0
-                  info:
-                    title: お問い合わせフォーム
-                    description: このフォームはお問い合わせをする際にご回答いただくフォームです。
+                  title: お問い合わせフォーム
+                  description: このフォームはお問い合わせをする際にご回答いただくフォームです。
                   settings:
                     response_period:
                       start_at: '2020-01-01T00:00:00Z'
                       end_at: '2100-01-01T00:00:00Z'
-            with_description:
-              summary: 説明文を含んでいないフォーム概要
-              value:
-                - id: 0
-                  info:
-                    title: お問い合わせフォーム
-                    description: このフォームはお問い合わせをする際にご回答いただくフォームです。
-            with_expired_response_period:
-              summary: 回答期限が切れたフォーム概要
-              value:
-                - id: 0
-                  info:
-                    title: お問い合わせフォーム
-                  settings:
-                    response_period:
-                      start_at: '2022-01-01T00:00:00Z'
-                      end_at: '2022-01-01T00:00:00Z'
     '400':
       description: リクエストの構文が間違っている
     '401':
