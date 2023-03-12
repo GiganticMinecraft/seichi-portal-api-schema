@@ -96,6 +96,8 @@ get:
                   $ref: './types/form.yml#/components/schemas/form_title'
                 description:
                   $ref: './types/form.yml#/components/schemas/form_description'
+                settings:
+                  $ref: './types/form.yml#/components/schemas/form_settings'
               required:
                 - id
                 - title
