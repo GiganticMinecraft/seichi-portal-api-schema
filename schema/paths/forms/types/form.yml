@@ -32,18 +32,20 @@ components:
       properties:
         response_period:
           $ref: '#/components/schemas/response_period'
-    form:
-      description: フォーム
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/form_id'
-        title:
-          $ref: '#/components/schemas/form_title'
-        description:
-          $ref: '#/components/schemas/form_description'
-        settings:
-          $ref: '#/components/schemas/form_settings'
-      required:
-        - id
-        - title
+
+definitions:
+  form:
+    description: フォーム
+    type: object
+    properties:
+      id:
+        $ref: '#/components/schemas/form_id'
+      title:
+        $ref: '#/components/schemas/form_title'
+      description:
+        $ref: '#/components/schemas/form_description'
+      settings:
+        $ref: '#/components/schemas/form_settings'
+    required:
+      - id
+      - title

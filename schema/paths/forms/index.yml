@@ -87,20 +87,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              type: object
-              description: フォームの概要
-              properties:
-                id:
-                  $ref: './types/form.yml#/components/schemas/form_id'
-                title:
-                  $ref: './types/form.yml#/components/schemas/form_title'
-                description:
-                  $ref: './types/form.yml#/components/schemas/form_description'
-                settings:
-                  $ref: './types/form.yml#/components/schemas/form_settings'
-              required:
-                - id
-                - title
+              $ref: './types/form.yml#/definitions/form' 
           examples:
             all_forms:
               value:
