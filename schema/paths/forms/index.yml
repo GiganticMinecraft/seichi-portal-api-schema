@@ -14,12 +14,7 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              id:
-                $ref: './types/form.yml#/components/schemas/form_id'
-            required:
-              - id
+            $ref: './types/form.yml#/definitions/form_id'
       headers:
         Location:
           description: 作成されたフォームへのURL

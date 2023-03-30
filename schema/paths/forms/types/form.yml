@@ -53,3 +53,10 @@ definitions:
     required:
       - id
       - title
+  form_id:
+    type: object
+    properties:
+      id:
+        $ref: '#/components/schemas/form_id'
+    required:
+      - id
