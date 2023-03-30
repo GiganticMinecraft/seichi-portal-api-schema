@@ -39,13 +39,17 @@ definitions:
     type: object
     properties:
       id:
-        $ref: '#/components/schemas/form_id'
+        readOnly: true
+        allOf:
+          - $ref: '#/components/schemas/form_id'
       title:
         $ref: '#/components/schemas/form_title'
       description:
         $ref: '#/components/schemas/form_description'
       settings:
-        $ref: '#/components/schemas/form_settings'
+        readOnly: true
+        allOf:
+          - $ref: '#/components/schemas/form_settings'
     required:
       - id
       - title

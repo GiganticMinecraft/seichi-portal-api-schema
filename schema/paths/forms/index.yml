@@ -7,14 +7,7 @@ post:
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            title:
-              $ref: './types/form.yml#/components/schemas/form_title'
-            description:
-              $ref: './types/form.yml#/components/schemas/form_description'
-          required:
-            - title
+          $ref: './types/form.yml#/definitions/form'
   responses:
     '201':
       description: フォームの作成に成功
