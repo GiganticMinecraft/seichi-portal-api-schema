@@ -1,11 +1,5 @@
 components:
   schemas:
-    version_number:
-      description: バージョン番号
-      type: integer
-      format: int64
-      minimum: 0
-      example: 0
     form_id:
       description: フォームのID
       type: integer
@@ -43,34 +37,13 @@ components:
       type: object
       properties:
         id:
-          readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/form_id'
+          $ref: '#/components/schemas/form_id'
         title:
           $ref: '#/components/schemas/form_title'
         description:
           $ref: '#/components/schemas/form_description'
-        items:
-          $ref: './item.yml#/components/schemas/items'
         settings:
           $ref: '#/components/schemas/form_settings'
-        version_number:
-          readOnly: true
-          allOf:
-            - $ref: '#/components/schemas/version_number'
       required:
         - id
         - title
-        - items
-        - version_number
-  parameters:
-    form_id_path:
-      in: path
-      name: formId
-      required: true
-      schema:
-        description: フォームのID
-        type: integer
-        format: int64
-        minimum: 0
-        example: 0
