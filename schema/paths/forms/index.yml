@@ -75,17 +75,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              $ref: './types/form.yml#/definitions/form' 
-          examples:
-            all_forms:
-              value:
-                - id: 0
-                  title: お問い合わせフォーム
-                  description: このフォームはお問い合わせをする際にご回答いただくフォームです。
-                  settings:
-                    response_period:
-                      start_at: '2020-01-01T00:00:00Z'
-                      end_at: '2100-01-01T00:00:00Z'
+              $ref: './types/form.yml#/definitions/form'
     '400':
       description: リクエストの構文が間違っている
     '401':
