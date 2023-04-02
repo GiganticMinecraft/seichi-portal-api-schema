@@ -11,6 +11,6 @@ get:
           schema:
             $ref: '../types/form.yml#/definitions/form'
     allOf:
-      - $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
-      - $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
-      - $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+      - $ref: '../../../errors/errorResponses.yml#/syntaxError'
+      - $ref: '../../../errors/errorResponses.yml#/unauthorized'
+      - $ref: '../../../errors/errorResponses.yml#/internalServerError'
