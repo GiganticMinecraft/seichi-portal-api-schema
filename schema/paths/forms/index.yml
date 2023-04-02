@@ -20,16 +20,11 @@ post:
           description: 作成されたフォームへのURL
           schema:
             type: string
-    '400':
-      description: リクエストの構文が間違っている
-    '401':
-      description: 認証がされていない
-    '403':
-      description: 権限が不足している
-    '415':
-      description: 対応していないメディア形式が指定されている
-    '500':
-      description: サーバーエラー
+    allOf:
+      - $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError' 
+      - $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized' 
+      - $ref: '../../errors/errorResponses.yml#/components/responses/forbidden' 
+      - $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError' 
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -76,9 +71,7 @@ get:
             minItems: 1
             items:
               $ref: './types/form.yml#/definitions/form'
-    '400':
-      description: リクエストの構文が間違っている
-    '401':
-      description: 認証がされていない
-    '500':
-      description: サーバーエラー
+    allOf:
+      - $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError' 
+      - $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized' 
+      - $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError' 
