@@ -1,0 +1,12 @@
+get:
+  operationId: getForm
+  summary: フォームの詳細を取得する
+  parameters:
+    - $ref: '../types/form.yml#/parameters/form_id'
+  responses:
+    '200':
+      description: 指定されたフォームIDの情報取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: '../types/form.yml#/definitions/form'
