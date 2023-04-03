@@ -63,7 +63,7 @@ definitions:
 
 parameters:
   form_id:
-    name: form_id
+    name: formId
     in: path
     description: フォームID
     required: true
