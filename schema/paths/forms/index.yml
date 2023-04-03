@@ -21,7 +21,7 @@ post:
           schema:
             type: string
     allOf:
-      - $ref: '../../errors/errorResponses.yml#/operationUsers'
+      - $ref: '../../errors/errorResponses.yml#/adminUsers'
 get:
   operationId: listForms
   summary: フォームの一覧を取得する

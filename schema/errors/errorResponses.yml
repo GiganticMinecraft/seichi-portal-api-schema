@@ -13,13 +13,17 @@ components:
             '500':
                 description: サーバーエラー
 
+# 一般ユーザーが利用できるAPIに対して問い合わせたときに、
+# 発生しうるエラーレスポンスをまとめたもの。
 generalUsers:
     allOf:
         - $ref: '#/components/responses/syntaxError'
         - $ref: '#/components/responses/unauthorized'        
         - $ref: '#/components/responses/internalServerError'
 
-operationUsers:
+# 管理ユーザーのみが利用できるAPIに対して問い合わせたときに、
+# 発生しうるエラーレスポンスをまとめたもの。
+adminUsers:
     allOf:
         - $ref: '#/components/responses/syntaxError'
         - $ref: '#/components/responses/unauthorized'        
