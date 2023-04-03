@@ -21,7 +21,7 @@ post:
           schema:
             type: string
     allOf:
-      - $ref: '../../errors/errorResponses.yml#/adminUsers'
+      - $ref: '../../errors/errorResponses.yml#/components/responses/adminUsers'
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -69,4 +69,4 @@ get:
             items:
               $ref: './types/form.yml#/definitions/form'
     allOf:
-      - $ref: '../../errors/errorResponses.yml#/generalUsers'
+      - $ref: '../../errors/errorResponses.yml#/components/responses/generalUsers'

@@ -11,4 +11,4 @@ get:
           schema:
             $ref: '../types/form.yml#/definitions/form'
     allOf:
-      - $ref: '../../../errors/errorResponses.yml#/generalUsers'
+      - $ref: '../../../errors/errorResponses.yml#/components/responses/generalUsers'
