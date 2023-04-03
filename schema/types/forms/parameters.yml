@@ -1,0 +1,8 @@
+parameters:
+  form_id:
+    name: formId
+    in: path
+    description: フォームID
+    required: true
+    schema:
+      $ref: './definitions.yml#/definitions/form_id'
