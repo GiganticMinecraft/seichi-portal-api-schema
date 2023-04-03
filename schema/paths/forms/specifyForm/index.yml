@@ -10,5 +10,9 @@ get:
         application/json:
           schema:
             $ref: '../types/form.yml#/definitions/form'
-    allOf:
-      - $ref: '../../../errors/errorResponses.yml#/components/responses/generalUsers'
+    '400':
+      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '500':
+      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'

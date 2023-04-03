@@ -1,31 +1,10 @@
 components:
     responses:
         syntaxError:
-            '400':
-                description: リクエストの構文が間違っている
+            description: リクエストの構文が間違っている
         unauthorized:
-            '401':
-                description: 認証されていない
+            description: 認証されていない
         forbidden:
-            '403':
-                description: 権限が不足している
+            description: 権限が不足している
         internalServerError:
-            '500':
-                description: サーバーエラー
-        # 一般ユーザーが利用できるAPIに対して問い合わせたときに、
-        # 発生しうるエラーレスポンスをまとめたもの。
-        generalUsers:
-            allOf:
-                - $ref: '#/components/responses/syntaxError'
-                - $ref: '#/components/responses/unauthorized'        
-                - $ref: '#/components/responses/internalServerError'
-        
-        # 管理ユーザーのみが利用できるAPIに対して問い合わせたときに、
-        # 発生しうるエラーレスポンスをまとめたもの。
-        adminUsers:
-            allOf:
-                - $ref: '#/components/responses/syntaxError'
-                - $ref: '#/components/responses/unauthorized'        
-                - $ref: '#/components/responses/forbidden'     
-                - $ref: '#/components/responses/internalServerError'
-
+            description: サーバーエラー

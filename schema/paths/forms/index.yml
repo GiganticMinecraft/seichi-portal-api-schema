@@ -20,8 +20,15 @@ post:
           description: 作成されたフォームへのURL
           schema:
             type: string
-    allOf:
-      - $ref: '../../errors/errorResponses.yml#/components/responses/adminUsers'
+    '400':
+      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '403':
+      $ref: '../../errors/errorResponses.yml#/components/responses/forbidden'
+    '500':
+      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
+  
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -68,5 +75,9 @@ get:
             minItems: 1
             items:
               $ref: './types/form.yml#/definitions/form'
-    allOf:
-      - $ref: '../../errors/errorResponses.yml#/components/responses/generalUsers'
+    '400':
+      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '500':
+      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
