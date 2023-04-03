@@ -11,8 +11,8 @@ get:
           schema:
             $ref: '../types/form.yml#/definitions/form'
     '400':
-      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
     '401':
-      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
     '500':
-      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
