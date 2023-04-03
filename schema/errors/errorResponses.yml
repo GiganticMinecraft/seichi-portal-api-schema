@@ -1,12 +1,27 @@
-syntaxError:
-    '400':
-        description: リクエストの構文が間違っている
-unauthorized:
-    '401':
-        description: 認証されていない
-forbidden:
-    '403':
-        description: 権限が不足している
-internalServerError:
-    '500':
-        description: サーバーエラー
+components:
+    responses:
+        syntaxError:
+            '400':
+                description: リクエストの構文が間違っている
+        unauthorized:
+            '401':
+                description: 認証されていない
+        forbidden:
+            '403':
+                description: 権限が不足している
+        internalServerError:
+            '500':
+                description: サーバーエラー
+
+generalUsers:
+    allOf:
+        - $ref: '#/components/responses/syntaxError'
+        - $ref: '#/components/responses/unauthorized'        
+        - $ref: '#/components/responses/internalServerError'
+
+operationUsers:
+    allOf:
+        - $ref: '#/components/responses/syntaxError'
+        - $ref: '#/components/responses/unauthorized'        
+        - $ref: '#/components/responses/forbidden'     
+        - $ref: '#/components/responses/internalServerError'
