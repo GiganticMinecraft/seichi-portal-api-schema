@@ -7,26 +7,14 @@ post:
     content:
       application/json:
         schema:
-          type: object
-          properties:
-            title:
-              $ref: './types/form.yml#/components/schemas/form_title'
-            description:
-              $ref: './types/form.yml#/components/schemas/form_description'
-          required:
-            - title
+          $ref: './types/form.yml#/definitions/form'
   responses:
     '201':
       description: フォームの作成に成功
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              id:
-                $ref: './types/form.yml#/components/schemas/form_id'
-            required:
-              - id
+            $ref: './types/form.yml#/definitions/form_id'
       headers:
         Location:
           description: 作成されたフォームへのURL
@@ -87,30 +75,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              type: object
-              description: フォームの概要
-              properties:
-                id:
-                  $ref: './types/form.yml#/components/schemas/form_id'
-                title:
-                  $ref: './types/form.yml#/components/schemas/form_title'
-                description:
-                  $ref: './types/form.yml#/components/schemas/form_description'
-                settings:
-                  $ref: './types/form.yml#/components/schemas/form_settings'
-              required:
-                - id
-                - title
-          examples:
-            all_forms:
-              value:
-                - id: 0
-                  title: お問い合わせフォーム
-                  description: このフォームはお問い合わせをする際にご回答いただくフォームです。
-                  settings:
-                    response_period:
-                      start_at: '2020-01-01T00:00:00Z'
-                      end_at: '2100-01-01T00:00:00Z'
+              $ref: './types/form.yml#/definitions/form'
     '400':
       description: リクエストの構文が間違っている
     '401':

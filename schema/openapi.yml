@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 
 info:
   title: SeichiAPISchema
@@ -15,9 +15,3 @@ servers:
 paths:
   /forms:
     $ref: './paths/forms/index.yml'
-  /forms/{formId}:
-    $ref: './paths/forms/eachForm.yml'
-  /healthCheck:
-    $ref: './paths/healthCheck/index.yml'
-  /reCaptcha:
-    $ref: './paths/reCaptcha/index.yml'
