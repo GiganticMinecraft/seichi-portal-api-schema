@@ -60,3 +60,12 @@ definitions:
         $ref: '#/components/schemas/form_id'
     required:
       - id
+
+parameters:
+  form_id:
+    name: formId
+    in: path
+    description: フォームID
+    required: true
+    schema:
+      $ref: '#/components/schemas/form_id'
