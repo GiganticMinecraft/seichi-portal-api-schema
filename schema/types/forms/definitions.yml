@@ -1,0 +1,27 @@
+definitions:
+  form:
+    description: フォーム
+    type: object
+    properties:
+      id:
+        readOnly: true
+        allOf:
+          - $ref: './components.yml#/components/schemas/form_id'
+      title:
+        $ref: './components.yml#/components/schemas/form_title'
+      description:
+        $ref: './components.yml#/components/schemas/form_description'
+      settings:
+        readOnly: true
+        allOf:
+          - $ref: './components.yml#/components/schemas/form_settings'
+    required:
+      - id
+      - title
+  form_id:
+    type: object
+    properties:
+      id:
+        $ref: './components.yml#/components/schemas/form_id'
+    required:
+      - id

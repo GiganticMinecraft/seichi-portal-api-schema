@@ -7,14 +7,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: './types/form.yml#/definitions/form'
+          $ref: '../../types/forms/definitions.yml#/definitions/form'
   responses:
     '201':
       description: フォームの作成に成功
       content:
         application/json:
           schema:
-            $ref: './types/form.yml#/definitions/form_id'
+            $ref: '../../types/forms/definitions.yml#/definitions/form_id'
       headers:
         Location:
           description: 作成されたフォームへのURL
@@ -73,7 +73,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              $ref: './types/form.yml#/definitions/form'
+              $ref: '../../types/forms/definitions.yml#/definitions/form'
     '400':
       $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
     '401':
