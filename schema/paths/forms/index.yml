@@ -28,7 +28,6 @@ post:
       $ref: '../../errors/errorResponses.yml#/components/responses/forbidden'
     '500':
       $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
-  
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
