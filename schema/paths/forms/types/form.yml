@@ -68,4 +68,4 @@ parameters:
     description: フォームID
     required: true
     schema:
-      $ref: '#/definitions/form_id'
+      $ref: '#/components/schemas/form_id'
