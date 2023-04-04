@@ -6,7 +6,7 @@
 
 ## 実装について
 
-スキーマは、[OpenAPI v3.0.0](https://spec.openapis.org/oas/v3.0.0)で記載されています。
+スキーマは、[OpenAPI v3.0.3](https://spec.openapis.org/oas/v3.0.3)で記載されています。
 
 [GitHub Pages上に公開](https://giganticminecraft.github.io/seichi-api-schema/)もされており、視覚的に確認できるようになっています。これは`main`ブランチに更新があると、自動的にGitHub Actionsによって反映されます。
 
