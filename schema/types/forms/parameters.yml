@@ -5,4 +5,4 @@ parameters:
     description: フォームID
     required: true
     schema:
-      $ref: './definitions.yml#/definitions/form_id'
+      $ref: './components.yml#/components/schemas/form_id'
