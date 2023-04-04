@@ -1,10 +1,10 @@
 components:
-    responses:
-        syntaxError:
-            description: リクエストの構文が間違っている
-        unauthorized:
-            description: 認証されていない
-        forbidden:
-            description: 権限が不足している
-        internalServerError:
-            description: サーバーエラー
+  responses:
+    syntaxError:
+      description: リクエストの構文が間違っている
+    unauthorized:
+      description: 認証されていない
+    forbidden:
+      description: 権限が不足している
+    internalServerError:
+      description: サーバーエラー
