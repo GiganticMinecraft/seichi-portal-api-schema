@@ -14,7 +14,11 @@ definitions:
       settings:
         readOnly: true
         allOf:
-          - $ref: './components.yml#/components/schemas/settings'
+          - $ref: './components.yml#/components/schemas/metadata'
+      metadata:
+        readOnly: true
+        allOf:
+          - $ref: 
     required:
       - id
       - title
