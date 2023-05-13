@@ -13,10 +13,14 @@ components:
     form_description:
       description: フォームの説明
       type: string
+      nullable: true
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
     response_period:
-      description: 回答可能期間
+      description: |
+        回答可能期間
+        期間を指定しないとnullになります。
       type: object
+      nullable: true
       properties:
         start_at:
           description: 回答の受付を開始する日時
