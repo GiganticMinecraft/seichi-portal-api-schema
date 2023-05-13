@@ -16,9 +16,7 @@ components:
       nullable: true
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
     response_period:
-      description: |
-        回答可能期間
-        期間を指定しないとnullになります。
+      description: 回答可能期間
       type: object
       nullable: true
       properties:
