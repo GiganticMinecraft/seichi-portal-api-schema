@@ -1,6 +1,11 @@
 post:
   operationId: createForm
-  summary: フォームを作成する
+  summary: フォームの新規作成
+  description: |
+    フォームを新しく作ります。
+
+    作られたフォームの id が json として返却され、
+    作成されたフォームへの URL を含む Headerが返されます。
   requestBody:
     description: 作成するフォームの内容
     required: true
