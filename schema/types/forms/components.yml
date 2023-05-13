@@ -43,7 +43,7 @@ components:
       type: string
       format: date-time
     metadata:
-      description:
+      description: フォームのメタデータ
       type: object
       properties:
         created_at:
