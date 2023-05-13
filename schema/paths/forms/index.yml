@@ -4,8 +4,7 @@ post:
   description: |
     フォームを新しく作ります。
 
-    作られたフォームの id が json として返却され、
-    作成されたフォームへの URL を含む Headerが返されます。
+    作られたフォームのidがJsonとして返却され、作成されたフォームへのURLを含むHeaderが返されます。
   requestBody:
     description: 作成するフォームの内容
     required: true
