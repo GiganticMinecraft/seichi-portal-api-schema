@@ -1,16 +1,16 @@
 components:
   schemas:
-    form_id:
+    id:
       description: フォームのID
       type: integer
       format: int64
       minimum: 0
       example: 0
-    form_title:
+    title:
       description: フォームの名前
       type: string
       example: お問い合わせフォーム
-    form_description:
+    description:
       description: フォームの説明
       type: string
       nullable: true
@@ -28,7 +28,7 @@ components:
           description: 回答の受付を終了する日時
           type: string
           format: date-time
-    form_settings:
+    settings:
       description: フォームの設定
       type: object
       properties:
