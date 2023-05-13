@@ -16,3 +16,23 @@ get:
       $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
     '500':
       $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+
+delete:
+  operationId: deleteForm
+  summary: フォームを削除する
+  parameters:
+    - $ref: '../../../types/forms/parameters.yml#/parameters/form_id'
+  responses:
+    '200':
+      description: 指定されたFormIdの削除に成功
+      content:
+        application/json:
+          schema:
+            $ref: '../../../types/forms/definitions.yml#/definitions/form_id'
+    '400':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '500':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+
