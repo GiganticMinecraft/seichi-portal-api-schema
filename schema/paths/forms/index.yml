@@ -14,7 +14,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../types/forms/definitions.yml#/definitions/form_id'
+            $ref: '../../types/forms/definitions.yml#/definitions/id'
       headers:
         Location:
           description: 作成されたフォームへのURL
