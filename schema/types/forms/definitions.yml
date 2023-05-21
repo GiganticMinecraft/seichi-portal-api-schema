@@ -19,6 +19,10 @@ definitions:
         readOnly: true
         allOf:
           - $ref: './components.yml#/components/schemas/metadata'
+      questions:
+        readOnly: true
+        allOf:
+          - $ref: './components.yml#/components/schemas/questions'
     required:
       - id
       - title
