@@ -50,3 +50,50 @@ components:
           $ref: '#/components/schemas/created_at'
         updated_at:
           $ref: '#/components/schemas/updated_at'
+    question_id:
+      description: 質問のID
+      type: integer
+      minimum: 0
+      example: 0
+    question_title:
+      description: 質問のタイトル
+      type: string
+      example: お問い合わせフォーム
+    question_description:
+      description: 質問の説明
+      type: string
+      example: 運営に問い合わせる内容を具体的に記述してください。
+    question_type:
+      description: |
+        質問形式を定義する。
+
+        | ENUM     | 説明         | 
+        | -------- | ------------| 
+        | TEXT     | 自由記述     | 
+        | MULTIPLE | 複数選択     | 
+        | SINGLE   | 単一選択     | 
+      type: string
+      enum:
+        - TEXT
+        - MULTIPLE
+        - SINGLE
+      example: TEXT
+    question:
+      description: 質問
+      type: object
+      properties:
+        question_id:
+          $ref: '#/components/schemas/question_id'
+        question_title:
+          $ref: '#/components/schemas/question_title'
+        question_description:
+          $ref: '#/components/schemas/question_description'
+        question_type:
+          $ref: '#/components/schemas/question_type'
+    questions:
+      description: 質問をまとめた
+      type: array
+      uniqueItems: true
+      minItems: 1
+      items:
+        $ref: './components.yml#/components/schemas/question'
