@@ -91,7 +91,7 @@ components:
         question_type:
           $ref: '#/components/schemas/question_type'
     questions:
-      description: 質問をまとめた
+      description: 質問の配列
       type: array
       uniqueItems: true
       minItems: 1
