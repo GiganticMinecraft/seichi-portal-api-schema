@@ -96,4 +96,25 @@ components:
       uniqueItems: true
       minItems: 1
       items:
-        $ref: './components.yml#/components/schemas/question'
+        $ref: '#/components/schemas/question'
+    answer:
+      description: 質問に対する回答
+      type: object
+      properties:
+        question_id:
+          $ref: '#/components/schemas/question_id'
+        user_id:
+          $ref: '../users/components.yml#/components/schemas/user_id'
+        answer:
+          type: string
+          example: 整地鯖にアクセスできません。どうしたらいいですか。
+        timestamp:
+          type: string
+          format: date-time
+    answers:
+      description: 回答の配列
+      type: array
+      uniqueItems: true
+      minItems: 0
+      items:
+        $ref: '#/components/schemas/answer'
