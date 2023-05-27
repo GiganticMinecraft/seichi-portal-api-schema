@@ -6,9 +6,10 @@ get:
   responses:
     '200':
       description: 指定されたフォームの回答の取得に成功
-      # TODO: 回答の型を宣言したらparametersを指定する
-      parameters:
-        - $ref: 
+      content:
+        application/json:
+          schema:
+            $ref: '../../../../types/forms/components.yml#/components/schemas/answers'
     '400':
       $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
     '401':
