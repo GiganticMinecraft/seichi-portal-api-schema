@@ -14,5 +14,7 @@ get:
       $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
     '401':
       $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
     '500':
       $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
