@@ -1,0 +1,6 @@
+components:
+  schemas:
+    uuid:
+      description: Minecraftプレイヤーに紐づくUUID
+      type: string
+      format: uuid

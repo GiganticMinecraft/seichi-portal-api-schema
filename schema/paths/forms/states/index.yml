@@ -1,0 +1,18 @@
+get:
+  operationId: getFormLabels
+  summary: フォームにつけられるラベルをすべて取得する
+  description: 設定済みのフォームに対してつけられるラベルをすべて取得する
+  responses:
+    '200':
+      description: すべてのフォームラベルの取得成功
+      content:
+        application/json:
+          schema:
+            $ref: '../../../types/forms/definitions.yml#/definitions/form_labels'
+    '400':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '500':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+  
