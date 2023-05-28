@@ -111,3 +111,11 @@ components:
         timestamp:
           type: string
           format: date-time
+    form_label_name:
+      description: フォームに対してつけるラベルの名前
+      type: string
+      example: 常設フォーム
+    form_label_description:
+      description: フォームに対してつけるラベルの説明
+      type: string
+      example: このラベルがついているフォームは、常に設置されているフォームです。

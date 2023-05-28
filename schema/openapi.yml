@@ -19,3 +19,5 @@ paths:
     $ref: './paths/forms/specifyForm/index.yml'
   /forms/{formId}/answers:
     $ref: './paths/forms/specifyForm/answers/index.yml'
+  /forms/labels:
+    $ref: './paths/forms/states/index.yml'
