@@ -6,5 +6,7 @@ components:
       description: 認証されていない
     forbidden:
       description: 権限が不足している
+    notFound:
+      description: 見つからなかった
     internalServerError:
       description: サーバーエラー
