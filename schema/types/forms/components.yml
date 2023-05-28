@@ -103,8 +103,8 @@ components:
       properties:
         question_id:
           $ref: '#/components/schemas/question_id'
-        user_id:
-          $ref: '../users/components.yml#/components/schemas/user_id'
+        uuid:
+          $ref: '../users/components.yml#/components/schemas/uuid'
         answer:
           type: string
           example: 整地鯖にアクセスできません。どうしたらいいですか。

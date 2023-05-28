@@ -1,8 +1,6 @@
 components:
   schemas:
-    user_id:
-      description: ユーザーを一意に決めることができるID
-      type: integer
-      format: int64
-      minimum: 0
-      example: 0
+    uuid:
+      description: Minecraftプレイヤーに紐づくUUID
+      type: string
+      format: uuid
