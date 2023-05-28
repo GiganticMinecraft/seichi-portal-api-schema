@@ -9,7 +9,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../../../types/forms/components.yml#/components/schemas/answers'
+            $ref: '../../../../types/forms/definitions.yml#/definitions/answers'
     '400':
       $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
     '401':
