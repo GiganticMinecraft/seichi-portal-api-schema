@@ -17,7 +17,7 @@ get:
       $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
 
 post:
-  operationId: postFormLabel
+  operationId: createFormLabel
   summary: フォームにつけられるラベルを作成する
   description: フォームに対してつけられるラベルを新規作成する
   requestBody:
