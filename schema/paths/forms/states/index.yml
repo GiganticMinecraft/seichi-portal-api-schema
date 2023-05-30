@@ -15,4 +15,25 @@ get:
       $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
     '500':
       $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+
+post:
+  operationId: createFormLabel
+  summary: フォームにつけられるラベルを作成する
+  description: フォームに対してつけられるラベルを新規作成する
+  requestBody:
+    description: 作成するフォームの内容
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../types/forms/definitions.yml#/definitions/form_label'
+  responses:
+    '200':
+      description: "ラベルの作成に成功"
+    '400':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '500':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
   
