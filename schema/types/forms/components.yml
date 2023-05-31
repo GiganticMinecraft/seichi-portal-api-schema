@@ -111,6 +111,11 @@ components:
         timestamp:
           type: string
           format: date-time
+    form_label_id:
+      description: フォームラベルを一意に定めるためのID
+      type: integer
+      format: int64
+      minimum: 0
     form_label_name:
       description: フォームに対してつけるラベルの名前
       type: string

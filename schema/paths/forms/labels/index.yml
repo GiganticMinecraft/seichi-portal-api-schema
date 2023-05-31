@@ -1,7 +1,7 @@
 get:
   operationId: getFormLabels
-  summary: フォームにつけられるラベルをすべて取得する
-  description: 設定済みのフォームに対してつけられるラベルをすべて取得する
+  summary: フォームラベルをすべて取得する
+  description: フォームに対してつけられるラベルをすべて取得する
   responses:
     '200':
       description: すべてのフォームラベルの取得成功
@@ -18,7 +18,7 @@ get:
 
 post:
   operationId: createFormLabel
-  summary: フォームにつけられるラベルを作成する
+  summary: フォームラベルを作成する
   description: フォームに対してつけられるラベルを新規作成する
   requestBody:
     description: 作成するフォームの内容
@@ -36,4 +36,26 @@ post:
       $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
     '500':
       $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
-  
+
+delete:
+  operationId: deleteFormLabel
+  summary: フォームラベルを削除する
+  description: フォームに対してつけられるラベルを削除する
+  requestBody:
+    description: 削除するフォームラベルID
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../types/forms/definitions.yml#/definitions/form_label_id'
+  responses:
+    '200':
+      description: "ラベルの削除に成功"
+    '400':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/notFound'
+    '500':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'

@@ -40,10 +40,19 @@ definitions:
     minItems: 0
     items:
       $ref: './components.yml#/components/schemas/answer'
+  form_label_id:
+    type: object
+    properties:
+      id:
+        $ref: './components.yml#/components/schemas/form_label_id'
+    required:
+      - id
   form_label:
     description: フォームに対してつけるラベル
     type: object
     properties:
+      id: 
+        $ref: './components.yml#/components/schemas/form_label_id'
       name:
         $ref: './components.yml#/components/schemas/form_label_name'
       description:
