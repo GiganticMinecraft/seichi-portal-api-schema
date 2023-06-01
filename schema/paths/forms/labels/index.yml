@@ -41,8 +41,8 @@ post:
 
 delete:
   operationId: deleteFormLabel
-  summary: フォームラベルを削除する
-  description: フォームに対してつけられるラベルを削除する
+  summary: ラベルを削除する
+  description: 作成済みのラベルを削除する
   requestBody:
     description: 削除するフォームラベルID
     required: true
