@@ -20,10 +20,10 @@ get:
 
 post:
   operationId: createFormLabel
-  summary: フォームラベルを作成する
-  description: フォームに対してつけられるラベルを新規作成する
+  summary: ラベルを作成する
+  description: ラベルを新規作成する
   requestBody:
-    description: 作成するフォームの内容
+    description: 作成するラベルの内容
     required: true
     content:
       application/json:

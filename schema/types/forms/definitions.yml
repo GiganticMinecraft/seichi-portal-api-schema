@@ -60,6 +60,8 @@ definitions:
     properties:
       id: 
         $ref: './components.yml#/components/schemas/form_label_id'
+      kind_of_labels:
+        $ref: './components.yml#/components/schemas/kind_of_labels'
       name:
         $ref: './components.yml#/components/schemas/form_label_name'
       description:
