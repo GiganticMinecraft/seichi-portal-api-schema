@@ -1,10 +1,12 @@
 get:
   operationId: getFormLabels
-  summary: フォームラベルをすべて取得する
-  description: フォームに対してつけられるラベルをすべて取得する
+  summary: 指定した種類のラベルをすべて取得する
+  description: 指定されたものに対してつけられるラベルをすべて取得する
+  parameters:
+    - $ref: '../../../types/forms/parameters.yml#/parameters/form_label_target'
   responses:
     '200':
-      description: すべてのフォームラベルの取得成功
+      description: すべての指定ラベルの取得成功
       content:
         application/json:
           schema:

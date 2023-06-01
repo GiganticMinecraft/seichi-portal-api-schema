@@ -40,6 +40,13 @@ definitions:
     minItems: 0
     items:
       $ref: './components.yml#/components/schemas/answer'
+  kind_of_labels:
+    type: object
+    properties:
+      kind_of_labels:
+        $ref: './components.yml#/components/schemas/kind_of_labels'
+    required:
+      - kind_of_labels
   form_label_id:
     type: object
     properties:

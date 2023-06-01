@@ -111,6 +111,17 @@ components:
         timestamp:
           type: string
           format: date-time
+    kind_of_labels:
+      definitions: |
+        ラベルの種類
+        | 名前         | 説明                                         | 
+        | ------------ | --------------------------------------------| 
+        | FORM         | フォームに対してつけられるラベル            | 
+        | FORM_ANSWERS | フォームについた回答に対してつけられるラベル | 
+      type: string
+      enum: 
+        - FORM
+        - FORM_ANSWERS
     form_label_id:
       description: フォームラベルを一意に定めるためのID
       type: integer
