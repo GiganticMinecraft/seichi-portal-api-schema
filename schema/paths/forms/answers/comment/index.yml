@@ -30,6 +30,17 @@ delete:
       application/json:
         schema:
           $ref: '../../../../types/forms/definitions.yml#/definitions/comment_id'
+  responses:
+    '200':
+      description: コメントの削除成功
+    '400':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
+    '500':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
 
 patch:
   operationId: editComment
@@ -41,3 +52,14 @@ patch:
       application/json:
         schema:
           $ref: '../../../../types/forms/definitions.yml#/definitions/comment_for_update'
+  responses:
+    '200':
+      description: コメント編集成功
+    '400':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
+    '500':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
