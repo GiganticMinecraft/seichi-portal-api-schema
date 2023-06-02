@@ -154,7 +154,7 @@ components:
             - $ref: '#/components/schemas/comment_id'
         content:
           $ref: '#/components/schemas/comment_content'
-    comment_for_update:
+    comment_for_edit:
       description: コメント
       type: object
       properties:

@@ -85,16 +85,15 @@ definitions:
     properties:
       comment:
         $ref: './components.yml#/components/schemas/comment'
-  comment_for_update:
+  comment_for_edit:
     description: 単一のコメント
     type: object
     properties:
       comment:
-        $ref: './components.yml#/components/schemas/comment_for_update'
+        $ref: './components.yml#/components/schemas/comment_for_edit'
   comments:
     description: コメントの配列
     type: array
     uniqueItems: 0
     items:
       $ref: './components.yml#/components/schemas/comment'
-

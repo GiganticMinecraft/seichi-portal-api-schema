@@ -32,10 +32,10 @@ delete:
           $ref: '../../../../types/forms/definitions.yml#/definitions/comment_id'
 
 patch:
-  operationId: updateComment
+  operationId: editComment
   summary: コメントを編集する
   requestBody:
-    description: 変更するコメントのID
+    description: 編集するコメントのID
     required: true
     content:
       application/json:
