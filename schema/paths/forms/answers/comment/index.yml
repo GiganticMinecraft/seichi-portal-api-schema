@@ -19,3 +19,14 @@ post:
       $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
     '500':
       $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
+
+delete:
+  operationId: deleteComment
+  summary: コメントを削除する
+  requestBody:
+    description: 削除するコメントのID
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_id'
