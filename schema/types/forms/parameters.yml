@@ -6,3 +6,11 @@ parameters:
     required: true
     schema:
       $ref: './components.yml#/components/schemas/id'
+  form_label_target:
+    name: target
+    in: query
+    required: true
+    description: |
+      何に対してのラベルを取得するかを取得するか。
+    schema:
+      $ref: './components.yml#/components/schemas/kind_of_labels'
