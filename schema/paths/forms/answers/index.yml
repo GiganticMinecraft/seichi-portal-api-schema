@@ -17,4 +17,3 @@ post:
       $ref: '../../../errors/errorResponses.yml#/components/responses/notFound'
     '500':
       $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
-  
