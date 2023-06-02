@@ -73,4 +73,10 @@ definitions:
     minItems: 0
     items:
       $ref: '#/definitions/form_label'
+  comments:
+    description: コメントの配列
+    type: array
+    uniqueItems: 0
+    items:
+      $ref: './components.yml#/components/schemas/comment'
 

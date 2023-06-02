@@ -135,3 +135,20 @@ components:
       description: フォームに対してつけるラベルの説明
       type: string
       example: このラベルがついているフォームは、常に設置されているフォームです。
+    comment_id:
+      description: コメントを一意に定めるID
+      type: integer
+      format: int64
+      minimum: 0
+    comment_content:
+      description: コメントの内容
+      type: string
+      example: テストコメント
+    comment:
+      description: コメント
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/comment_id'
+        content:
+          $ref: '#/components/schemas/comment_content'

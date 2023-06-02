@@ -1,0 +1,21 @@
+post:
+  operationId: addComment
+  summary: 回答に対してコメントを残す
+  requestBody:
+    description: コメントを残す回答のIDとコメントの内容
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../types/forms/definitions.yml#/definitions/comments'
+  responses:
+    '200':
+      description: コメント成功
+    '400':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
+    '500':
+      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
