@@ -112,7 +112,7 @@ components:
           type: string
           format: date-time
     kind_of_labels:
-      definitions: |
+      description: |
         ラベルの種類
         | 名前         | 説明                                         | 
         | ------------ | --------------------------------------------| 
