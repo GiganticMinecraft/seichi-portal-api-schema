@@ -51,7 +51,7 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_for_update'
+          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_for_edit'
   responses:
     '200':
       description: コメント編集成功
