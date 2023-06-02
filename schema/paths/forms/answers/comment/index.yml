@@ -30,3 +30,14 @@ delete:
       application/json:
         schema:
           $ref: '../../../../types/forms/definitions.yml#/definitions/comment_id'
+
+patch:
+  operationId: updateComment
+  summary: コメントを編集する
+  requestBody:
+    description: 変更するコメントのID
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_for_update'

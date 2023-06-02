@@ -79,6 +79,18 @@ definitions:
     properties:
       id:
         $ref: './components.yml#/components/schemas/comment_id'
+  comment:
+    description: 単一のコメント
+    type: object
+    properties:
+      comment:
+        $ref: './components.yml#/components/schemas/comment'
+  comment_for_update:
+    description: 単一のコメント
+    type: object
+    properties:
+      comment:
+        $ref: './components.yml#/components/schemas/comment_for_update'
   comments:
     description: コメントの配列
     type: array
