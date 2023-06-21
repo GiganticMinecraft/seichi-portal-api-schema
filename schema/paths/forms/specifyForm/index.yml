@@ -48,3 +48,18 @@ patch:
     - $ref: '../../../types/forms/parameters.yml#/parameters/form_description'
     - $ref: '../../../types/forms/parameters.yml#/parameters/start_at'
     - $ref: '../../../types/forms/parameters.yml#/parameters/end_at'
+  responses:
+    '200':
+      description: 指定されたFormの更新に成功
+      content:
+        application/json:
+          schema:
+            $ref: '../../../types/forms/definitions.yml#/definitions/form'
+    '400':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
+    '401':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
+    '404':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/notFound'
+    '500':
+      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
