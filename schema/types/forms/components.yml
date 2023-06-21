@@ -15,19 +15,23 @@ components:
       type: string
       nullable: true
       example: このフォームはお問い合わせをする際にご回答いただくフォームです。
+    start_at:
+      description: 回答の受付を開始する日時
+      type: string
+      format: date-time
+    end_at:
+      description: 回答の受付を終了する日時
+      type: string
+      format: date-time
     response_period:
       description: 回答可能期間
       type: object
       nullable: true
       properties:
         start_at:
-          description: 回答の受付を開始する日時
-          type: string
-          format: date-time
+          $ref: '#/components/schemas/start_at'
         end_at:
-          description: 回答の受付を終了する日時
-          type: string
-          format: date-time
+          $ref: '#/components/schemas/end_at'
     settings:
       description: フォームの設定
       type: object
