@@ -44,6 +44,7 @@ patch:
   operationId: updateForm
   summary: フォームの値を更新する
   parameters:
+    - $ref: '../../../types/forms/parameters.yml#/parameters/id'
     - $ref: '../../../types/forms/parameters.yml#/parameters/form_title'
     - $ref: '../../../types/forms/parameters.yml#/parameters/form_description'
     - $ref: '../../../types/forms/parameters.yml#/parameters/start_at'
