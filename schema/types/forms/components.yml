@@ -32,12 +32,17 @@ components:
           $ref: '#/components/schemas/start_at'
         end_at:
           $ref: '#/components/schemas/end_at'
+    webhook_url:
+      description: webhookのURL
+      type: string
     settings:
       description: フォームの設定
       type: object
       properties:
         response_period:
           $ref: '#/components/schemas/response_period'
+        webhook_url:
+          $ref: '#/components/schemas/webhook_url'
     created_at:
       description: フォームの作成日時
       type: string
