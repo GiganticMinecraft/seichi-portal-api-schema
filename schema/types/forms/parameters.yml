@@ -42,6 +42,13 @@ parameters:
     required: false
     schema: 
       $ref: './components.yml#/components/schemas/end_at'
+  webhook_url:
+    name: webhookUrl
+    in: query
+    description: フォームの変更などを通知するリンク
+    required: false
+    schema:
+      $ref: './components.yml#/components/schemas/webhook_url'
   form_label_target:
     name: target
     in: query

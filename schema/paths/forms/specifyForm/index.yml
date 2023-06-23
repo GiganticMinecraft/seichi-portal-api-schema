@@ -49,6 +49,7 @@ patch:
     - $ref: '../../../types/forms/parameters.yml#/parameters/form_description'
     - $ref: '../../../types/forms/parameters.yml#/parameters/start_at'
     - $ref: '../../../types/forms/parameters.yml#/parameters/end_at'
+    - $ref: '../../../types/forms/parameters.yml#/parameters/webhook_url'
   responses:
     '200':
       description: 指定されたFormの更新に成功
