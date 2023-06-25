@@ -7,14 +7,14 @@ parameters:
     schema:
       $ref: './components.yml#/components/schemas/id'
   form_title:
-    name: formTitle
+    name: title
     in: query
     description: フォームのタイトル
     required: false
     schema: 
       $ref: './components.yml#/components/schemas/title'
   form_description:
-    name: formDescription
+    name: description
     in: query
     description: フォームの説明
     required: false
@@ -43,7 +43,7 @@ parameters:
     schema: 
       $ref: './components.yml#/components/schemas/end_at'
   webhook_url:
-    name: webhookUrl
+    name: webhook
     in: query
     description: フォームの変更などを通知するリンク
     required: false
