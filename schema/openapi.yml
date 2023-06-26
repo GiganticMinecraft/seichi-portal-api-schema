@@ -17,7 +17,7 @@ components:
     Bearer:
       type: http
       scheme: bearer
-      description: Credentials or access token for API
+      description: APIにアクセスするためのユーザー認証
 
 security:
   - Bearer: []
