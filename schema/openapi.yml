@@ -12,6 +12,16 @@ servers:
   - url: 'http://localhost:9000'
     description: seichi-portal-backend(開発環境)
 
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: APIにアクセスするためのユーザー認証
+
+security:
+  - Bearer: []
+
 paths:
   /forms:
     $ref: './paths/forms/index.yml'
