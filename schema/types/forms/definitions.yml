@@ -6,23 +6,23 @@ definitions:
       id:
         readOnly: true
         allOf:
-          - $ref: './components.yml#/components/schemas/id'
+          - $ref: "./components.yml#/components/schemas/id"
       title:
-        $ref: './components.yml#/components/schemas/title'
+        $ref: "./components.yml#/components/schemas/title"
       description:
-        $ref: './components.yml#/components/schemas/description'
+        $ref: "./components.yml#/components/schemas/description"
       settings:
         readOnly: true
         allOf:
-          - $ref: './components.yml#/components/schemas/settings'
+          - $ref: "./components.yml#/components/schemas/settings"
       metadata:
         readOnly: true
         allOf:
-          - $ref: './components.yml#/components/schemas/metadata'
+          - $ref: "./components.yml#/components/schemas/metadata"
       questions:
         readOnly: true
         allOf:
-          - $ref: './components.yml#/components/schemas/questions'
+          - $ref: "./components.yml#/components/schemas/questions"
     required:
       - id
       - title
@@ -30,7 +30,7 @@ definitions:
     type: object
     properties:
       id:
-        $ref: './components.yml#/components/schemas/id'
+        $ref: "./components.yml#/components/schemas/id"
     required:
       - id
   answers:
@@ -39,62 +39,62 @@ definitions:
     uniqueItems: true
     minItems: 0
     items:
-      $ref: './components.yml#/components/schemas/answer'
+      $ref: "./components.yml#/components/schemas/answer"
   kind_of_labels:
     type: object
     properties:
       kind_of_labels:
-        $ref: './components.yml#/components/schemas/kind_of_labels'
+        $ref: "./components.yml#/components/schemas/kind_of_labels"
     required:
       - kind_of_labels
   form_label_id:
     type: object
     properties:
       id:
-        $ref: './components.yml#/components/schemas/form_label_id'
+        $ref: "./components.yml#/components/schemas/form_label_id"
     required:
       - id
   form_label:
     description: フォームに対してつけるラベル
     type: object
     properties:
-      id: 
-        $ref: './components.yml#/components/schemas/form_label_id'
+      id:
+        $ref: "./components.yml#/components/schemas/form_label_id"
       kind_of_labels:
-        $ref: './components.yml#/components/schemas/kind_of_labels'
+        $ref: "./components.yml#/components/schemas/kind_of_labels"
       name:
-        $ref: './components.yml#/components/schemas/form_label_name'
+        $ref: "./components.yml#/components/schemas/form_label_name"
       description:
-        $ref: './components.yml#/components/schemas/form_label_description'
+        $ref: "./components.yml#/components/schemas/form_label_description"
   form_labels:
     description: フォームラベルの配列
     type: array
     uniqueItems: true
     minItems: 0
     items:
-      $ref: '#/definitions/form_label'
+      $ref: "#/definitions/form_label"
   comment_id:
     description: コメントのID
     type: object
     properties:
       id:
-        $ref: './components.yml#/components/schemas/comment_id'
+        $ref: "./components.yml#/components/schemas/comment_id"
   comment:
     description: 単一のコメント
     type: object
     properties:
       comment:
-        $ref: './components.yml#/components/schemas/comment'
+        $ref: "./components.yml#/components/schemas/comment"
   comment_for_edit:
     description: 単一のコメント
     type: object
     properties:
       comment:
-        $ref: './components.yml#/components/schemas/comment_for_edit'
+        $ref: "./components.yml#/components/schemas/comment_for_edit"
   comments:
     description: コメントの配列
     type: array
     uniqueItems: true
     minItems: 0
     items:
-      $ref: './components.yml#/components/schemas/comment'
+      $ref: "./components.yml#/components/schemas/comment"

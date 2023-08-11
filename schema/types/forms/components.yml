@@ -29,9 +29,9 @@ components:
       nullable: true
       properties:
         start_at:
-          $ref: '#/components/schemas/start_at'
+          $ref: "#/components/schemas/start_at"
         end_at:
-          $ref: '#/components/schemas/end_at'
+          $ref: "#/components/schemas/end_at"
     webhook_url:
       description: webhookのURL
       type: string
@@ -40,9 +40,9 @@ components:
       type: object
       properties:
         response_period:
-          $ref: '#/components/schemas/response_period'
+          $ref: "#/components/schemas/response_period"
         webhook_url:
-          $ref: '#/components/schemas/webhook_url'
+          $ref: "#/components/schemas/webhook_url"
     created_at:
       description: フォームの作成日時
       type: string
@@ -56,9 +56,9 @@ components:
       type: object
       properties:
         created_at:
-          $ref: '#/components/schemas/created_at'
+          $ref: "#/components/schemas/created_at"
         updated_at:
-          $ref: '#/components/schemas/updated_at'
+          $ref: "#/components/schemas/updated_at"
     question_id:
       description: 質問のID
       type: integer
@@ -80,7 +80,7 @@ components:
         | -------- | ------------| 
         | TEXT     | 自由記述     | 
         | MULTIPLE | 複数選択     | 
-        | SINGLE   | 単一選択     | 
+        | SINGLE   | 単一選択     |
       type: string
       enum:
         - TEXT
@@ -92,28 +92,28 @@ components:
       type: object
       properties:
         question_id:
-          $ref: '#/components/schemas/question_id'
+          $ref: "#/components/schemas/question_id"
         question_title:
-          $ref: '#/components/schemas/question_title'
+          $ref: "#/components/schemas/question_title"
         question_description:
-          $ref: '#/components/schemas/question_description'
+          $ref: "#/components/schemas/question_description"
         question_type:
-          $ref: '#/components/schemas/question_type'
+          $ref: "#/components/schemas/question_type"
     questions:
       description: 質問の配列
       type: array
       uniqueItems: true
       minItems: 1
       items:
-        $ref: '#/components/schemas/question'
+        $ref: "#/components/schemas/question"
     answer:
       description: 質問に対する回答
       type: object
       properties:
         question_id:
-          $ref: '#/components/schemas/question_id'
+          $ref: "#/components/schemas/question_id"
         uuid:
-          $ref: '../users/components.yml#/components/schemas/uuid'
+          $ref: "../users/components.yml#/components/schemas/uuid"
         answer:
           type: string
           example: 整地鯖にアクセスできません。どうしたらいいですか。
@@ -126,9 +126,9 @@ components:
         | 名前         | 説明                                         | 
         | ------------ | --------------------------------------------| 
         | FORM         | フォームに対してつけられるラベル            | 
-        | FORM_ANSWERS | フォームについた回答に対してつけられるラベル | 
+        | FORM_ANSWERS | フォームについた回答に対してつけられるラベル |
       type: string
-      enum: 
+      enum:
         - FORM
         - FORM_ANSWERS
     form_label_id:
@@ -160,14 +160,14 @@ components:
         id:
           readOnly: true
           allOf:
-            - $ref: '#/components/schemas/comment_id'
+            - $ref: "#/components/schemas/comment_id"
         content:
-          $ref: '#/components/schemas/comment_content'
+          $ref: "#/components/schemas/comment_content"
     comment_for_edit:
       description: コメント
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/comment_id'
+          $ref: "#/components/schemas/comment_id"
         content:
-          $ref: '#/components/schemas/comment_content'
+          $ref: "#/components/schemas/comment_content"

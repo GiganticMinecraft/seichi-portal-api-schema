@@ -7,18 +7,18 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../../../types/forms/definitions.yml#/definitions/comments'
+          $ref: "../../../../types/forms/definitions.yml#/definitions/comments"
   responses:
-    '200':
+    "200":
       description: コメント成功
-    '400':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
   operationId: deleteComment
@@ -29,18 +29,18 @@ delete:
     content:
       application/json:
         schema:
-          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_id'
+          $ref: "../../../../types/forms/definitions.yml#/definitions/comment_id"
   responses:
-    '200':
+    "200":
       description: コメントの削除成功
-    '400':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 patch:
   operationId: editComment
@@ -51,15 +51,15 @@ patch:
     content:
       application/json:
         schema:
-          $ref: '../../../../types/forms/definitions.yml#/definitions/comment_for_edit'
+          $ref: "../../../../types/forms/definitions.yml#/definitions/comment_for_edit"
   responses:
-    '200':
+    "200":
       description: コメント編集成功
-    '400':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"

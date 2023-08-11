@@ -11,27 +11,27 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../types/forms/definitions.yml#/definitions/form'
+          $ref: "../../types/forms/definitions.yml#/definitions/form"
   responses:
-    '201':
+    "201":
       description: フォームの作成に成功
       content:
         application/json:
           schema:
-            $ref: '../../types/forms/definitions.yml#/definitions/id'
+            $ref: "../../types/forms/definitions.yml#/definitions/id"
       headers:
         Location:
           description: 作成されたフォームへのURL
           schema:
             type: string
-    '400':
-      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '403':
-      $ref: '../../errors/errorResponses.yml#/components/responses/forbidden'
-    '500':
-      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "403":
+      $ref: "../../errors/errorResponses.yml#/components/responses/forbidden"
+    "500":
+      $ref: "../../errors/errorResponses.yml#/components/responses/internalServerError"
 get:
   operationId: listForms
   summary: フォームの一覧を取得する
@@ -68,7 +68,7 @@ get:
         minimum: 1
       required: false
   responses:
-    '200':
+    "200":
       description: フォーム一覧の取得に成功
       content:
         application/json:
@@ -77,10 +77,10 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              $ref: '../../types/forms/definitions.yml#/definitions/form'
-    '400':
-      $ref: '../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '500':
-      $ref: '../../errors/errorResponses.yml#/components/responses/internalServerError'
+              $ref: "../../types/forms/definitions.yml#/definitions/form"
+    "400":
+      $ref: "../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "500":
+      $ref: "../../errors/errorResponses.yml#/components/responses/internalServerError"

@@ -3,20 +3,20 @@ get:
   summary: 指定した種類のラベルをすべて取得する
   description: 指定されたものに対してつけられるラベルをすべて取得する
   parameters:
-    - $ref: '../../../types/forms/parameters.yml#/parameters/form_label_target'
+    - $ref: "../../../types/forms/parameters.yml#/parameters/form_label_target"
   responses:
-    '200':
+    "200":
       description: すべての指定ラベルの取得成功
       content:
         application/json:
           schema:
-            $ref: '../../../types/forms/definitions.yml#/definitions/form_labels'
-    '400':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '500':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+            $ref: "../../../types/forms/definitions.yml#/definitions/form_labels"
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 post:
   operationId: createFormLabel
@@ -28,16 +28,16 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../../types/forms/definitions.yml#/definitions/form_label'
+          $ref: "../../../types/forms/definitions.yml#/definitions/form_label"
   responses:
-    '200':
+    "200":
       description: "ラベルの作成に成功"
-    '400':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '500':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
   operationId: deleteFormLabel
@@ -49,15 +49,15 @@ delete:
     content:
       application/json:
         schema:
-          $ref: '../../../types/forms/definitions.yml#/definitions/form_label_id'
+          $ref: "../../../types/forms/definitions.yml#/definitions/form_label_id"
   responses:
-    '200':
+    "200":
       description: "ラベルの削除に成功"
-    '400':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
