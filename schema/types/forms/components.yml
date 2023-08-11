@@ -112,14 +112,9 @@ components:
       properties:
         question_id:
           $ref: "#/components/schemas/question_id"
-        uuid:
-          $ref: "../users/components.yml#/components/schemas/uuid"
         answer:
           type: string
           example: 整地鯖にアクセスできません。どうしたらいいですか。
-        timestamp:
-          type: string
-          format: date-time
     kind_of_labels:
       description: |
         ラベルの種類
