@@ -6,14 +6,14 @@ post:
     required: true
     content:
       application/json:
-        schema: 
-          $ref: '../../../types/forms/definitions.yml#/definitions/answers'
+        schema:
+          $ref: "../../../types/forms/definitions.yml#/definitions/answers"
   responses:
-    '200':
+    "200":
       description: 回答に成功
-    '401':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../errors/errorResponses.yml#/components/responses/internalServerError'
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"

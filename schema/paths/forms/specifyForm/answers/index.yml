@@ -2,19 +2,19 @@ get:
   operationId: getFormAnswers
   summary: 指定したフォームのすべての回答を取得する
   parameters:
-    - $ref: '../../../../types/forms/parameters.yml#/parameters/id'
+    - $ref: "../../../../types/forms/parameters.yml#/parameters/id"
   responses:
-    '200':
+    "200":
       description: 指定されたフォームの回答の取得に成功
       content:
         application/json:
           schema:
-            $ref: '../../../../types/forms/definitions.yml#/definitions/answers'
-    '400':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/syntaxError'
-    '401':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/unauthorized'
-    '404':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/notFound'
-    '500':
-      $ref: '../../../../errors/errorResponses.yml#/components/responses/internalServerError'
+            $ref: "../../../../types/forms/definitions.yml#/definitions/answers"
+    "400":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
