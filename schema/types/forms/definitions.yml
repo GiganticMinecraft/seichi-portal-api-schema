@@ -35,11 +35,18 @@ definitions:
       - id
   answers:
     description: 回答の配列
-    type: array
-    uniqueItems: true
-    minItems: 0
-    items:
-      $ref: "./components.yml#/components/schemas/answer"
+    properties:
+      uuid:
+        $ref: "../users/components.yml#/components/schemas/uuid"
+      timestamp:
+        type: string
+        format: date-time
+      answers:
+        type: array
+        uniqueItems: true
+        minItems: 0
+        items:
+          $ref: "./components.yml#/components/schemas/answer"
   kind_of_labels:
     type: object
     properties:
