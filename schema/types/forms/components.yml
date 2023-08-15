@@ -87,6 +87,12 @@ components:
         - MULTIPLE
         - SINGLE
       example: TEXT
+    is_required:
+      description: |
+        質問に対する解答を必須にする。
+        デフォルトはfalseで、trueだと有効になる。
+      type: boolean
+      example: false
     question:
       description: 質問
       type: object
@@ -99,6 +105,8 @@ components:
           $ref: "#/components/schemas/question_description"
         question_type:
           $ref: "#/components/schemas/question_type"
+        is_required:
+          $ref: "#/components/schemas/is_required"
     questions:
       description: 質問の配列
       type: array
