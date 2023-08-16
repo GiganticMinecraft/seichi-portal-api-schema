@@ -26,12 +26,12 @@ paths:
   /forms:
     $ref: "./paths/forms/index.yml"
   /forms/{formId}:
-    $ref: "./paths/forms/specifyForm/index.yml"
+    $ref: "./paths/forms/[formId]/index.yml"
   /forms/answers:
     $ref: "./paths/forms/answers/index.yml"
   /forms/answers/comment:
     $ref: "./paths/forms/answers/comment/index.yml"
   /forms/{formId}/answers:
-    $ref: "./paths/forms/specifyForm/answers/index.yml"
+    $ref: "./paths/forms/[formId]/answers/index.yml"
   /forms/labels:
     $ref: "./paths/forms/labels/index.yml"
