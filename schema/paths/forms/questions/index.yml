@@ -25,3 +25,26 @@ post:
       $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
     "500":
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+
+delete:
+  operationId: deleteQuestion
+  summary: 質問を削除する
+  description: 作成済みの質問を削除する
+  requestBody:
+    description: 削除するフォーム質問ID
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../../types/forms/definitions.yml#/definitions/question_id"
+  responses:
+    "200":
+      description: "質問の削除に成功"
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"

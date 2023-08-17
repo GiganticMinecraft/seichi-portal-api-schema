@@ -32,6 +32,12 @@ definitions:
     properties:
       questions:
         $ref: "./components.yml#/components/schemas/questions"
+  question_id:
+    description: 質問のID
+    type: object
+    properties:
+      question_id:
+        $ref: "./components.yml#/components/schemas/question_id"
   id:
     type: object
     properties:
