@@ -1,0 +1,27 @@
+post:
+  operationId: createQuestion
+  summary: 質問の新規作成
+  description: |
+    質問を新しく作ります。
+  requestBody:
+    description: 作成する質問の内容
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../../types/forms/definitions.yml#/definitions/questions"
+  responses:
+    "201":
+      description: 質問の作成に成功
+      content:
+        application/json:
+          schema:
+            $ref: "../../../types/forms/definitions.yml#/definitions/id"
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "403":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"

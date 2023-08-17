@@ -26,6 +26,12 @@ definitions:
     required:
       - id
       - title
+  questions:
+    description: 質問の配列
+    type: object
+    properties:
+      questions:
+        $ref: "./components.yml#/components/schemas/questions"
   id:
     type: object
     properties:

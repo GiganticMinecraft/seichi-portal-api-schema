@@ -63,6 +63,7 @@ components:
       description: 質問のID
       type: integer
       minimum: 0
+      readOnly: true
       example: 0
     question_title:
       description: 質問のタイトル
