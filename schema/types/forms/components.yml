@@ -98,7 +98,9 @@ components:
       type: object
       properties:
         question_id:
-          $ref: "#/components/schemas/question_id"
+          readOnly: true
+          allOf:
+            - $ref: "#/components/schemas/question_id"
         question_title:
           $ref: "#/components/schemas/question_title"
         question_description:
