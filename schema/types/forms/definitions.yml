@@ -30,6 +30,8 @@ definitions:
     description: 質問の配列
     type: object
     properties:
+      form_id:
+        $ref: "./components.yml#/components/schemas/id"
       questions:
         $ref: "./components.yml#/components/schemas/questions"
   question_id:
