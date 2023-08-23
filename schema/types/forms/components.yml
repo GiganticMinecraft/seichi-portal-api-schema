@@ -97,13 +97,13 @@ components:
       description: 質問
       type: object
       properties:
-        question_id:
+        id:
           readOnly: true
           allOf:
             - $ref: "#/components/schemas/question_id"
-        question_title:
+        title:
           $ref: "#/components/schemas/question_title"
-        question_description:
+        description:
           $ref: "#/components/schemas/question_description"
         question_type:
           $ref: "#/components/schemas/question_type"
