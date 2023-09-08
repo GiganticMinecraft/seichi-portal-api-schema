@@ -35,6 +35,12 @@ components:
     webhook_url:
       description: webhookのURL
       type: string
+    default_title:
+      description: |
+        フォームに回答された内容に対して設定されるタイトル。
+        これが設定されていないとタイトルは「未設定」となります。
+      type: string
+      example: 未設定
     settings:
       description: フォームの設定
       type: object
@@ -43,6 +49,8 @@ components:
           $ref: "#/components/schemas/response_period"
         webhook_url:
           $ref: "#/components/schemas/webhook_url"
+        default_title:
+          $ref: "#/components/schemas/default_title"
     created_at:
       description: フォームの作成日時
       type: string
