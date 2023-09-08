@@ -49,6 +49,16 @@ parameters:
     required: false
     schema:
       $ref: "./components.yml#/components/schemas/webhook_url"
+  default_title:
+    name: defaultTitle
+    in: query
+    description: |
+      各回答に対してつけられるタイトル。
+      $[question_id]と指定することで質問のquestion_idに対応する回答を埋め込むことができます。
+      デフォルト値: 未設定
+    required: false
+    schema:
+      $ref: "./components.yml#/components/schemas/default_title"
   form_label_target:
     name: target
     in: query
