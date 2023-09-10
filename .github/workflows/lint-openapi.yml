@@ -9,7 +9,7 @@ jobs:
     name: Lint OpenAPI definitions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Lint OpenAPI yml
@@ -18,7 +18,7 @@ jobs:
     name: Lint OpenAPI examples
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
       - name: Bundle OpenAPI yml
