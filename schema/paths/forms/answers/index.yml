@@ -1,3 +1,22 @@
+get:
+  operationId: getFormAnswers
+  summary: フォームの回答をすべて取得する
+  responses:
+    "200":
+      description: 指定されたフォームIDの情報取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: "../../../types/forms/definitions.yml#/definitions/answers"
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+
 post:
   operationId: postFormAnswers
   summary: 指定フォームに対して回答する
@@ -7,7 +26,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../../../types/forms/definitions.yml#/definitions/answers"
+          $ref: "../../../types/forms/definitions.yml#/definitions/batch_answers"
   responses:
     "200":
       description: 回答に成功
