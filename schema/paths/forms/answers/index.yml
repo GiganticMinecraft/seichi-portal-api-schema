@@ -1,5 +1,5 @@
 get:
-  operationId: getFormAnswers
+  operationId: getAllAnswers
   summary: フォームの回答をすべて取得する
   responses:
     "200":
