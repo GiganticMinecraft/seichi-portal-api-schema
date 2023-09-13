@@ -47,8 +47,9 @@ definitions:
         $ref: "./components.yml#/components/schemas/id"
     required:
       - id
-  answers:
-    description: 回答の配列
+  batch_answers:
+    description: ひとまとまりの回答
+    type: object
     properties:
       uuid:
         $ref: "../users/components.yml#/components/schemas/uuid"
@@ -66,6 +67,13 @@ definitions:
         minItems: 0
         items:
           $ref: "./components.yml#/components/schemas/answer"
+  answers:
+    description: batch_answersの配列
+    type: array
+    uniqueItems: true
+    minItems: 0
+    items:
+      $ref: "#/definitions/batch_answers"
   kind_of_labels:
     type: object
     properties:
