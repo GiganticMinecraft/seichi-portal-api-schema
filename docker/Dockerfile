@@ -6,7 +6,7 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-RUN npm install -g @redocly/cli kill-port http-server
+RUN npm install -g @redocly/cli http-server
 
 USER node
 WORKDIR /tmp/files
