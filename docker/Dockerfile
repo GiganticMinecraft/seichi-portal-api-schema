@@ -1,7 +1,7 @@
 FROM node:20-bullseye-slim
 
 ENV PAGE_TITLE=ReDoc
-ENV SPEC_URL=https://petstore3.swagger.io/api/v3/swagger.json
+ENV SPEC_URL=https://petstore3.swagger.io/api/v3/openapi.json
 ENV PORT=8080
 
 EXPOSE 8080
