@@ -6,6 +6,12 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-RUN npm install -g @redocly/cli
+RUN npm install -g @redocly/cli kill-port http-server
 
-ENTRYPOINT ["sh", "-c", "redocly preview-docs $SPEC_URL --port $PORT --host 0.0.0.0 --force"]
+USER node
+WORKDIR /tmp/files
+
+COPY --chmod=554 --chown=node:node ./docker/entrypoint.sh .
+COPY --chown=node:node ./.github/template.hbs .
+
+ENTRYPOINT ["./entrypoint.sh"]
