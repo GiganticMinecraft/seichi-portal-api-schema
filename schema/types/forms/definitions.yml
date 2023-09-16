@@ -61,6 +61,8 @@ definitions:
         description: titleをnullにするとデフォルト設定が適用
         example: "[hoge] 整地の心得違反"
         nullable: true
+      form_id:
+        $ref: "./components.yml#/components/schemas/id"
       answers:
         type: array
         uniqueItems: true
