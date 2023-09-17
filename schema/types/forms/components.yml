@@ -129,7 +129,7 @@ components:
       type: object
       properties:
         question_id:
-          $ref: "#/components/schemas/question_id"
+          $ref: "./components.yml#/components/schemas/question_id"
         answer:
           type: string
           example: 整地鯖にアクセスできません。どうしたらいいですか。
