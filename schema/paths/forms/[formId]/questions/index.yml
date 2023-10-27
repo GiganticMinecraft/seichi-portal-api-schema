@@ -1,0 +1,21 @@
+get:
+  operationId: getQuestions
+  summary: 質問の取得
+  description: 指定したフォームの質問をすべて取得します。
+  parameters:
+    - $ref: "../../../../types/forms/parameters.yml#/parameters/id"
+  responses:
+    "200":
+      description: 指定されたフォームの回答の取得に成功
+      content:
+        application/json:
+          schema:
+            $ref: "../../../../types/forms/definitions.yml#/definitions/questions"
+    "400":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "404":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
