@@ -95,6 +95,16 @@ components:
         - MULTIPLE
         - SINGLE
       example: TEXT
+    question_choices:
+      description: |
+        質問の選択肢の配列。
+        TEXT以外の場合は指定必須。
+      type: array
+      uniqueItems: true
+      minItems: 1
+      items:
+        type: string
+      example: []
     is_required:
       description: |
         質問に対する解答を必須にする。
@@ -115,6 +125,8 @@ components:
           $ref: "#/components/schemas/question_description"
         question_type:
           $ref: "#/components/schemas/question_type"
+        choices:
+          $ref: "#/components/schemas/question_choices"
         is_required:
           $ref: "#/components/schemas/is_required"
     questions:
