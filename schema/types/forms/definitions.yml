@@ -45,7 +45,9 @@ definitions:
     type: object
     properties:
       form_id:
-        $ref: "./components.yml#/components/schemas/id"
+        writeOnly: true
+        allOf:
+          - $ref: "./components.yml#/components/schemas/id"
       questions:
         $ref: "./components.yml#/components/schemas/questions"
   question_id:
