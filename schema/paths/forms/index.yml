@@ -77,7 +77,7 @@ get:
             uniqueItems: true
             minItems: 1
             items:
-              $ref: "../../types/forms/definitions.yml#/definitions/form"
+              $ref: "../../types/forms/definitions.yml#/definitions/simple_form"
     "400":
       $ref: "../../errors/errorResponses.yml#/components/responses/syntaxError"
     "401":
