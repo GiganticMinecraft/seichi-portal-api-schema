@@ -1,4 +1,6 @@
 get:
+  tags:
+    - forms
   operationId: getForm
   summary: フォームの詳細を取得する
   parameters:
@@ -20,6 +22,8 @@ get:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
+  tags:
+    - forms
   operationId: deleteForm
   summary: フォームを削除する
   parameters:
@@ -43,6 +47,8 @@ delete:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 patch:
+  tags:
+    - forms
   operationId: updateForm
   summary: フォームの値を更新する
   parameters:

@@ -1,4 +1,6 @@
 get:
+  tags:
+    - forms
   operationId: getFormLabels
   summary: 指定した種類のラベルをすべて取得する
   description: 指定されたものに対してつけられるラベルをすべて取得する
@@ -19,6 +21,8 @@ get:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 post:
+  tags:
+    - forms
   operationId: createFormLabel
   summary: ラベルを作成する
   description: ラベルを新規作成する
@@ -42,6 +46,8 @@ post:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
+  tags:
+    - forms
   operationId: deleteFormLabel
   summary: ラベルを削除する
   description: 作成済みのラベルを削除する

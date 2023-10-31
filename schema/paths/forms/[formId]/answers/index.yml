@@ -1,4 +1,6 @@
 get:
+  tags:
+    - forms
   operationId: getFormAnswers
   summary: 指定したフォームのすべての回答を取得する
   parameters:

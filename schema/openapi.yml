@@ -22,6 +22,10 @@ components:
 security:
   - Bearer: []
 
+tags:
+  - name: forms
+    description: フォーム操作に関連するAPI
+
 paths:
   /forms:
     $ref: "./paths/forms/index.yml"
