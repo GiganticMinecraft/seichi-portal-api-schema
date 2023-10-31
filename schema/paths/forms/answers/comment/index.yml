@@ -1,4 +1,6 @@
 post:
+  tags:
+    - forms
   operationId: addComment
   summary: 回答に対してコメントを残す
   requestBody:
@@ -21,6 +23,8 @@ post:
       $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
+  tags:
+    - forms
   operationId: deleteComment
   summary: コメントを削除する
   requestBody:
@@ -45,6 +49,8 @@ delete:
       $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 patch:
+  tags:
+    - forms
   operationId: editComment
   summary: コメントを編集する
   requestBody:

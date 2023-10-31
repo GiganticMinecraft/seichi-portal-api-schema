@@ -1,4 +1,6 @@
 post:
+  tags:
+    - forms
   operationId: createQuestion
   summary: 質問の新規作成
   description: |
@@ -27,6 +29,8 @@ post:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 delete:
+  tags:
+    - forms
   operationId: deleteQuestion
   summary: 質問を削除する
   description: 作成済みの質問を削除する

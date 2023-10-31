@@ -1,4 +1,6 @@
 post:
+  tags:
+    - forms
   operationId: createForm
   summary: フォームの新規作成
   description: |
@@ -33,6 +35,8 @@ post:
     "500":
       $ref: "../../errors/errorResponses.yml#/components/responses/internalServerError"
 get:
+  tags:
+    - forms
   operationId: listForms
   summary: フォームの一覧を取得する
   description: |

@@ -1,4 +1,6 @@
 get:
+  tags:
+    - forms
   operationId: getAllAnswers
   summary: フォームの回答をすべて取得する
   responses:
@@ -20,6 +22,8 @@ get:
       $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
 
 post:
+  tags:
+    - forms
   operationId: postFormAnswers
   summary: 指定フォームに対して回答する
   requestBody:

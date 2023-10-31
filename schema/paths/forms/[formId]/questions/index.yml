@@ -1,4 +1,6 @@
 get:
+  tags:
+    - forms
   operationId: getQuestions
   summary: 質問の取得
   description: 指定したフォームの質問をすべて取得します。
