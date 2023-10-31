@@ -53,6 +53,7 @@ patch:
     - $ref: "../../../types/forms/parameters.yml#/parameters/end_at"
     - $ref: "../../../types/forms/parameters.yml#/parameters/webhook_url"
     - $ref: "../../../types/forms/parameters.yml#/parameters/default_title"
+    - $ref: "../../../types/forms/parameters.yml#/parameters/visibility"
   responses:
     "200":
       description: 指定されたFormの更新に成功

@@ -59,6 +59,13 @@ parameters:
     required: false
     schema:
       $ref: "./components.yml#/components/schemas/default_title"
+  visibility:
+    name: visibility
+    in: query
+    description: フォームの公開設定
+    required: false
+    schema:
+      $ref: "./components.yml#/components/schemas/visibility"
   form_label_target:
     name: target
     in: query
