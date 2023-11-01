@@ -49,3 +49,5 @@ paths:
     $ref: "./paths/users/index.yml"
   /users/{uuid}:
     $ref: "./paths/users/[uuid]/index.yml"
+  /users/list:
+    $ref: "./paths/users/list/index.yml"
