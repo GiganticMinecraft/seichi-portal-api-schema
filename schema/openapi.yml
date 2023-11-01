@@ -47,3 +47,5 @@ paths:
     $ref: "./paths/forms/labels/index.yml"
   /users:
     $ref: "./paths/users/index.yml"
+  /users/{uuid}:
+    $ref: "./paths/users/[uuid]/index.yml"
