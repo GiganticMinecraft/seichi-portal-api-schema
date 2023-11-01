@@ -25,6 +25,8 @@ security:
 tags:
   - name: forms
     description: フォーム操作に関連するAPI
+  - name: users
+    description: ユーザー操作に関連するAPI
 
 paths:
   /forms:
@@ -43,3 +45,9 @@ paths:
     $ref: "./paths/forms/answers/comment/index.yml"
   /forms/labels:
     $ref: "./paths/forms/labels/index.yml"
+  /users:
+    $ref: "./paths/users/index.yml"
+  /users/{uuid}:
+    $ref: "./paths/users/[uuid]/index.yml"
+  /users/list:
+    $ref: "./paths/users/list/index.yml"

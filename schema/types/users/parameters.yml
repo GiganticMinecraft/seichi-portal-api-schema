@@ -1,0 +1,15 @@
+parameters:
+  uuid:
+    name: uuid
+    in: path
+    description: プレイヤーUUID
+    required: true
+    schema:
+      $ref: "./components.yml#/components/schemas/uuid"
+  role:
+    name: role
+    in: query
+    description: ユーザー権限
+    required: false
+    schema:
+      $ref: "./components.yml#/components/schemas/role"

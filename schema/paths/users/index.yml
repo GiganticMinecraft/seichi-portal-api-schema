@@ -1,0 +1,19 @@
+get:
+  tags:
+    - users
+  operationId: getUserInfo
+  summary: 自身のユーザー情報の取得
+  description: |
+    Bearer TokenにMicrosoftから取得したトークンを含めて実行すると
+    自身のユーザー情報が帰ってきます
+  responses:
+    "200":
+      description: 自身のユーザー情報の取得成功
+      content:
+        application/json:
+          schema:
+            $ref: "../../types/users/definitions.yml#/definitions/user"
+    "401":
+      $ref: "../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "500":
+      $ref: "../../errors/errorResponses.yml#/components/responses/internalServerError"

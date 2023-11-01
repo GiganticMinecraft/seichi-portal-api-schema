@@ -1,0 +1,21 @@
+patch:
+  tags:
+    - users
+  operationId: updateUser
+  summary: ユーザー情報を変更する
+  parameters:
+    - $ref: "../../../types/users/parameters.yml#/parameters/uuid"
+    - $ref: "../../../types/users/parameters.yml#/parameters/role"
+  responses:
+    "200":
+      description: ユーザー情報の変更に成功
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "403":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"

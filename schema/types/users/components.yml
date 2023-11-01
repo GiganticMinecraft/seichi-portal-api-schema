@@ -4,3 +4,12 @@ components:
       description: Minecraftプレイヤーに紐づくUUID
       type: string
       format: uuid
+    name:
+      description: Minecraftプレイヤー名
+      type: string
+    role:
+      description: ユーザー権限
+      type: string
+      enum:
+        - ADMINISTRATOR
+        - STANDARD_USER

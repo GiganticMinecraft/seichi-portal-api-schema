@@ -1,0 +1,23 @@
+get:
+  tags:
+    - users
+  operationId: getUsersList
+  summary: すべてのユーザーの取得
+  description: ユーザーリストを返します
+  responses:
+    "200":
+      description: 自身のユーザー情報の取得成功
+      content:
+        application/json:
+          schema:
+            $ref: "../../../types/users/definitions.yml#/definitions/users"
+    "400":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+    "401":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+    "403":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+    "404":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+    "500":
+      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
