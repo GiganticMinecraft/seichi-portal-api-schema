@@ -1,0 +1,11 @@
+definitions:
+  user:
+    description: ユーザー
+    type: object
+    properties:
+      uuid:
+        $ref: "./components.yml#/components/schemas/uuid"
+      name:
+        $ref: "./components.yml#/components/schemas/name"
+      role:
+        $ref: "./components.yml#/components/schemas/role"
