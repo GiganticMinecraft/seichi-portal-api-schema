@@ -67,11 +67,6 @@ definitions:
     description: ひとまとまりの回答
     type: object
     properties:
-      uuid:
-        $ref: "../users/components.yml#/components/schemas/uuid"
-      timestamp:
-        type: string
-        format: date-time
       title:
         type: string
         description: titleをnullにするとデフォルト設定が適用
