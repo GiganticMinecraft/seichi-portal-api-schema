@@ -11,5 +11,5 @@ components:
       description: ユーザー権限
       type: string
       enum:
-        - ADMINISTRATOR
-        - STANDARD_USER
+        - Administrator
+        - StandardUser
