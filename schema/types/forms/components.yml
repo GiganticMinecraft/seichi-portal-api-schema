@@ -150,6 +150,11 @@ components:
       minItems: 1
       items:
         $ref: "#/components/schemas/question"
+    answer_id:
+      description: 回答のID
+      type: integer
+      minimum: 0
+      example: 0
     answer:
       description: 質問に対する回答
       type: object
@@ -200,6 +205,8 @@ components:
           readOnly: true
           allOf:
             - $ref: "#/components/schemas/comment_id"
+        answer_id:
+          $ref: "#/components/schemas/answer_id"
         content:
           $ref: "#/components/schemas/comment_content"
     comment_for_edit:
