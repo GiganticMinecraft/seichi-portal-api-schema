@@ -38,6 +38,8 @@ post:
       description: 回答に成功
     "401":
       description: 認証されていない
+    "403":
+      description: 回答期間外のフォームに回答された
     "404":
       description: フォームか質問が見つからなかった
     "500":
