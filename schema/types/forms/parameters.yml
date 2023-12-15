@@ -21,7 +21,7 @@ parameters:
     schema:
       $ref: "./components.yml#/components/schemas/description"
   start_at:
-    name: startAt
+    name: start_at
     in: query
     description: |
       フォームの回答期間の開始日。
@@ -32,7 +32,7 @@ parameters:
     schema:
       $ref: "./components.yml#/components/schemas/start_at"
   end_at:
-    name: endAt
+    name: end_at
     in: query
     description: |
       フォームの回答期間の終了日。
@@ -50,7 +50,7 @@ parameters:
     schema:
       $ref: "./components.yml#/components/schemas/webhook_url"
   default_title:
-    name: defaultTitle
+    name: default_answer_title
     in: query
     description: |
       各回答に対してつけられるタイトル。
