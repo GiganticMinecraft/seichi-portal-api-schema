@@ -68,6 +68,6 @@ delete:
     "403":
       description: 権限が不足している
     "404":
-      description: 見つからなかった
+      description: ラベルIDが見つからなかった
     "500":
       description: サーバーエラー

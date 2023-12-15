@@ -18,6 +18,6 @@ get:
     "401":
       description: 認証されていない
     "404":
-      description: 見つからなかった
+      description: 指定されたフォームが見つからなかった
     "500":
       description: サーバーエラー

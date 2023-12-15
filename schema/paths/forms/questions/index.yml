@@ -51,6 +51,6 @@ delete:
     "403":
       description: 権限が不足している
     "404":
-      description: 見つからなかった
+      description: question_idが見つからなかった
     "500":
       description: サーバーエラー
