@@ -20,13 +20,13 @@ post:
           schema:
             $ref: "../../../types/forms/definitions.yml#/definitions/id"
     "400":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "403":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+      description: 権限が不足している
     "500":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
 
 delete:
   tags:
@@ -45,12 +45,12 @@ delete:
     "200":
       description: "質問の削除に成功"
     "400":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "403":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+      description: 権限が不足している
     "404":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+      description: 見つからなかった
     "500":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー

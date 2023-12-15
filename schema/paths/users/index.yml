@@ -14,6 +14,6 @@ get:
           schema:
             $ref: "../../types/users/definitions.yml#/definitions/user"
     "401":
-      $ref: "../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "500":
-      $ref: "../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー

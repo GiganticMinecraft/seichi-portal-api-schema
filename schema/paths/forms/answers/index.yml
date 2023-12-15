@@ -11,15 +11,15 @@ get:
           schema:
             $ref: "../../../types/forms/definitions.yml#/definitions/answers"
     "400":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "403":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/forbidden"
+      description: 権限が不足している
     "404":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+      description: 見つからなかった
     "500":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
 
 post:
   tags:
@@ -37,8 +37,8 @@ post:
     "200":
       description: 回答に成功
     "401":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/unauthorized"
+     description: 認証されていない
     "404":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/notFound"
+       description: 見つからなかった
     "500":
-      $ref: "../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
