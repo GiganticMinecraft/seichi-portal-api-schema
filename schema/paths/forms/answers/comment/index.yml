@@ -14,13 +14,13 @@ post:
     "200":
       description: コメント成功
     "400":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "404":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+      description: 回答が見つからなかった
     "500":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
 
 delete:
   tags:
@@ -38,15 +38,15 @@ delete:
     "200":
       description: コメントの削除成功
     "400":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "403":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/forbidden"
+      description: 権限が不足している
     "404":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+      description: コメントIDが見つからなかった
     "500":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
 
 patch:
   tags:
@@ -64,12 +64,12 @@ patch:
     "200":
       description: コメント編集成功
     "400":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/syntaxError"
+      description: リクエストの構文が間違っている
     "401":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/unauthorized"
+      description: 認証されていない
     "403":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/forbidden"
+      description: 権限が不足している
     "404":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/notFound"
+       description: 見つからなかった
     "500":
-      $ref: "../../../../errors/errorResponses.yml#/components/responses/internalServerError"
+      description: サーバーエラー
