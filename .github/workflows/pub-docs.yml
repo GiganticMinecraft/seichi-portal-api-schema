@@ -22,7 +22,7 @@ jobs:
       - name: Build docs
         run: redocly build-docs ./schema/openapi.yml -o ./docs/index.html -t ./.github/template.hbs
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
   deploy:
