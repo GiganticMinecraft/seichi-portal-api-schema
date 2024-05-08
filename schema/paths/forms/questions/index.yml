@@ -54,3 +54,30 @@ delete:
       description: question_idが見つからなかった
     "500":
       description: サーバーエラー
+
+put:
+  tags:
+    - forms
+  operationId: updateQuestion
+  summary: 質問の値を更新する
+  description: 指定したフォームの質問を上書きする
+  requestBody:
+    description: 更新するフォーム質問IDと更新内容
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../../types/forms/definitions.yml#/definitions/questions"
+  responses:
+    "200":
+      description: 質問編集成功
+    "400":
+      description: リクエストの構文が間違っている
+    "401":
+      description: 認証されていない
+    "403":
+      description: 権限が不足している
+    "404":
+      description: 質問IDが見つからなかった
+    "500":
+      description: サーバーエラー
