@@ -191,6 +191,17 @@ namespace Forms {
   @route("/answers")
   namespace Answers {
     @get
+    @summary("回答の取得")
+    @route("/{answerId}")
+    op get(@path answerId: uint32): {
+      @statusCode statusCode: 200;
+      @body body: Answer;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+
+    @get
     @summary("回答の一覧取得")
     op list(): {
       @statusCode statusCode: 200;
