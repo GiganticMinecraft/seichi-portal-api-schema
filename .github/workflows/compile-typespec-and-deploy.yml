@@ -1,0 +1,59 @@
+name: typespec-compile-and-deploy-gh-pages
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  compile:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install typespec
+        run: npm install -g @typespec/compiler
+
+      - name: Cache npm modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install node_modules
+        run: npm ci
+
+      - name: Compile typespec
+        run: tsp compile .
+
+      - name: Install redocly-cli
+        uses: ./.github/actions/install-redocly-cli
+
+      - name: Build docs
+        run: redocly build-docs tsp-output/@typespec/openapi3/openapi.yaml -o ./docs/index.html -t ./.github/template.hbs
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+  deploy-github-pages:
+    needs: compile
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
