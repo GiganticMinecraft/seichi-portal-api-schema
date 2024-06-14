@@ -5,7 +5,7 @@ model ResponsePeriod {
 
 /**
  * 必要最低限の情報を含むフォーム
- * 
+ *
  * 設定権限を持たないユーザーが必要な情報を取得するために使用することを想定
  */
 model MinimalForm {
@@ -21,7 +21,7 @@ model MinimalForm {
  */
 enum Visibility {
   PUBLIC: "PUBLIC",
-  PRIVATE: "PRIVATE"
+  PRIVATE: "PRIVATE",
 }
 
 /**
@@ -32,7 +32,7 @@ enum Visibility {
 enum QuestionType {
   TEXT: "TEXT",
   SINGLE: "SINGLE",
-  MULTIPLE: "MULTIPLE"
+  MULTIPLE: "MULTIPLE",
 }
 
 model Question {
@@ -50,10 +50,12 @@ model Form {
   description?: string;
   settings: {
     response_period: ResponsePeriod;
+
     /**
-     * フォームに関する何らかのアクションが行われたときに通知を行うURL 
+     * フォームに関する何らかのアクションが行われたときに通知を行うURL
      */
     webhook_url: url;
+
     default_title: string;
     visibility: Visibility;
   };
@@ -61,12 +63,13 @@ model Form {
     created_at: utcDateTime;
     updated_at: utcDateTime;
   };
-  questions: Question[]
+  questions: Question[];
 }
 
 model RealAnswer {
   @visibility("read")
   question_id: uint32;
+
   answer: string;
 }
 
@@ -79,5 +82,6 @@ model Answer {
 model Label {
   @visibility("read")
   id: uint32;
+
   name: string;
 }

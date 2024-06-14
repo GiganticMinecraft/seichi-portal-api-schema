@@ -6,5 +6,5 @@ enum Role {
 model User {
   uuid: string;
   name: string;
-  role: Role
+  role: Role;
 }

@@ -20,20 +20,17 @@ namespace Users {
     @statusCode statusCode: 400 | 401 | 403 | 500;
     @body body: Error;
   };
-  
+
   @patch
   @summary("ユーザー情報を更新する")
   @route("/{uuid}")
-  op update(
-    @path uuid: string;
-    @query role: Role;
-  ): {
+  op update(@path uuid: string, @query role: Role): {
     @statusCode statusCode: 200;
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
     @body body: Error;
   };
-  
+
   @get
   @summary("ユーザー一覧の取得")
   @route("/list")
