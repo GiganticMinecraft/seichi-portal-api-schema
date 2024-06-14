@@ -74,6 +74,9 @@ model RealAnswer {
 }
 
 model Answer {
+  @visibility("read")
+  id: uint32;
+
   form_id: uint32;
   title: string;
   answers: RealAnswer[];
