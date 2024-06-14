@@ -1,29 +1,32 @@
-name: Lint OpenAPI
+name: Lint Typespec OpenAPI Definitions
 on:
-  pull_request:
-    branches:
-      - main
-  workflow_call:
+  push:
+
 jobs:
-  lint-definitions:
-    name: Lint OpenAPI definitions
-    runs-on: ubuntu-latest
+  check-format:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - name: Install redocly-cli
-        uses: ./.github/actions/install-redocly-cli
-      - name: Lint OpenAPI yml
-        run: redocly lint ./schema/openapi.yml
-  lint-examples:
-    name: Lint OpenAPI examples
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install redocly-cli
-        uses: ./.github/actions/install-redocly-cli
-      - name: Bundle OpenAPI yml
-        run: redocly bundle ./schema/openapi.yml -o ./bundled-openapi.yml
-      - name: Install openapi-examples-validator
-        run: npm install -g openapi-examples-validator
-      - name: Lint examples
-        run: openapi-examples-validator ./bundled-openapi.yml
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install typespec
+        run: npm install -g @typespec/compiler
+
+      - name: Cache npm modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install node_modules
+        run: npm ci
+
+      - name: Check format
+        run: tsp format --check "**/*.tsp"
