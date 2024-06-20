@@ -76,8 +76,10 @@ model RealAnswer {
 model Answer {
   @visibility("read")
   id: uint32;
+  user: User;
 
   form_id: uint32;
+  timestamp: utcDateTime;
   title: string;
   answers: RealAnswer[];
 }
