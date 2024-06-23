@@ -192,17 +192,6 @@ namespace Forms {
   @route("/answers")
   namespace Answers {
     @get
-    @summary("回答の取得")
-    @route("/{answerId}")
-    op get(@path answerId: uint32): {
-      @statusCode statusCode: 200;
-      @body body: Answer;
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
-
-    @get
     @summary("回答の一覧取得")
     op list(): {
       @statusCode statusCode: 200;
@@ -231,6 +220,32 @@ namespace Forms {
       @statusCode statusCode: 400 | 401 | 403 | 500;
       @body body: Error;
     };
+
+    @route("/{answerId}")
+    namespace IndividualAnswer {
+      @get
+      @summary("回答の取得")
+      op get(@path answerId: uint32): {
+        @statusCode statusCode: 200;
+        @body body: Answer;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+        @body body: Error;
+      };
+
+      /**
+       * 回答のメタデータを編集します。
+       * このエンドポイントでは、回答自体を編集することはできません。
+       */
+      @patch
+      @summary("回答のメタデータを編集する")
+      op update(@path answerId: uint32, @query title?: string): {
+        @statusCode statusCode: 200;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+        @body body: Error;
+      };
+    }
 
     @route("/labels")
     namespace Labels {
