@@ -9,6 +9,12 @@
 API の定義には [TypeSpec](https://typespec.io/) を使用しています。
 TypeSpec については[公式ドキュメント](https://typespec.io/docs)を参照してください。
 
+### リモートで確認する
+
+seichi-portal-api-schema は GitHub Pages によって redocly が提供する形式で公開されています。
+
+[GitHub Pages上の定義はこちら](https://giganticminecraft.github.io/seichi-portal-api-schema/)
+
 ### ローカルで確認する
 
 `docker compose` を利用することで、ローカル環境で、スキーマを視覚的に確認することができます。
