@@ -239,7 +239,12 @@ namespace Forms {
        */
       @patch
       @summary("回答のメタデータを編集する")
-      op update(@path answerId: uint32, @query title?: string): {
+      op update(
+        @path answerId: uint32,
+        @body body: {
+          title?: string;
+        },
+      ): {
         @statusCode statusCode: 200;
       } | {
         @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
