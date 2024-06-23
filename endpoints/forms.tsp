@@ -52,13 +52,14 @@ namespace Forms {
   @summary("フォームの一覧取得")
   op list(
     @doc("取得件数の下限値 例えば、offsetを1とすると2件目からのデータが取得できます。")
+    @minValue(0)
     @query
-    offset: uint32,
+    offset?: uint32,
 
     @doc("取得件数の上限値 例えば、limitを10とすると10番目までのデータが取得できます。")
     @minValue(1)
     @query
-    limit: uint32,
+    limit?: uint32,
   ): {
     @statusCode statusCode: 200;
     @body body: MinimalForm[];
