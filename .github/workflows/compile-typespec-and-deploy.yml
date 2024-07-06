@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Compile typespec
-        run: tsp compile .
+        run: tsp compile ./src
 
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
