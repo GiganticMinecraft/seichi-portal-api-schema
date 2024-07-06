@@ -19,7 +19,7 @@ seichi-portal-api-schema は GitHub Pages によって redocly が提供する�
 
 `docker compose` を利用することで、ローカル環境で、スキーマを視覚的に確認することができます。
 
-docker を使用する前に seichi-portal-api-schema のルートディレクトリで `tsp compile .` を実行し、`openapi.yaml`を生成する必要があります。
+docker を使用する前に seichi-portal-api-schema のルートディレクトリで `tsp compile ./src` を実行し、`openapi.yaml`を生成する必要があります。
 
 `docker compose up -d` で、コンテナを起動したら、`http://localhost:8081` または `http://localhost:8082` にアクセスすると開くことができます。
 
