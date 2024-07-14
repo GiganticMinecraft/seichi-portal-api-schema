@@ -97,19 +97,20 @@ namespace Forms {
     @summary("フォームの値を更新する")
     op update(
       @path formId: uint32,
-      @query title?: string,
-      @query description?: string,
-      @query start_at?: utcDateTime,
-      @query end_at?: utcDateTime,
-      @query webhook_url?: url,
+      @body body: {
+        title?: string;
+        description?: string;
+        response_period?: ResponsePeriod;
+        webhook_url?: url;
 
-      /**
-       * 各回答に対して自動でつけられるタイトルを設定します。
-       * `$[question_id]`と指定することで、`question_id`の質問の回答をタイトルに含めることができます。
-       */
-      @query default_answer_title?: string,
+        /**
+         * 各回答に対して自動でつけられるタイトルを設定します。
+         * `$[question_id]`と指定することで、`question_id`の質問の回答をタイトルに含めることができます。
+         */
+        default_title?: string;
 
-      @query visibility?: Visibility,
+        visibility?: Visibility;
+      },
     ): {
       @statusCode statusCode: 200;
       @body body: Form;
