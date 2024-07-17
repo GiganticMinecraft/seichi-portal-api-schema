@@ -91,7 +91,12 @@ namespace Forms {
 
     /**
      * フォームの設定値を変更するエンドポイント。
-     * 回答可能期間を新たに設定する場合、start_atとend_atの両方を指定してください。
+     *
+     * 回答可能期間を設定する場合、`has_response_period`を`true`に設定し、`response_period`に期間を指定する必要があります。
+     * 回答可能期間の設定を解除する場合、`has_response_period`を`false`に設定します。
+     *
+     * NOTE: `has_response_period`の定義は、`response_period`の設定を解除するためのものなのか、
+     *  変更しないのかを判別するために定義したものであるため、より良い方法があればその定義に更新することを検討してもよいかも。
      */
     @patch
     @summary("フォームの値を更新する")
@@ -100,6 +105,7 @@ namespace Forms {
       @body body: {
         title?: string;
         description?: string;
+        has_response_period?: boolean;
         response_period?: ResponsePeriod;
         webhook_url?: url;
 
