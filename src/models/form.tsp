@@ -82,6 +82,11 @@ model Answer {
   timestamp: utcDateTime;
   title: string;
   answers: RealAnswer[];
+  comments: {
+    content: string;
+    timestamp: utcDateTime;
+    commented_by: User;
+  }[];
 }
 
 model Label {
