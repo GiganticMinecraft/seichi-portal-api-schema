@@ -170,11 +170,7 @@ namespace Forms {
 
     @delete
     @summary("質問の削除")
-    op delete(
-      @body body: {
-        question_id: uint32;
-      },
-    ): {
+    op delete(@path question_id: uint32): {
       @statusCode statusCode: 200;
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
@@ -277,11 +273,7 @@ namespace Forms {
 
       @delete
       @summary("フォームの回答につけられるラベルを削除する")
-      op deleteLabel(
-        @body body: {
-          id: uint32;
-        },
-      ): {
+      op deleteLabel(@path label_id: uint32): {
         @statusCode statusCode: 200;
       } | {
         @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
@@ -310,11 +302,7 @@ namespace Forms {
 
       @delete
       @summary("回答のコメントを削除する")
-      op delete(
-        @body body: {
-          comment_id: uint32;
-        },
-      ): {
+      op delete(@path comment_id: uint32): {
         @statusCode statusCode: 200;
       } | {
         @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
@@ -355,11 +343,7 @@ namespace Forms {
 
     @delete
     @summary("フォームにつけられるラベルを削除する")
-    op delete(
-      @body body: {
-        id: uint32;
-      },
-    ): {
+    op delete(@path form_label_id: uint32): {
       @statusCode statusCode: 200;
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
