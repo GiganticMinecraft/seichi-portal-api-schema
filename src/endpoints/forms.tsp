@@ -271,6 +271,16 @@ namespace Forms {
         @body body: Error;
       };
 
+      @get
+      @summary("フォームの回答につけられるラベル一覧を取得する")
+      op list(): {
+        @statusCode statusCode: 200;
+        @body body: Label[];
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 500;
+        @body body: Error;
+      };
+
       @delete
       @summary("フォームの回答につけられるラベルを削除する")
       op deleteLabel(@path label_id: uint32): {
@@ -338,6 +348,16 @@ namespace Forms {
       @statusCode statusCode: 201;
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+
+    @get
+    @summary("フォームにつけられるラベル一覧を取得する")
+    op list(): {
+      @statusCode statusCode: 200;
+      @body body: Label[];
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 500;
       @body body: Error;
     };
 
