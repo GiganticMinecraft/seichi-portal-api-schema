@@ -383,5 +383,19 @@ namespace Forms {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
       @body body: Error;
     };
+
+    @patch
+    @summary("フォームにつけられるラベルを更新する")
+    op update(
+      @body body: {
+        form_label_id: uint32;
+        name: string;
+      },
+    ): {
+      @statusCode statusCode: 200;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
   }
 }
