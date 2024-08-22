@@ -289,6 +289,20 @@ namespace Forms {
         @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
         @body body: Error;
       };
+
+      @patch
+      @summary("フォームの回答につけられるラベルを更新する")
+      op updateLabel(
+        @body body: {
+          label_id: uint32;
+          name: string;
+        },
+      ): {
+        @statusCode statusCode: 200;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+        @body body: Error;
+      };
     }
 
     @route("/comment")
@@ -364,6 +378,20 @@ namespace Forms {
     @delete
     @summary("フォームにつけられるラベルを削除する")
     op delete(@path form_label_id: uint32): {
+      @statusCode statusCode: 200;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+      @body body: Error;
+    };
+
+    @patch
+    @summary("フォームにつけられるラベルを更新する")
+    op update(
+      @body body: {
+        form_label_id: uint32;
+        name: string;
+      },
+    ): {
       @statusCode statusCode: 200;
     } | {
       @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
