@@ -255,56 +255,6 @@ namespace Forms {
       };
     }
 
-    @route("/labels")
-    namespace Labels {
-      @post
-      @summary("フォームの回答につけられるラベルを作成する")
-      op createLabel(
-        @header
-        contentType: "application/json",
-
-        @body body: Label,
-      ): {
-        @statusCode statusCode: 201;
-      } | {
-        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-        @body body: Error;
-      };
-
-      @get
-      @summary("フォームの回答につけられるラベル一覧を取得する")
-      op list(): {
-        @statusCode statusCode: 200;
-        @body body: Label[];
-      } | {
-        @statusCode statusCode: 400 | 401 | 403 | 500;
-        @body body: Error;
-      };
-
-      @delete
-      @summary("フォームの回答につけられるラベルを削除する")
-      op deleteLabel(@path label_id: uint32): {
-        @statusCode statusCode: 200;
-      } | {
-        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-        @body body: Error;
-      };
-
-      @patch
-      @summary("フォームの回答につけられるラベルを更新する")
-      op updateLabel(
-        @body body: {
-          label_id: uint32;
-          name: string;
-        },
-      ): {
-        @statusCode statusCode: 200;
-      } | {
-        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-        @body body: Error;
-      };
-    }
-
     @route("/comment")
     namespace Comment {
       @post
@@ -351,51 +301,110 @@ namespace Forms {
 
   @route("/labels")
   namespace Labels {
-    @post
-    @summary("フォームにつけられるラベルを作成する")
-    op create(
-      @header
-      contentType: "application/json",
+    @route("/answers")
+    namespace Answers {
+      @post
+      @summary("フォームの回答につけられるラベルを作成する")
+      op createLabel(
+        @header
+        contentType: "application/json",
 
-      @body body: Label,
-    ): {
-      @statusCode statusCode: 201;
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
+        @body body: Label,
+      ): {
+        @statusCode statusCode: 201;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+        @body body: Error;
+      };
 
-    @get
-    @summary("フォームにつけられるラベル一覧を取得する")
-    op list(): {
-      @statusCode statusCode: 200;
-      @body body: Label[];
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 500;
-      @body body: Error;
-    };
+      @get
+      @summary("フォームの回答につけられるラベル一覧を取得する")
+      op list(): {
+        @statusCode statusCode: 200;
+        @body body: Label[];
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 500;
+        @body body: Error;
+      };
 
-    @delete
-    @summary("フォームにつけられるラベルを削除する")
-    op delete(@path form_label_id: uint32): {
-      @statusCode statusCode: 200;
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
+      @route("/{label_id}")
+      namespace IndividualLabel {
+        @delete
+        @summary("フォームの回答につけられるラベルを削除する")
+        op deleteLabel(@path label_id: uint32): {
+          @statusCode statusCode: 200;
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+          @body body: Error;
+        };
 
-    @patch
-    @summary("フォームにつけられるラベルを更新する")
-    op update(
-      @body body: {
-        form_label_id: uint32;
-        name: string;
-      },
-    ): {
-      @statusCode statusCode: 200;
-    } | {
-      @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-      @body body: Error;
-    };
+        @patch
+        @summary("フォームの回答につけられるラベルを更新する")
+        op updateLabel(
+          @path label_id: uint32,
+          @body body: {
+            name: string;
+          },
+        ): {
+          @statusCode statusCode: 200;
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+          @body body: Error;
+        };
+      }
+    }
+
+    @route("/forms")
+    namespace Forms {
+      @post
+      @summary("フォームにつけられるラベルを作成する")
+      op create(
+        @header
+        contentType: "application/json",
+
+        @body body: Label,
+      ): {
+        @statusCode statusCode: 201;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+        @body body: Error;
+      };
+
+      @get
+      @summary("フォームにつけられるラベル一覧を取得する")
+      op list(): {
+        @statusCode statusCode: 200;
+        @body body: Label[];
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 500;
+        @body body: Error;
+      };
+
+      @route("/{form_label_id}")
+      namespace IndividualLabel {
+        @delete
+        @summary("フォームにつけられるラベルを削除する")
+        op delete(@path form_label_id: uint32): {
+          @statusCode statusCode: 200;
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+          @body body: Error;
+        };
+
+        @patch
+        @summary("フォームにつけられるラベルを更新する")
+        op update(
+          @path form_label_id: uint32,
+          @body body: {
+            name: string;
+          },
+        ): {
+          @statusCode statusCode: 200;
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+          @body body: Error;
+        };
+      }
+    }
   }
 }
