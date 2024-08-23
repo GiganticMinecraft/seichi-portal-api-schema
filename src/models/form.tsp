@@ -87,6 +87,7 @@ model Answer {
     timestamp: utcDateTime;
     commented_by: User;
   }[];
+  labels: Label[];
 }
 
 model Label {
