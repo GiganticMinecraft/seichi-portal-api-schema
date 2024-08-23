@@ -253,6 +253,21 @@ namespace Forms {
         @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
         @body body: Error;
       };
+
+      @route("/labels")
+      @put
+      @summary("回答についているラベルの置き換え")
+      op replace(
+        @path answerId: uint32,
+        @body body: {
+          labels: Label[];
+        },
+      ): {
+        @statusCode statusCode: 200;
+      } | {
+        @statusCode statusCode: 400 | 401 | 403 | 500;
+        @body body: Error;
+      };
     }
 
     @route("/comment")
