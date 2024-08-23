@@ -64,6 +64,7 @@ model Form {
     updated_at: utcDateTime;
   };
   questions: Question[];
+  labels: Label[];
 }
 
 model RealAnswer {
