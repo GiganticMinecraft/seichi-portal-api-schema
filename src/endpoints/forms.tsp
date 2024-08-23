@@ -260,7 +260,7 @@ namespace Forms {
       op replace(
         @path answerId: uint32,
         @body body: {
-          labels: Label[];
+          labels: uint32[];
         },
       ): {
         @statusCode statusCode: 200;
