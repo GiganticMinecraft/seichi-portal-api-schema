@@ -116,6 +116,7 @@ namespace Forms {
         default_title?: string;
 
         visibility?: Visibility;
+        answer_visibility?: Visibility;
       },
     ): {
       @statusCode statusCode: 200;
