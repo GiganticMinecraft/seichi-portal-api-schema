@@ -57,7 +57,16 @@ model Form {
     webhook_url: url;
 
     default_title: string;
+
+    /**
+     * フォーム自体を公開するかどうか
+     */
     visibility: Visibility;
+
+    /**
+     * 回答を公開するかどうか
+     */
+    answer_visibility: Visibility;
   };
   metadata: {
     created_at: utcDateTime;
