@@ -40,8 +40,6 @@ namespace Forms {
   };
 
   /**
-   * フォームの一覧を返す。
-   *
    * このエンドポイントでは最小限のフォーム情報を含むリストが返されます。
    *
    * また、取得パラメータとしてlimitとoffsetを指定し、取得件数を絞り込むことができます。
@@ -51,6 +49,34 @@ namespace Forms {
   @get
   @summary("フォームの一覧取得")
   op list(
+    @doc("取得件数の下限値 例えば、offsetを1とすると2件目からのデータが取得できます。")
+    @minValue(0)
+    @query
+    offset?: uint32,
+
+    @doc("取得件数の上限値 例えば、limitを10とすると10番目までのデータが取得できます。")
+    @minValue(1)
+    @query
+    limit?: uint32,
+  ): {
+    @statusCode statusCode: 200;
+    @body body: MinimalForm[];
+  } | {
+    @statusCode statusCode: 400 | 401 | 403 | 500;
+    @body body: Error;
+  };
+
+  /**
+   * このエンドポイントでは最小限のフォーム情報を含むリストが返されます。
+   * このエンドポイントからは `visibility` が `PUBLIC` であるフォームのみが取得されます。
+   *
+   * また、取得パラメータとしてlimitとoffsetを指定し、取得件数を絞り込むことができます。
+   * レスポンス内容はid基準とし、昇順ソートしたものになります。
+   */
+  @route("/public")
+  @get
+  @summary("PUBLICなフォームの一覧取得")
+  op privateList(
     @doc("取得件数の下限値 例えば、offsetを1とすると2件目からのデータが取得できます。")
     @minValue(0)
     @query
