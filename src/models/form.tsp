@@ -13,6 +13,7 @@ model MinimalForm {
   title: string;
   description?: string;
   response_period: ResponsePeriod;
+  answer_visibility: Visibility;
 }
 
 /**
