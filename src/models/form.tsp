@@ -37,7 +37,12 @@ enum QuestionType {
 }
 
 model Question {
-  id: uint32;
+  /**
+   * id は送信側(frontend)ではなく、受信側(backend)で生成するため nullable である。
+   * しかし、更新時に限っては id が必要である。
+   */
+  id?: uint32;
+
   title: string;
   description: string;
   question_type: QuestionType;
