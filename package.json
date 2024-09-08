@@ -4,10 +4,10 @@
   "type": "module",
   "dependencies": {
     "@typespec/compiler": "^0.57.0",
-    "@typespec/http": "latest",
+    "@typespec/http": "^0.57.0",
     "@typespec/openapi": "^0.57.0",
     "@typespec/openapi3": "^0.57.0",
-    "@typespec/rest": "latest"
+    "@typespec/rest": "^0.57.0"
   },
   "private": true
 }
