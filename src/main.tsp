@@ -1,4 +1,5 @@
 import "./endpoints/forms.tsp";
+import "./endpoints/messages.tsp";
 import "./endpoints/users.tsp";
 import "./endpoints/session.tsp";
 import "@typespec/openapi";
