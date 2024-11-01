@@ -27,6 +27,9 @@ namespace Messages {
     @body body: {
       id: uint32;
     };
+    @header header: {
+      Location: string;
+    };
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 500;
     @body body: Error;
@@ -48,16 +51,34 @@ namespace Messages {
     @body body: Error;
   };
 
-  @delete
   @route("/{message_id}")
-  @summary("メッセージの削除")
-  op delete(
-    @path
-    message_id: uint32,
-  ): {
-    @statusCode statusCode: 204;
-  } | {
-    @statusCode statusCode: 400 | 401 | 403 | 500;
-    @body body: Error;
-  };
+  namespace InvidualMessage {
+    @patch
+    @summary("メッセージの更新")
+    op update(
+      @path
+      message_id: uint32,
+
+      @body body: {
+        body: string;
+      },
+    ): {
+      @statusCode statusCode: 204;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 500;
+      @body body: Error;
+    };
+
+    @delete
+    @summary("メッセージの削除")
+    op delete(
+      @path
+      message_id: uint32,
+    ): {
+      @statusCode statusCode: 204;
+    } | {
+      @statusCode statusCode: 400 | 401 | 403 | 500;
+      @body body: Error;
+    };
+  }
 }
