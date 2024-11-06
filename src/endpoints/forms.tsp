@@ -2,6 +2,7 @@ import "@typespec/http";
 import "@typespec/rest";
 import "../models/errors.tsp";
 import "../models/form.tsp";
+import "../models/message.tsp";
 
 @service
 namespace SeichiPortalApiSchema;
@@ -295,6 +296,80 @@ namespace Forms {
         @statusCode statusCode: 400 | 401 | 403 | 500;
         @body body: Error;
       };
+
+      @tag("Messages")
+      @route("/messages")
+      namespace Messages {
+        @post
+        @summary("メッセージの新規作成")
+        op create_message(
+          @header
+          contentType: "application/json",
+
+          @path answerId: uint32,
+          @body body: {
+            body: string;
+          },
+        ): {
+          @statusCode statusCode: 201;
+          @body body: {
+            id: uint32;
+          };
+          @header header: {
+            Location: string;
+          };
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 500;
+          @body body: Error;
+        };
+
+        @get
+        @summary("メッセージの一覧取得")
+        op messages(@path answerId: uint32): {
+          @statusCode statusCode: 200;
+          @body body: {
+            messages: Message[];
+          };
+        } | {
+          @statusCode statusCode: 400 | 401 | 403 | 500;
+          @body body: Error;
+        };
+
+        @route("/{message_id}")
+        namespace InvidualMessage {
+          @patch
+          @summary("メッセージの更新")
+          op update_message(
+            @path answerId: uint32,
+
+            @path
+            message_id: uint32,
+
+            @body body: {
+              body: string;
+            },
+          ): {
+            @statusCode statusCode: 204;
+          } | {
+            @statusCode statusCode: 400 | 401 | 403 | 500;
+            @body body: Error;
+          };
+
+          @delete
+          @summary("メッセージの削除")
+          op delete_message(
+            @path answerId: uint32,
+
+            @path
+            message_id: uint32,
+          ): {
+            @statusCode statusCode: 204;
+          } | {
+            @statusCode statusCode: 400 | 401 | 403 | 500;
+            @body body: Error;
+          };
+        }
+      }
     }
 
     @route("/comment")
