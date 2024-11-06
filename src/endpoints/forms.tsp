@@ -343,7 +343,8 @@ namespace Forms {
             @path answerId: uint32,
 
             @path
-            message_id: uint32,
+            @format("uuid")
+            message_id: string,
 
             @body body: {
               body: string;
@@ -361,7 +362,8 @@ namespace Forms {
             @path answerId: uint32,
 
             @path
-            message_id: uint32,
+            @format("uuid")
+            message_id: string,
           ): {
             @statusCode statusCode: 204;
           } | {
