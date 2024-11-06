@@ -327,9 +327,7 @@ namespace Forms {
         @summary("メッセージの一覧取得")
         op messages(@path answerId: uint32): {
           @statusCode statusCode: 200;
-          @body body: {
-            messages: Message[];
-          };
+          @body body: Message[];
         } | {
           @statusCode statusCode: 400 | 401 | 403 | 500;
           @body body: Error;
