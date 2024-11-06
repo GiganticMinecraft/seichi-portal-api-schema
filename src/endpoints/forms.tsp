@@ -475,7 +475,7 @@ namespace Forms {
     namespace Forms {
       @post
       @summary("フォームにつけられるラベルを作成する")
-      op create(
+      op createFormLabel(
         @header
         contentType: "application/json",
 
@@ -489,7 +489,7 @@ namespace Forms {
 
       @get
       @summary("フォームにつけられるラベル一覧を取得する")
-      op list(): {
+      op formLabels(): {
         @statusCode statusCode: 200;
         @body body: Label[];
       } | {
