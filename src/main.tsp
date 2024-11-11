@@ -1,6 +1,7 @@
 import "./endpoints/forms.tsp";
 import "./endpoints/users.tsp";
 import "./endpoints/session.tsp";
+import "./endpoints/notification.tsp";
 import "@typespec/openapi";
 
 using TypeSpec.Http;
