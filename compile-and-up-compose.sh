@@ -1,6 +1,6 @@
 #!/bin/bash
 
 npm ci
-tsp compile ./src
+tsp compile ./spec
 docker compose down
 docker compose up -d
