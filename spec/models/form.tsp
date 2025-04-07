@@ -48,10 +48,12 @@ namespace Forms.Models {
     answer_settings: AnswerSettings;
   }
 
+  scalar FormId extends ID;
+
   model Form {
     @key
     @visibility(Lifecycle.Read)
-    id: ID;
+    id: FormId;
 
     @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
     title: FormTitle;

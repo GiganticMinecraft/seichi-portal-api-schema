@@ -18,17 +18,23 @@ namespace Users.Router {
   alias UserRouter = NeedsAuthorizationTemplates<Users.Models.User>;
 
   @summary("ユーザーの一覧取得")
-  op ListUsers is UserRouter.list;
+  op ListUsers is UserRouter.list<{}>;
 
   @route("/me")
   @summary("自分のユーザー情報の取得")
-  op GetMe is UserRouter.getWithoutId;
+  op GetMe is UserRouter.get<{}>;
 
   @route("/{id}")
   @summary("ユーザーの取得")
-  op GetUser is UserRouter.get;
+  op GetUser is UserRouter.get<{
+    @path
+    id: Users.Models.UserId;
+  }>;
 
   @route("/{id}")
   @summary("ユーザーの更新")
-  op UpdateUser is UserRouter.update;
+  op UpdateUser is UserRouter.update<{
+    @path
+    id: Users.Models.UserId;
+  }>;
 }

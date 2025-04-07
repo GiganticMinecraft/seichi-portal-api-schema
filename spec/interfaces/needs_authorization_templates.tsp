@@ -7,11 +7,12 @@ using TypeSpec.Http;
 
 interface NeedsAuthorizationTemplates<T> {
   @post
-  create(
+  create<AdditionalParams>(
     @header
     contentType: "application/json",
 
     @body body: T,
+    ...AdditionalParams,
   ): {
     @statusCode statusCode: 201;
   } | {
@@ -20,10 +21,7 @@ interface NeedsAuthorizationTemplates<T> {
   };
 
   @get
-  get(
-    @path
-    id: ID,
-  ): {
+  get<AdditionalParams>(...AdditionalParams): {
     @statusCode statusCode: 200;
     @body body: T;
   } | {
@@ -32,22 +30,7 @@ interface NeedsAuthorizationTemplates<T> {
   };
 
   @get
-  getWithoutId(): {
-    @statusCode statusCode: 200;
-    @body body: T;
-  } | {
-    @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
-    @body body: Error;
-  };
-
-  @get
-  list(
-    @query
-    page?: int32,
-
-    @query
-    limit?: int32,
-  ): {
+  list<AdditionalParams>(...AdditionalParams): {
     @statusCode statusCode: 200;
     @body body: T[];
   } | {
@@ -56,12 +39,12 @@ interface NeedsAuthorizationTemplates<T> {
   };
 
   @patch
-  update(
+  update<AdditionalParams>(
     @header
     contentType: "application/json",
 
-    @path id: ID,
     @body body: T,
+    ...AdditionalParams,
   ): {
     @statusCode statusCode: 200;
     @body body: T;
@@ -71,10 +54,7 @@ interface NeedsAuthorizationTemplates<T> {
   };
 
   @delete
-  delete(
-    @path
-    id: ID,
-  ): {
+  delete<AdditionalParams>(...AdditionalParams): {
     @statusCode statusCode: 204;
   } | {
     @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
