@@ -1,4 +1,4 @@
-import "./id.tsp";
+import "../id.tsp";
 import "@typespec/http";
 import "@typespec/rest";
 

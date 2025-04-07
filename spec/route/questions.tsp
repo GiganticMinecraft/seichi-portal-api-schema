@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "@typespec/rest";
 import "@typespec/openapi";
-import "../models/question.tsp";
+import "../models/forms/question.tsp";
 import "../interfaces/needs_authorization_templates.tsp";
 
 using TypeSpec.Http;
