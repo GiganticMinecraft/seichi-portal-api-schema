@@ -2,7 +2,7 @@ import "@typespec/http";
 import "@typespec/rest";
 import "@typespec/openapi";
 
-import "./route/forms/route.tsp";
+import "./route/forms.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
