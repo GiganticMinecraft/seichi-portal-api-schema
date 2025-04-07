@@ -3,8 +3,9 @@ import "@typespec/rest";
 import "@typespec/openapi";
 
 import "./route/forms.tsp";
-import "./route/user.tsp";
 import "./route/questions.tsp";
+import "./route/answers.tsp";
+import "./route/user.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
