@@ -32,6 +32,15 @@ interface NeedsAuthorizationTemplates<T> {
   };
 
   @get
+  getWithoutId(): {
+    @statusCode statusCode: 200;
+    @body body: T;
+  } | {
+    @statusCode statusCode: 400 | 401 | 403 | 404 | 500;
+    @body body: Error;
+  };
+
+  @get
   list(
     @query
     page?: int32,
