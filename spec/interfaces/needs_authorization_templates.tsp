@@ -63,10 +63,7 @@ interface NeedsAuthorizationTemplates<T> {
 
   @delete
   delete(
-    @header
-    contentType: "application/json",
-
-    @query
+    @path
     id: ID,
   ): {
     @statusCode statusCode: 204;
