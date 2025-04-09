@@ -19,8 +19,6 @@ namespace LabelForForm.Router {
 
   op ListLabelForForm is LabelForFormRouter.list<{}>;
 
-  op LabelListForForm is LabelForFormRouter.list<{}>;
-
   @route("/{label_id}")
   namespace PerLabelForForm {
     op GetLabelForForm is LabelForFormRouter.get<{

@@ -19,8 +19,6 @@ namespace LabelForAnswers.Router {
 
   op ListLabelForAnswers is LabelForAnswersRouter.list<{}>;
 
-  op LabelListForAnswers is LabelForAnswersRouter.list<{}>;
-
   @route("/{label_id}")
   namespace PerLabelForAnswers {
     op GetLabelForAnswers is LabelForAnswersRouter.get<{
