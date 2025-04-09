@@ -1,7 +1,11 @@
+import "./types/id.tsp";
+
 @service
 namespace SeichiPortalApiSchema;
 
 namespace Users.Models {
+  using Types;
+
   enum Role {
     standardUser: "STANDARD_USER",
     administrator: "ADMINISTRATOR",

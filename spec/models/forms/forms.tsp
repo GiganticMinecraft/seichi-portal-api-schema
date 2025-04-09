@@ -4,6 +4,8 @@ import "../types/id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Forms.Models {
+  using Types;
+
   @minLength(1)
   scalar formTitle extends string;
 

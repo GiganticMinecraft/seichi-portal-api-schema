@@ -4,11 +4,12 @@ import "../types/id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Answers.Models {
-  scalar AnswerId extends uuid;
-
   using Users.Models;
   using Forms.Models;
   using Questions.Models;
+  using Types;
+
+  scalar AnswerId extends uuid;
 
   model Answer {
     question_id: questionId;

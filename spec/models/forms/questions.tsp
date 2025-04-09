@@ -4,6 +4,8 @@ import "../types/id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Questions.Models {
+  using Types;
+
   scalar questionId extends uuid;
 
   enum QuestionType {
