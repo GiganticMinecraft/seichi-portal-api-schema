@@ -1,2 +1,2 @@
 @format("uuid")
-scalar ID extends string;
+scalar id extends string;

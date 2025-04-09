@@ -22,20 +22,20 @@ namespace Answers.Router {
     @summary("回答の作成")
     op CreateAnswer is AnswerRouter.create<{
       @path
-      form_id: Forms.Models.FormId;
+      form_id: Forms.Models.formId;
     }>;
 
     @summary("回答の一覧取得")
     op ListAnswer is AnswerRouter.list<{
       @path
-      form_id: Forms.Models.FormId;
+      form_id: Forms.Models.formId;
     }>;
 
     @route("/{answer_id}")
     @summary("回答の取得")
     op GetAnswer is AnswerRouter.get<{
       @path
-      form_id: Forms.Models.FormId;
+      form_id: Forms.Models.formId;
 
       @path
       answer_id: Answers.Models.AnswerId;
@@ -45,7 +45,7 @@ namespace Answers.Router {
     @summary("回答の更新")
     op UpdateAnswer is AnswerRouter.update<{
       @path
-      form_id: Forms.Models.FormId;
+      form_id: Forms.Models.formId;
 
       @path
       answer_id: Answers.Models.AnswerId;

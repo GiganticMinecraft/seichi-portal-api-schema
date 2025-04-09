@@ -24,13 +24,13 @@ namespace Users.Router {
   @summary("ユーザーの取得")
   op GetUser is UserRouter.get<{
     @path
-    id: Users.Models.UserId;
+    id: Users.Models.userId;
   }>;
 
   @route("/{id}")
   @summary("ユーザーの更新")
   op UpdateUser is UserRouter.update<{
     @path
-    id: Users.Models.UserId;
+    id: Users.Models.userId;
   }>;
 }

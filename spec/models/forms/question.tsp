@@ -4,7 +4,7 @@ import "../id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Questions.Models {
-  scalar QuestionId extends ID;
+  scalar questionId extends id;
 
   enum QuestionType {
     Text: "TEXT",
@@ -13,18 +13,18 @@ namespace Questions.Models {
   }
 
   @minLength(1)
-  scalar QuestionTitle extends string;
+  scalar questionTitle extends string;
 
   @minLength(1)
-  scalar QuestionDescription extends string;
+  scalar questionDescription extends string;
 
   model Question {
     @key
     @visibility(Lifecycle.Read)
-    id: QuestionId;
+    id: questionId;
 
-    title: QuestionTitle;
-    description: QuestionDescription;
+    title: questionTitle;
+    description: questionDescription;
     question_type: QuestionType;
     choices: string[];
     is_required: boolean;

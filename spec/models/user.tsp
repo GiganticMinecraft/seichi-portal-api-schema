@@ -8,13 +8,13 @@ namespace Users.Models {
   }
 
   @minLength(1)
-  scalar UserName extends string;
+  scalar userName extends string;
 
-  scalar UserId extends ID;
+  scalar userId extends id;
 
   model User {
-    uuid: UserId;
-    name: UserName;
+    uuid: userId;
+    name: userName;
     role: Role;
   }
 }

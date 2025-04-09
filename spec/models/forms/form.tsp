@@ -5,13 +5,13 @@ namespace SeichiPortalApiSchema;
 
 namespace Forms.Models {
   @minLength(1)
-  scalar FormTitle extends string;
+  scalar formTitle extends string;
 
   @minLength(1)
-  scalar FormDescription extends string;
+  scalar formDescription extends string;
 
   @format("url")
-  scalar WebhookUrl extends url;
+  scalar webhookUrl extends url;
 
   enum FormVisibility {
     Public: "PUBLIC",
@@ -29,32 +29,32 @@ namespace Forms.Models {
   }
 
   @minLength(1)
-  scalar DefaultAnswerTitle extends string;
+  scalar defaultAnswerTitle extends string;
 
   model AnswerSettings {
-    default_answer_title: DefaultAnswerTitle;
+    default_answer_title: defaultAnswerTitle;
     visibility: AnswerVisibility;
     response_period: ResponsePeriod;
   }
 
   model FormSettings {
-    webhook_url?: WebhookUrl;
+    webhook_url?: webhookUrl;
     visibility: FormVisibility;
     answer_settings: AnswerSettings;
   }
 
-  scalar FormId extends ID;
+  scalar formId extends id;
 
   model Form {
     @key
     @visibility(Lifecycle.Read)
-    id: FormId;
+    id: formId;
 
     @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
-    title: FormTitle;
+    title: formTitle;
 
     @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
-    description?: FormDescription;
+    description?: formDescription;
 
     @visibility(Lifecycle.Read, Lifecycle.Update)
     settings: FormSettings;
