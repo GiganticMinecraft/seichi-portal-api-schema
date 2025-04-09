@@ -1,8 +1,8 @@
 import "@typespec/http";
 
-import "./route/forms.tsp";
-import "./route/questions.tsp";
-import "./route/answers.tsp";
+import "./route/forms/forms.tsp";
+import "./route/forms/questions.tsp";
+import "./route/forms/answers.tsp";
 import "./route/user.tsp";
 
 using TypeSpec.Http;
