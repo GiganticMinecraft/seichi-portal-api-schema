@@ -11,6 +11,7 @@ import "./route/user.tsp";
 import "./route/search.tsp";
 import "./route/notifications.tsp";
 import "./route/session.tsp";
+import "./route/link-discord.tsp";
 
 using TypeSpec.Http;
 
