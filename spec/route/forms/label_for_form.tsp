@@ -15,22 +15,27 @@ namespace LabelForForm.Router {
 
   alias LabelForFormRouter = NeedsAuthorizationTemplates<LabelForForm>;
 
+  @summary("フォーム用ラベルを作成する")
   op CreateLabelForForm is LabelForFormRouter.create<{}>;
 
+  @summary("フォーム用ラベルの一覧を取得する")
   op ListLabelForForm is LabelForFormRouter.list<{}>;
 
   @route("/{label_id}")
   namespace PerLabelForForm {
+    @summary("フォーム用ラベルを取得する")
     op GetLabelForForm is LabelForFormRouter.get<{
       @path
       label_id: labelForFormId;
     }>;
 
+    @summary("フォーム用ラベルを更新する")
     op UpdateLabelForForm is LabelForFormRouter.update<{
       @path
       label_id: labelForFormId;
     }>;
 
+    @summary("フォーム用ラベルを削除する")
     op DeleteLabelForForm is LabelForFormRouter.delete<{
       @path
       label_id: labelForFormId;
