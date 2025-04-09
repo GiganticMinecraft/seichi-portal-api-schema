@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "../models/forms/form.tsp";
 import "../models/user.tsp";
-import "../interfaces/needs_authorization_templates.tsp";
+import "../interfaces/needs-authorization-templates.tsp";
 
 using TypeSpec.Http;
 
