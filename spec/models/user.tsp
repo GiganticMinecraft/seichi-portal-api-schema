@@ -1,9 +1,6 @@
 @service
 namespace SeichiPortalApiSchema;
 
-using TypeSpec.Http;
-using TypeSpec.Rest;
-
 namespace Users.Models {
   enum Role {
     StandardUser: "STANDARD_USER",

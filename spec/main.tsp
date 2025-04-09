@@ -1,6 +1,4 @@
 import "@typespec/http";
-import "@typespec/rest";
-import "@typespec/openapi";
 
 import "./route/forms.tsp";
 import "./route/questions.tsp";
@@ -8,8 +6,6 @@ import "./route/answers.tsp";
 import "./route/user.tsp";
 
 using TypeSpec.Http;
-using TypeSpec.Rest;
-using TypeSpec.OpenAPI;
 
 @service(#{ title: "Seichi Portal API" })
 @server("http://localhost:9000", "開発環境")

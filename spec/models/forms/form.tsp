@@ -1,12 +1,7 @@
 import "../id.tsp";
-import "@typespec/http";
-import "@typespec/rest";
 
 @service
 namespace SeichiPortalApiSchema;
-
-using TypeSpec.Http;
-using TypeSpec.Rest;
 
 namespace Forms.Models {
   @minLength(1)

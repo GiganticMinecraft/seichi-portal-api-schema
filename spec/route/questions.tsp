@@ -1,12 +1,8 @@
 import "@typespec/http";
-import "@typespec/rest";
-import "@typespec/openapi";
 import "../models/forms/question.tsp";
 import "../interfaces/needs_authorization_templates.tsp";
 
 using TypeSpec.Http;
-using TypeSpec.Rest;
-using TypeSpec.OpenAPI;
 
 @service
 namespace SeichiPortalApiSchema;

@@ -1,8 +1,6 @@
-import "@typespec/rest";
 import "@typespec/http";
 import "../models/error.tsp";
 
-using TypeSpec.Rest;
 using TypeSpec.Http;
 
 interface NeedsAuthorizationTemplates<T> {
