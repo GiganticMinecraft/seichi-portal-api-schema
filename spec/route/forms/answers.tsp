@@ -41,7 +41,7 @@ namespace Answers.Router {
       form_id: formId;
 
       @path
-      answer_id: AnswerId;
+      answer_id: answerId;
     }>;
 
     @route("/{answer_id}")
@@ -51,7 +51,7 @@ namespace Answers.Router {
       form_id: formId;
 
       @path
-      answer_id: AnswerId;
+      answer_id: answerId;
     }>;
   }
 }

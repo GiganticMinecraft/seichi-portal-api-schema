@@ -3,6 +3,7 @@ import "@typespec/http";
 import "./route/forms/forms.tsp";
 import "./route/forms/questions.tsp";
 import "./route/forms/answers.tsp";
+import "./route/forms/comments.tsp";
 import "./route/user.tsp";
 
 using TypeSpec.Http;

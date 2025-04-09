@@ -1,4 +1,5 @@
 import "../types/id.tsp";
+import "./questions.tsp";
 
 @service
 namespace SeichiPortalApiSchema;
@@ -9,7 +10,7 @@ namespace Answers.Models {
   using Questions.Models;
   using Types;
 
-  scalar AnswerId extends uuid;
+  scalar answerId extends uuid;
 
   model Answer {
     question_id: questionId;
@@ -19,7 +20,7 @@ namespace Answers.Models {
   model AnswerEntry {
     @key
     @visibility(Lifecycle.Read)
-    id: AnswerId;
+    id: answerId;
 
     form_id: formId;
     contents: Answer[];
