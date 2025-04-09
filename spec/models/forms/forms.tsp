@@ -14,13 +14,13 @@ namespace Forms.Models {
   scalar webhookUrl extends url;
 
   enum FormVisibility {
-    Public: "PUBLIC",
-    Private: "PRIVATE",
+    public: "PUBLIC",
+    private: "PRIVATE",
   }
 
   enum AnswerVisibility {
-    Public: "PUBLIC",
-    Private: "PRIVATE",
+    public: "PUBLIC",
+    private: "PRIVATE",
   }
 
   model ResponsePeriod {

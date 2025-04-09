@@ -7,9 +7,9 @@ namespace Questions.Models {
   scalar questionId extends uuid;
 
   enum QuestionType {
-    Text: "TEXT",
-    Single: "SINGLE",
-    Multiple: "MULTIPLE",
+    text: "TEXT",
+    single: "SINGLE",
+    multiple: "MULTIPLE",
   }
 
   @minLength(1)

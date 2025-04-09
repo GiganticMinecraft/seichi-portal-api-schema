@@ -3,8 +3,8 @@ namespace SeichiPortalApiSchema;
 
 namespace Users.Models {
   enum Role {
-    StandardUser: "STANDARD_USER",
-    Administrator: "ADMINISTRATOR",
+    standardUser: "STANDARD_USER",
+    administrator: "ADMINISTRATOR",
   }
 
   @minLength(1)
