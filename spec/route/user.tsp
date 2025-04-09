@@ -11,7 +11,9 @@ namespace SeichiPortalApiSchema;
 @route("/users")
 @tag("Users")
 namespace Users.Router {
-  alias UserRouter = NeedsAuthorizationTemplates<Users.Models.User>;
+  using Users.Models;
+
+  alias UserRouter = NeedsAuthorizationTemplates<User>;
 
   @summary("ユーザーの一覧取得")
   op ListUsers is UserRouter.list<{}>;
@@ -24,13 +26,13 @@ namespace Users.Router {
   @summary("ユーザーの取得")
   op GetUser is UserRouter.get<{
     @path
-    id: Users.Models.userId;
+    id: userId;
   }>;
 
   @route("/{id}")
   @summary("ユーザーの更新")
   op UpdateUser is UserRouter.update<{
     @path
-    id: Users.Models.userId;
+    id: userId;
   }>;
 }
