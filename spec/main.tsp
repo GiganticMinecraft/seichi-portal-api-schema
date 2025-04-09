@@ -9,6 +9,7 @@ import "./route/forms/label_for_answers.tsp";
 import "./route/forms/label_for_form.tsp";
 import "./route/user.tsp";
 import "./route/search.tsp";
+import "./route/session.tsp";
 
 using TypeSpec.Http;
 
