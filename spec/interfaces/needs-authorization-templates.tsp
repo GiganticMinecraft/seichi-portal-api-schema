@@ -1,5 +1,5 @@
 import "@typespec/http";
-import "../models/error.tsp";
+import "../models/errors.tsp";
 
 using TypeSpec.Http;
 
