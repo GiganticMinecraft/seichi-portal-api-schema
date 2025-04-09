@@ -1,4 +1,4 @@
-import "../id.tsp";
+import "../types/id.tsp";
 
 @service
 namespace SeichiPortalApiSchema;
