@@ -43,7 +43,7 @@ namespace Forms.Models {
     answer_settings: AnswerSettings;
   }
 
-  scalar formId extends id;
+  scalar formId extends uuid;
 
   model Form {
     @key

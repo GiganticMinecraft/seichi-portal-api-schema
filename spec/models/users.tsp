@@ -10,7 +10,7 @@ namespace Users.Models {
   @minLength(1)
   scalar userName extends string;
 
-  scalar userId extends id;
+  scalar userId extends uuid;
 
   model User {
     uuid: userId;

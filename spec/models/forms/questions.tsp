@@ -4,7 +4,7 @@ import "../id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Questions.Models {
-  scalar questionId extends id;
+  scalar questionId extends uuid;
 
   enum QuestionType {
     Text: "TEXT",
