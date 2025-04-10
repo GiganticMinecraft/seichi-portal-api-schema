@@ -30,11 +30,16 @@ namespace Forms.Models {
     end_at?: utcDateTime;
   }
 
+  /**
+   * 回答送信時にデフォルト値として設定されるタイトルを指定することができます。
+   * また、$question_id や $username を指定することで、
+   * 該当の質問に対する回答内容や回答者名を埋め込むことができます。
+   */
   @minLength(1)
   scalar defaultAnswerTitle extends string;
 
   model AnswerSettings {
-    default_answer_title: defaultAnswerTitle;
+    default_answer_title?: defaultAnswerTitle;
     visibility: AnswerVisibility;
     response_period: ResponsePeriod;
   }
