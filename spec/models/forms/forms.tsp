@@ -5,6 +5,7 @@ namespace SeichiPortalApiSchema;
 
 namespace Forms.Models {
   using Types;
+  using Users.Models;
 
   @minLength(1)
   scalar formTitle extends string;
@@ -26,7 +27,10 @@ namespace Forms.Models {
   }
 
   model ResponsePeriod {
+    @visibility(Role.standardUser, Role.administrator)
     start_at?: utcDateTime;
+
+    @visibility(Role.standardUser, Role.administrator)
     end_at?: utcDateTime;
   }
 
@@ -41,12 +45,18 @@ namespace Forms.Models {
   model AnswerSettings {
     default_answer_title?: defaultAnswerTitle;
     visibility: AnswerVisibility;
+
+    @visibility(Role.standardUser, Role.administrator)
     response_period: ResponsePeriod;
   }
 
   model FormSettings {
     webhook_url?: webhookUrl;
+
+    @visibility(Users.Models.Role.standardUser, Users.Models.Role.administrator)
     visibility: FormVisibility;
+
+    @visibility(Users.Models.Role.standardUser, Users.Models.Role.administrator)
     answer_settings: AnswerSettings;
   }
 
@@ -54,16 +64,33 @@ namespace Forms.Models {
 
   model Form {
     @key
-    @visibility(Lifecycle.Read)
+    @visibility(Lifecycle.Read, Role.standardUser, Role.administrator)
     id: formId;
 
-    @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
+    @visibility(
+      Lifecycle.Create,
+      Lifecycle.Read,
+      Lifecycle.Update,
+      Role.standardUser,
+      Role.administrator
+    )
     title: formTitle;
 
-    @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
+    @visibility(
+      Lifecycle.Create,
+      Lifecycle.Read,
+      Lifecycle.Update,
+      Role.standardUser,
+      Role.administrator
+    )
     description?: formDescription;
 
-    @visibility(Lifecycle.Read, Lifecycle.Update)
+    @visibility(
+      Lifecycle.Read,
+      Lifecycle.Update,
+      Role.standardUser,
+      Role.administrator
+    )
     settings: FormSettings;
   }
 }

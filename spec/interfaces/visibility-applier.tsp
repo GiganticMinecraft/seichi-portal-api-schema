@@ -1,16 +1,25 @@
 import "../models/users.tsp";
+import "../models/errors.tsp";
 
 namespace VisibilityApplier {
   using Reflection;
-  using Users.Models;
+  using SeichiPortalApiSchema.Users.Models;
 
-  @withVisibilityFilter(#{ any: #[Role.standardUser] })
-  model ForStandardUser<Data extends Model> {
+  @friendlyName(NameTemplate, Data)
+  @withVisibilityFilter(#{ any: #[Role.standardUser] }, NameTemplate)
+  model ForStandardUser<
+    Data extends Model,
+    NameTemplate extends valueof string = "{name}ForStandardUser"
+  > {
     ...Data;
   }
 
-  @withVisibilityFilter(#{ any: #[Role.administrator] })
-  model ForAdministrator<Data extends Model> {
+  @friendlyName(NameTemplate, Data)
+  @withVisibilityFilter(#{ any: #[Role.administrator] }, NameTemplate)
+  model ForAdministrator<
+    Data extends Model,
+    NameTemplate extends valueof string = "{name}ForAdministrator"
+  > {
     ...Data;
   }
 

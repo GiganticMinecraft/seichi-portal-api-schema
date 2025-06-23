@@ -1,6 +1,7 @@
 import "@typespec/http";
 import "../../models/forms/forms.tsp";
 import "../../interfaces/needs-authorization-templates.tsp";
+import "../../interfaces/visibility-applier.tsp";
 
 using TypeSpec.Http;
 
@@ -12,7 +13,7 @@ namespace SeichiPortalApiSchema;
 namespace Forms.Route {
   using Forms.Models;
 
-  alias FormRouter = NeedsAuthorizationTemplates<Form>;
+  alias FormRouter = NeedsAuthorizationTemplates<VisibilityApplier.VisibilityAppliiedModel<Form>>;
 
   @summary("フォームの作成")
   op CreateForm is FormRouter.create<{}>;
