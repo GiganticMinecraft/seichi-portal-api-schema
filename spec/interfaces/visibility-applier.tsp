@@ -5,23 +5,21 @@ namespace VisibilityApplier {
   using Reflection;
   using SeichiPortalApiSchema.Users.Models;
 
-  @friendlyName(NameTemplate, Data)
-  @withVisibilityFilter(#{ any: #[Role.standardUser] }, NameTemplate)
-  model ForStandardUser<
-    Data extends Model,
-    NameTemplate extends valueof string = "{name}ForStandardUser"
-  > {
+  @withVisibilityFilter(#{ any: #[Role.standardUser] }, "{name}ForStandardUser")
+  model ForStandardUser<Data extends Model> {
     ...Data;
   }
 
-  @friendlyName(NameTemplate, Data)
-  @withVisibilityFilter(#{ any: #[Role.administrator] }, NameTemplate)
-  model ForAdministrator<
-    Data extends Model,
-    NameTemplate extends valueof string = "{name}ForAdministrator"
-  > {
+  @withVisibilityFilter(
+    #{ any: #[Role.administrator] },
+    "{name}ForAdministrator"
+  )
+  model ForAdministrator<Data extends Model> {
     ...Data;
   }
 
-  alias VisibilityAppliiedModel<Data extends Model> = ForAdministrator<Data> | ForStandardUser<Data>;
+  alias VisibilityAppliiedModel<Data extends Model> = {
+    forAdministratorModel: ForAdministrator<Data>;
+    forStandardUserModel: ForStandardUser<Data>;
+  };
 }
