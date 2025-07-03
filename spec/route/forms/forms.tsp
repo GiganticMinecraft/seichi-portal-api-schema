@@ -13,7 +13,7 @@ namespace SeichiPortalApiSchema;
 namespace Forms.Route {
   using Forms.Models;
 
-  alias FormRouter = NeedsAuthorizationTemplates<VisibilityApplier.VisibilityAppliiedModel<Form>>;
+  alias FormRouter = NeedsAuthorizationTemplates<Form>;
 
   @summary("フォームの作成")
   op CreateForm is FormRouter.create<{}>;

@@ -2,8 +2,9 @@ import "@typespec/http";
 import "../models/errors.tsp";
 
 using TypeSpec.Http;
+using TypeSpec.Reflection;
 
-interface NeedsAuthorizationTemplates<T> {
+interface NeedsAuthorizationTemplates<T extends Model> {
   @post
   create<AdditionalParams>(
     @header
@@ -57,9 +58,9 @@ interface NeedsAuthorizationTemplates<T> {
   @patch
   update<AdditionalParams>(
     @header
-    contentType: "application/json",
+    contentType: "application/merge-patch+json",
 
-    @body body: T,
+    @body body: MergePatchUpdate<T>,
     ...AdditionalParams,
   ): {
     @statusCode statusCode: 200;

@@ -5,7 +5,6 @@ namespace SeichiPortalApiSchema;
 
 namespace Forms.Models {
   using Types;
-  using Users.Models;
 
   @minLength(1)
   scalar formTitle extends string;
@@ -27,11 +26,8 @@ namespace Forms.Models {
   }
 
   model ResponsePeriod {
-    @visibility(Role.standardUser, Role.administrator)
-    start_at?: utcDateTime;
-
-    @visibility(Role.standardUser, Role.administrator)
-    end_at?: utcDateTime;
+    start_at: utcDateTime | null;
+    end_at: utcDateTime | null;
   }
 
   /**
@@ -43,20 +39,14 @@ namespace Forms.Models {
   scalar defaultAnswerTitle extends string;
 
   model AnswerSettings {
-    default_answer_title?: defaultAnswerTitle;
+    default_answer_title: defaultAnswerTitle | null;
     visibility: AnswerVisibility;
-
-    @visibility(Role.standardUser, Role.administrator)
-    response_period: ResponsePeriod;
+    response_period: ResponsePeriod | null;
   }
 
   model FormSettings {
-    webhook_url?: webhookUrl;
-
-    @visibility(Users.Models.Role.standardUser, Users.Models.Role.administrator)
+    webhook_url?: webhookUrl | null;
     visibility: FormVisibility;
-
-    @visibility(Users.Models.Role.standardUser, Users.Models.Role.administrator)
     answer_settings: AnswerSettings;
   }
 
@@ -64,33 +54,16 @@ namespace Forms.Models {
 
   model Form {
     @key
-    @visibility(Lifecycle.Read, Role.standardUser, Role.administrator)
+    @visibility(Lifecycle.Read)
     id: formId;
 
-    @visibility(
-      Lifecycle.Create,
-      Lifecycle.Read,
-      Lifecycle.Update,
-      Role.standardUser,
-      Role.administrator
-    )
+    @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
     title: formTitle;
 
-    @visibility(
-      Lifecycle.Create,
-      Lifecycle.Read,
-      Lifecycle.Update,
-      Role.standardUser,
-      Role.administrator
-    )
-    description?: formDescription;
+    @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
+    description: formDescription | null;
 
-    @visibility(
-      Lifecycle.Read,
-      Lifecycle.Update,
-      Role.standardUser,
-      Role.administrator
-    )
+    @visibility(Lifecycle.Read, Lifecycle.Update)
     settings: FormSettings;
   }
 }
