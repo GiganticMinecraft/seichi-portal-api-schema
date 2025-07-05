@@ -6,7 +6,6 @@ namespace SeichiPortalApiSchema;
 namespace Users.Models {
   using Types;
 
-  @defaultVisibility(Role.administrator)
   enum Role {
     standardUser: "STANDARD_USER",
     administrator: "ADMINISTRATOR",

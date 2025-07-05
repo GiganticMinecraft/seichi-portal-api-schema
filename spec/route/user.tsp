@@ -13,7 +13,7 @@ namespace SeichiPortalApiSchema;
 namespace Users.Router {
   using Users.Models;
 
-  alias UserRouter = NeedsAuthorizationTemplates<VisibilityApplier.VisibilityAppliiedModel<User>>;
+  alias UserRouter = NeedsAuthorizationTemplates<User>;
 
   @summary("ユーザーの一覧取得")
   op ListUsers is UserRouter.list<{}>;
