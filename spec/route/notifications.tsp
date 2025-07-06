@@ -10,7 +10,7 @@ namespace SeichiPortalApiSchema;
 @route("/notifications")
 @tag("Notifications")
 namespace Notifications.Router {
-  @route("/settings")
+  @route("/settings/me")
   namespace NotificationSettings {
     using Notifications.Models;
     alias NotificationSettingsRouter = NeedsAuthorizationTemplates<NotificationSettings>;
