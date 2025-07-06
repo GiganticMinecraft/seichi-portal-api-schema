@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install node_modules
-        run: npm intall
+        run: npm install
 
       - name: Compile typespec
         run: tsp compile ./spec
