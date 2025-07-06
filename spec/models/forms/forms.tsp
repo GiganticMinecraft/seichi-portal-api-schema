@@ -61,7 +61,7 @@ namespace Forms.Models {
     title: formTitle;
 
     @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
-    description: formDescription | null;
+    description: formDescription;
 
     @visibility(Lifecycle.Read, Lifecycle.Update)
     settings: FormSettings;
