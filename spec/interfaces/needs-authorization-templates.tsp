@@ -15,7 +15,7 @@ interface NeedsAuthorizationTemplates<T extends Model> {
   ): {
     @statusCode statusCode: 201;
   } | {
-    @statusCode statusCode: 400 | 401 | 403 | 500;
+    @statusCode statusCode: 400 | 401 | 403 | 422 | 500;
     @body body: Error;
   };
 
@@ -33,7 +33,7 @@ interface NeedsAuthorizationTemplates<T extends Model> {
     @statusCode statusCode: 201;
     ...AdditionalResponseParams;
   } | {
-    @statusCode statusCode: 400 | 401 | 403 | 500;
+    @statusCode statusCode: 400 | 401 | 403 | 422 | 500;
     @body body: Error;
   };
 
