@@ -15,7 +15,7 @@ namespace Notifications.Router {
 
   @get
   @summary("通知の設定を取得する")
-  @route("/settings/{userId}")
+  @route("/{userId}")
   op GetNotificationSettings(@path userId: userId):
     | {
         ...OkResponse;
