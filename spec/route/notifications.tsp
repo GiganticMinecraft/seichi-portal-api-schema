@@ -7,32 +7,55 @@ using TypeSpec.Http;
 @service
 namespace SeichiPortalApiSchema;
 
-@route("/notifications")
+@route("/notifications/settings")
 @tag("Notifications")
 namespace Notifications.Router {
-  @route("/settings/me")
-  namespace NotificationSettings {
-    using Notifications.Models;
-    alias NotificationSettingsRouter = NeedsAuthorizationTemplates<NotificationSettings>;
+  using Users.Models;
+  using Notifications.Models;
 
-    @summary("通知設定の取得")
-    op GetNotificationSettings is NotificationSettingsRouter.get<{}>;
+  @get
+  @summary("通知の設定を取得する")
+  @route("/settings/{userId}")
+  op GetNotificationSettings(@path userId: userId):
+    | {
+        ...OkResponse;
+        @body body: NotificationSettings;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
-    @summary("通知設定の更新")
-    @patch
-    op UpdateNotificationSettings(
-      @header contentType: "application/merge-patch+json",
-      @body body: MergePatchUpdate<NotificationSettings>,
-    ):
-      | {
-          ...OkResponse;
-          @body body: NotificationSettings;
-        }
-      | BadRequest
-      | Unauthorized
-      | Forbidden
-      | NotFound
-      | UnprocessableEntity
-      | InternalServerError;
-  }
+  @route("/me")
+  @summary("自身の通知設定の取得")
+  op GetMyNotificationSettings():
+    | {
+        ...OkResponse;
+        @bodyRoot body: NotificationSettings;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
+
+  @route("/me")
+  @summary("通知設定の更新")
+  @patch
+  op UpdateNotificationSettings(
+    @body body: MergePatchUpdate<NotificationSettings>,
+  ):
+    | {
+        ...OkResponse;
+        @bodyRoot body: NotificationSettings;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 }
