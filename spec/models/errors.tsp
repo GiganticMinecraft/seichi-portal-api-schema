@@ -37,3 +37,9 @@ model UnprocessableEntity {
   ...Response<422>;
   @body error: Error;
 }
+
+@error
+model InternalServerError {
+  ...Response<500>;
+  @body error: Error;
+}

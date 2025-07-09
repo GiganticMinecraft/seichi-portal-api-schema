@@ -19,6 +19,20 @@ namespace Notifications.Router {
     op GetNotificationSettings is NotificationSettingsRouter.get<{}>;
 
     @summary("通知設定の更新")
-    op UpdateNotificationSettings is NotificationSettingsRouter.update<{}>;
+    @patch
+    op UpdateNotificationSettings(
+      @header contentType: "application/merge-patch+json",
+      @body body: MergePatchUpdate<NotificationSettings>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: NotificationSettings;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
   }
 }
