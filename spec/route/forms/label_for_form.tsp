@@ -30,10 +30,23 @@ namespace LabelForForm.Router {
     }>;
 
     @summary("フォーム用ラベルを更新する")
-    op UpdateLabelForForm is LabelForFormRouter.update<{
+    @patch
+    op UpdateLabelForForm(
       @path
-      label_id: labelForFormId;
-    }>;
+      label_id: labelForFormId,
+
+      @body body: MergePatchUpdate<LabelForForm>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: LabelForForm;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @summary("フォーム用ラベルを削除する")
     op DeleteLabelForForm is LabelForFormRouter.delete<{
