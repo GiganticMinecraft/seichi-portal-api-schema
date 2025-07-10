@@ -23,12 +23,6 @@ namespace LabelForForm.Router {
 
   @route("/{label_id}")
   namespace PerLabelForForm {
-    @summary("フォーム用ラベルを取得する")
-    op GetLabelForForm is LabelForFormRouter.get<{
-      @path
-      label_id: labelForFormId;
-    }>;
-
     @summary("フォーム用ラベルを更新する")
     @patch
     op UpdateLabelForForm(
