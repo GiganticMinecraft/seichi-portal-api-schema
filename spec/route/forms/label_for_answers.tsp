@@ -23,12 +23,6 @@ namespace LabelForAnswers.Router {
 
   @route("/{label_id}")
   namespace PerLabelForAnswers {
-    @summary("回答用ラベルを取得する")
-    op GetLabelForAnswers is LabelForAnswersRouter.get<{
-      @path
-      label_id: labelForAnswersId;
-    }>;
-
     @summary("回答用ラベルを更新する")
     op UpdateLabelForAnswers is LabelForAnswersRouter.update<{
       @path
