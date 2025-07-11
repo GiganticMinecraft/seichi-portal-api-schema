@@ -24,10 +24,22 @@ namespace LabelForAnswers.Router {
   @route("/{label_id}")
   namespace PerLabelForAnswers {
     @summary("回答用ラベルを更新する")
-    op UpdateLabelForAnswers is LabelForAnswersRouter.update<{
+    op UpdateLabelForAnswers(
       @path
-      label_id: labelForAnswersId;
-    }>;
+      label_id: labelForAnswersId,
+
+      @body body: MergePatchUpdate<LabelForAnswers>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: LabelForAnswers;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @summary("回答用ラベルを削除する")
     op DeleteLabelForAnswers is LabelForAnswersRouter.delete<{
