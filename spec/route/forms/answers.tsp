@@ -23,35 +23,83 @@ namespace Answers.Router {
   @route("/forms/{form_id}/answers")
   namespace PerForm {
     @summary("回答の作成")
-    op CreateAnswer is AnswerRouter.create<{
+    @post
+    op CreateAnswer(
       @path
-      form_id: formId;
-    }>;
+      form_id: formId,
+
+      @body body: AnswerEntry,
+    ):
+      | {
+          ...OkResponse;
+          @body body: AnswerEntry;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @summary("回答の一覧取得")
-    op ListAnswer is AnswerRouter.list<{
+    @get
+    op ListAnswer(
       @path
-      form_id: formId;
-    }>;
+      form_id: formId,
+    ):
+      | {
+          ...OkResponse;
+          @body body: AnswerEntry[];
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @route("/{answer_id}")
     @summary("回答の取得")
-    op GetAnswer is AnswerRouter.get<{
+    @get
+    op GetAnswer(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
-    }>;
+      answer_id: answerId,
+    ):
+      | {
+          ...OkResponse;
+          @body body: AnswerEntry;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @route("/{answer_id}")
     @summary("回答の更新")
-    op UpdateAnswer is AnswerRouter.update<{
+    @patch
+    op UpdateAnswer(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
-    }>;
+      answer_id: answerId,
+
+      @body body: MergePatchUpdate<AnswerEntry>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: AnswerEntry;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
   }
 }
