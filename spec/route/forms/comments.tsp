@@ -15,25 +15,47 @@ namespace Comments.Router {
   using Forms.Models;
   using Answers.Models;
 
-  alias CommentRouter = NeedsAuthorizationTemplates<Comment>;
-
   @summary("コメントの作成")
-  op CreateComment is CommentRouter.create<{
+  @post
+  op CreateComment(
     @path
-    form_id: formId;
+    form_id: formId,
 
     @path
-    answer_id: answerId;
-  }>;
+    answer_id: answerId,
+
+    @body body: Comment,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Comment;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("コメントの取得")
-  op ListComment is CommentRouter.list<{
+  @get
+  op ListComment(
     @path
-    form_id: formId;
+    form_id: formId,
 
     @path
-    answer_id: answerId;
-  }>;
+    answer_id: answerId,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Comment[];
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @route("/{comment_id}")
   namespace PerComment {
@@ -63,15 +85,22 @@ namespace Comments.Router {
       | InternalServerError;
 
     @summary("コメントの削除")
-    op DeleteComment is CommentRouter.delete<{
+    op DeleteComment(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
+      answer_id: answerId,
 
       @path
-      comment_id: commentId;
-    }>;
+      comment_id: commentId,
+    ):
+      | NoContentResponse
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
   }
 }
