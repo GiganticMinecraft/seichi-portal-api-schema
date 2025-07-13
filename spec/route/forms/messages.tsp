@@ -18,7 +18,11 @@ namespace Messages.Router {
 
   @summary("メッセージの作成")
   @post
-  op CreateMessage(@path form_id: formId, @path answer_id: answerId):
+  op CreateMessage(
+    @path form_id: formId,
+    @path answer_id: answerId,
+    @body body: Message,
+  ):
     | {
         ...OkResponse;
         @body body: Message;
