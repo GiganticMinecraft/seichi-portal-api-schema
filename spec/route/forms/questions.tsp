@@ -27,33 +27,22 @@ namespace Questions.Router {
     form_id: formId;
   }>;
 
-  @route("/{question_id}")
-  @summary("質問の取得")
-  op GetQuestion is QuestionRouter.get<{
-    @path
-    form_id: formId;
-
-    @path
-    question_id: questionId;
-  }>;
-
-  @route("/{question_id}")
   @summary("質問の更新")
-  op UpdateQuestion is QuestionRouter.update<{
+  @put
+  op UpdateQuestion(
     @path
-    form_id: formId;
-
-    @path
-    question_id: questionId;
-  }>;
-
-  @route("/{question_id}")
-  @summary("質問の削除")
-  op DeleteQuestion is QuestionRouter.delete<{
-    @path
-    form_id: formId;
-
-    @path
-    question_id: questionId;
-  }>;
+    form_id: formId,
+  ):
+    | {
+        ...OkResponse;
+        @body body: {
+          questions: Question[];
+        };
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 }
