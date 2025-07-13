@@ -29,10 +29,23 @@ namespace Forms.Route {
 
   @route("/{id}")
   @summary("フォームの更新")
-  op UpdateForm is FormRouter.update<{
+  @patch
+  op UpdateForm(
     @path
-    id: formId;
-  }>;
+    id: formId,
+
+    @body body: MergePatchUpdate<Form>,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Form;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @route("/{id}")
   @summary("フォームの削除")
