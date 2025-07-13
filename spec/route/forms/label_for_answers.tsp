@@ -24,6 +24,7 @@ namespace LabelForAnswers.Router {
   @route("/{label_id}")
   namespace PerLabelForAnswers {
     @summary("回答用ラベルを更新する")
+    @patch
     op UpdateLabelForAnswers(
       @path
       label_id: labelForAnswersId,
