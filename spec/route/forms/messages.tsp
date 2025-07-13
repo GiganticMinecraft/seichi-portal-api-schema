@@ -19,13 +19,18 @@ namespace Messages.Router {
   alias MessageRouter = NeedsAuthorizationTemplates<Message>;
 
   @summary("メッセージの作成")
-  op CreateMessage is MessageRouter.create<{
-    @path
-    form_id: formId;
-
-    @path
-    answer_id: answerId;
-  }>;
+  @post
+  op CreateMessage(@path form_id: formId, @path answer_id: answerId):
+    | {
+        ...OkResponse;
+        @body body: Message;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("メッセージの取得")
   op ListMessage is MessageRouter.list<{
