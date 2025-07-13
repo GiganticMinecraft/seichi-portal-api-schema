@@ -38,16 +38,29 @@ namespace Comments.Router {
   @route("/{comment_id}")
   namespace PerComment {
     @summary("コメントの編集")
-    op UpdateComment is CommentRouter.update<{
+    @patch
+    op UpdateComment(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
+      answer_id: answerId,
 
       @path
-      comment_id: commentId;
-    }>;
+      comment_id: commentId,
+
+      @body body: MergePatchUpdate<Comment>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: Comment;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @summary("コメントの削除")
     op DeleteComment is CommentRouter.delete<{
