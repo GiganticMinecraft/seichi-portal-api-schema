@@ -16,8 +16,6 @@ namespace Messages.Router {
   using Forms.Models;
   using Answers.Models;
 
-  alias MessageRouter = NeedsAuthorizationTemplates<Message>;
-
   @summary("メッセージの作成")
   @post
   op CreateMessage(@path form_id: formId, @path answer_id: answerId):
@@ -33,38 +31,67 @@ namespace Messages.Router {
     | InternalServerError;
 
   @summary("メッセージの取得")
-  op ListMessage is MessageRouter.list<{
-    @path
-    form_id: formId;
-
-    @path
-    answer_id: answerId;
-  }>;
+  @get
+  op ListMessage(@path form_id: formId, @path answer_id: answerId):
+    | {
+        ...OkResponse;
+        @body body: {
+          messages: Message[];
+        };
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @route("/{message_id}")
   namespace PerMessage {
     @summary("メッセージの編集")
-    op UpdateMessage is MessageRouter.update<{
+    @patch
+    op UpdateMessage(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
+      answer_id: answerId,
 
       @path
-      message_id: messageId;
-    }>;
+      message_id: messageId,
+
+      @body body: MergePatchUpdate<Message>,
+    ):
+      | {
+          ...OkResponse;
+          @body body: Message;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | UnprocessableEntity
+      | InternalServerError;
 
     @summary("メッセージの削除")
-    op DeleteMessage is MessageRouter.delete<{
+    @delete
+    op DeleteMessage(
       @path
-      form_id: formId;
+      form_id: formId,
 
       @path
-      answer_id: answerId;
+      answer_id: answerId,
 
       @path
-      message_id: messageId;
-    }>;
+      message_id: messageId,
+    ):
+      | {
+          ...OkResponse;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | InternalServerError;
   }
 }
