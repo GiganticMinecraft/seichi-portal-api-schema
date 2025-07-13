@@ -15,19 +15,13 @@ namespace Questions.Router {
 
   alias QuestionRouter = NeedsAuthorizationTemplates<Question>;
 
-  @summary("質問の作成")
-  op CreateQuestion is QuestionRouter.create<{
-    @path
-    form_id: formId;
-  }>;
-
   @summary("質問の一覧取得")
   op ListQuestion is QuestionRouter.list<{
     @path
     form_id: formId;
   }>;
 
-  @summary("質問の更新")
+  @summary("質問の上書き")
   @put
   op UpdateQuestion(
     @path
