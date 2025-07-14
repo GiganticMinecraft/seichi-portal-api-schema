@@ -4,9 +4,8 @@ import "../types/id.tsp";
 namespace SeichiPortalApiSchema;
 
 namespace Questions.Models {
-  using Types;
-
   @minValue(0)
+  @maxValue(2147483647)
   scalar questionId extends int32;
 
   enum QuestionType {
