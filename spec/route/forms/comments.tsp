@@ -85,6 +85,7 @@ namespace Comments.Router {
       | InternalServerError;
 
     @summary("コメントの削除")
+    @delete
     op DeleteComment(
       @path
       form_id: formId,
