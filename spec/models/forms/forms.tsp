@@ -9,7 +9,7 @@ namespace Forms.Models {
   @minLength(1)
   scalar formTitle extends string;
 
-  @minLength(1)
+  @minLength(0)
   scalar formDescription extends string;
 
   @format("url")
@@ -61,7 +61,7 @@ namespace Forms.Models {
     title: formTitle;
 
     @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
-    description: formDescription | null;
+    description: formDescription;
 
     @visibility(Lifecycle.Read, Lifecycle.Update)
     settings: FormSettings;
