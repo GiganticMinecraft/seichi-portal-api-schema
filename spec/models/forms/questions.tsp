@@ -6,7 +6,8 @@ namespace SeichiPortalApiSchema;
 namespace Questions.Models {
   using Types;
 
-  scalar questionId extends uuid;
+  @minValue(0)
+  scalar questionId extends int32;
 
   enum QuestionType {
     text: "TEXT",
