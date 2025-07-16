@@ -12,7 +12,7 @@ namespace Forms.Models {
   @minLength(0)
   scalar formDescription extends string;
 
-  @format("url")
+  @pattern("https://discord.com/api/webhooks/.*")
   scalar webhookUrl extends url;
 
   enum FormVisibility {
