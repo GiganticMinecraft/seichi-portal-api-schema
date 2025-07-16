@@ -17,6 +17,7 @@ namespace Search.Router {
   @summary("横断検索を行う")
   op CrossSearch is SearchRouter.get<{
     @query
+    @minLength(1)
     query: string;
   }>;
 }
