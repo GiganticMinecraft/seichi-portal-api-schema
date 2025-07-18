@@ -12,21 +12,30 @@ namespace SeichiPortalApiSchema;
 namespace LinkDiscord.Router {
   using External.Models;
 
-  alias LinkDiscordRouter = NeedsAuthorizationTemplates<DiscordOAuthToken>;
-
   @summary("Discord アカウントとリンクする")
+  @post
   op LinkDiscord(
     @header
     contentType: "application/json",
 
     @body body: DiscordOAuthToken,
-  ): {
-    @statusCode statusCode: 204;
-  } | {
-    @statusCode statusCode: 400 | 401 | 403 | 500;
-    @body body: Error;
-  };
+  ):
+    | NoContentResponse
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("Discord アカウントとのリンクを解除する")
-  op UnlinkDiscord is LinkDiscordRouter.delete<{}>;
+  @delete
+  op UnlinkDiscord():
+    | NoContentResponse
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 }
