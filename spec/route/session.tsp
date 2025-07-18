@@ -12,23 +12,26 @@ namespace SeichiPortalApiSchema;
 namespace Session.Router {
   using Session.Models;
 
-  alias SessionRouter = NeedsAuthorizationTemplates<SessionExpires>;
-
   @summary("セッションを作成する")
-  op CreateSession is SessionRouter.createWithAdditionalResponseParams<
-    {},
-    {
-      @header
-      SetCookie: string;
-    }
-  >;
+  @post
+  op CreateSession(@body body: SessionExpires):
+    | {
+        @header
+        SetCookie: string;
+      }
+    | BadRequest
+    | Unauthorized
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("セッションを削除する")
-  op DeleteSession is SessionRouter.deleteWithAdditionalResponseParams<
-    {},
-    {
-      @header
-      SetCookie: string;
-    }
-  >;
+  @delete
+  op DeleteSession():
+    | NoContentResponse
+    | BadRequest
+    | Unauthorized
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 }
