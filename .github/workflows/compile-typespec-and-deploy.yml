@@ -48,6 +48,24 @@ jobs:
           echo "file=$LATEST_FILE" >> $GITHUB_OUTPUT
           echo "Found latest semantic version file: $LATEST_FILE"
 
+      - name: Prepare docs directory structure
+        run: |
+          mkdir -p ./docs
+          
+          # 各バージョンのディレクトリを作成し、ファイルをコピー
+          for file in tsp-output/@typespec/openapi3/openapi.v*.yaml; do
+            if [ -f "$file" ]; then
+              # バージョン番号を抽出 (例: openapi.v1.0.0.yaml -> 1.0.0)
+              version=$(echo "$file" | sed 's/.*openapi\.v\([0-9]\+\.[0-9]\+\.[0-9]\+\)\.yaml/\1/')
+              
+              mkdir -p "./docs/v$version"
+              
+              cp "$file" "./docs/v$version/openapi.yaml"
+              
+              echo "Created docs for version: v$version"
+            fi
+          done
+
       - name: Build docs
         run: redocly build-docs ${{ steps.find-file.outputs.file }} -o ./docs/index.html -t ./.github/template.hbs
 
