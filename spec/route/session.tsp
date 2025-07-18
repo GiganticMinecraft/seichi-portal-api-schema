@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "../interfaces/needs-authorization-templates.tsp";
 import "../models/session.tsp";
 
 using TypeSpec.Http;

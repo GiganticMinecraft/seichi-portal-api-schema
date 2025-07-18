@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "../models/external.tsp";
-import "../interfaces/needs-authorization-templates.tsp";
 
 using TypeSpec.Http;
 

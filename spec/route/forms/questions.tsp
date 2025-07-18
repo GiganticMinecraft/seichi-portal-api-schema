@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "../../models/forms/questions.tsp";
-import "../../interfaces/needs-authorization-templates.tsp";
 
 using TypeSpec.Http;
 
