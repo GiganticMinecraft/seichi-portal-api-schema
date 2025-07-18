@@ -15,6 +15,8 @@ namespace Session.Router {
   @post
   op CreateSession(@body body: SessionExpires):
     | {
+        ...CreatedResponse;
+
         @header
         SetCookie: string;
       }
