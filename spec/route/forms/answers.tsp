@@ -12,12 +12,19 @@ namespace Answers.Router {
   using Answers.Models;
   using Forms.Models;
 
-  alias AnswerRouter = NeedsAuthorizationTemplates<AnswerEntry>;
-
   @route("/forms/answers")
   namespace AllAnswers {
     @summary("すべての回答をフォームを横断して取得")
-    op ListAllAnswers is AnswerRouter.list<{}>;
+    @get
+    op ListAllAnswers():
+      | {
+          ...OkResponse;
+          @body body: AnswerEntry[];
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | InternalServerError;
   }
 
   @route("/forms/{form_id}/answers")
