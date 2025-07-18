@@ -36,8 +36,20 @@ jobs:
       - name: Install redocly-cli
         uses: ./.github/actions/install-redocly-cli
 
+      - name: Find latest OpenAPI file by semantic version
+        id: find-file
+        run: |
+          # セマンティックバージョンでソートして最新を取得
+          LATEST_FILE=$(ls tsp-output/@typespec/openapi3/openapi.v*.yaml | \
+            sed 's/.*openapi\.v\([0-9]\+\.[0-9]\+\.[0-9]\+\)\.yaml/\1 &/' | \
+            sort -V | \
+            tail -n1 | \
+            cut -d' ' -f2)
+          echo "file=$LATEST_FILE" >> $GITHUB_OUTPUT
+          echo "Found latest semantic version file: $LATEST_FILE"
+
       - name: Build docs
-        run: redocly build-docs tsp-output/@typespec/openapi3/openapi.yaml -o ./docs/index.html -t ./.github/template.hbs
+        run: redocly build-docs ${{ steps.find-file.outputs.file }} -o ./docs/index.html -t ./.github/template.hbs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
