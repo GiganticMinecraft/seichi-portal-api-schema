@@ -13,13 +13,31 @@ namespace SeichiPortalApiSchema;
 namespace LabelForForm.Router {
   using LabelForForm.Models;
 
-  alias LabelForFormRouter = NeedsAuthorizationTemplates<LabelForForm>;
-
   @summary("フォーム用ラベルを作成する")
-  op CreateLabelForForm is LabelForFormRouter.create<{}>;
+  @post
+  op CreateLabelForForm(@body body: LabelForForm):
+    | {
+        ...CreatedResponse;
+        ...LocationHeader;
+        @body body: LabelForForm;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("フォーム用ラベルの一覧を取得する")
-  op ListLabelForForm is LabelForFormRouter.list<{}>;
+  @get
+  op ListLabelForForm():
+    | {
+        ...OkResponse;
+        @body body: LabelForForm[];
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 
   @route("/{label_id}")
   namespace PerLabelForForm {
@@ -43,9 +61,17 @@ namespace LabelForForm.Router {
       | InternalServerError;
 
     @summary("フォーム用ラベルを削除する")
-    op DeleteLabelForForm is LabelForFormRouter.delete<{
+    op DeleteLabelForForm(
       @path
-      label_id: labelForFormId;
-    }>;
+      label_id: labelForFormId,
+    ):
+      | {
+          ...NoContentResponse;
+        }
+      | BadRequest
+      | Unauthorized
+      | Forbidden
+      | NotFound
+      | InternalServerError;
   }
 }
