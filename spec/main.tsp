@@ -1,4 +1,5 @@
 import "@typespec/http";
+import "@typespec/versioning";
 
 import "./route/forms/forms.tsp";
 import "./route/forms/questions.tsp";
@@ -14,8 +15,14 @@ import "./route/session.tsp";
 import "./route/link-discord.tsp";
 
 using TypeSpec.Http;
+using TypeSpec.Versioning;
 
 @service(#{ title: "Seichi Portal API" })
 @server("http://localhost:9000", "開発環境")
 @useAuth(BearerAuth)
+@versioned(Versions)
 namespace SeichiPortalApiSchema;
+
+enum Versions {
+  `v0.0.1`,
+}

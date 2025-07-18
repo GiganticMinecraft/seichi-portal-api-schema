@@ -9,20 +9,23 @@ importers:
   .:
     dependencies:
       '@typespec/compiler':
-        specifier: ^1.1.0
+        specifier: 1.1.0
         version: 1.1.0
       '@typespec/http':
-        specifier: ^1.1.0
+        specifier: 1.1.0
         version: 1.1.0(@typespec/compiler@1.1.0)
       '@typespec/openapi':
-        specifier: ^1.1.0
+        specifier: 1.1.0
         version: 1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))
       '@typespec/openapi3':
-        specifier: ^1.1.0
-        version: 1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))(@typespec/openapi@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0)))
+        specifier: 1.1.0
+        version: 1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))(@typespec/openapi@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0)))(@typespec/versioning@0.72.1(@typespec/compiler@1.1.0))
       '@typespec/rest':
         specifier: 0.71.0
         version: 0.71.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))
+      '@typespec/versioning':
+        specifier: ^0.72.1
+        version: 0.72.1(@typespec/compiler@1.1.0)
 
 packages:
 
@@ -250,6 +253,12 @@ packages:
     peerDependencies:
       '@typespec/compiler': ^1.1.0
       '@typespec/http': ^1.1.0
+
+  '@typespec/versioning@0.72.1':
+    resolution: {integrity: sha512-v1tBN2TcJilYpmb67v96YIVCGy8Su/c9hmuU6WABudWnYr26O4O+6gK2zx69RFxXORw+iw/LiDCU3XtFHbb7IQ==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@typespec/compiler': ^1.2.1
 
   ajv-draft-04@1.0.0:
     resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
@@ -734,7 +743,7 @@ snapshots:
     dependencies:
       '@typespec/compiler': 1.1.0
 
-  '@typespec/openapi3@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))(@typespec/openapi@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0)))':
+  '@typespec/openapi3@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))(@typespec/openapi@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0)))(@typespec/versioning@0.72.1(@typespec/compiler@1.1.0))':
     dependencies:
       '@apidevtools/swagger-parser': 10.1.1(openapi-types@12.1.3)
       '@typespec/asset-emitter': 0.71.0(@typespec/compiler@1.1.0)
@@ -743,6 +752,8 @@ snapshots:
       '@typespec/openapi': 1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))
       openapi-types: 12.1.3
       yaml: 2.7.1
+    optionalDependencies:
+      '@typespec/versioning': 0.72.1(@typespec/compiler@1.1.0)
 
   '@typespec/openapi@1.1.0(@typespec/compiler@1.1.0)(@typespec/http@1.1.0(@typespec/compiler@1.1.0))':
     dependencies:
@@ -753,6 +764,10 @@ snapshots:
     dependencies:
       '@typespec/compiler': 1.1.0
       '@typespec/http': 1.1.0(@typespec/compiler@1.1.0)
+
+  '@typespec/versioning@0.72.1(@typespec/compiler@1.1.0)':
+    dependencies:
+      '@typespec/compiler': 1.1.0
 
   ajv-draft-04@1.0.0(ajv@8.17.1):
     optionalDependencies:
