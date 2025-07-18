@@ -12,12 +12,19 @@ namespace SeichiPortalApiSchema;
 namespace Search.Router {
   using Search.Models;
 
-  alias SearchRouter = NeedsAuthorizationTemplates<CrossSearchResult>;
-
   @summary("横断検索を行う")
-  op CrossSearch is SearchRouter.get<{
+  @get
+  op CrossSearch(
     @query
     @minLength(1)
-    query: string;
-  }>;
+    query: string,
+  ):
+    | {
+        ...OkResponse;
+        @body body: CrossSearchResult;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 }
