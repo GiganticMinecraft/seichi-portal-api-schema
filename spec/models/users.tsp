@@ -17,7 +17,7 @@ namespace Users.Models {
   scalar userId extends uuid;
 
   model User {
-    uuid: userId;
+    id: userId;
     name: userName;
     role: Role;
   }

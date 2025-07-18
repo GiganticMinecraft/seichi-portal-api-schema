@@ -1,5 +1,4 @@
 import "@typespec/http";
-import "../interfaces/needs-authorization-templates.tsp";
 import "../models/search.tsp";
 
 using TypeSpec.Http;
@@ -12,11 +11,19 @@ namespace SeichiPortalApiSchema;
 namespace Search.Router {
   using Search.Models;
 
-  alias SearchRouter = NeedsAuthorizationTemplates<CrossSearchResult>;
-
   @summary("横断検索を行う")
-  op CrossSearch is SearchRouter.get<{
+  @get
+  op CrossSearch(
     @query
-    query: string;
-  }>;
+    @minLength(1)
+    query: string,
+  ):
+    | {
+        ...OkResponse;
+        @body body: CrossSearchResult;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 }

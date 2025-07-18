@@ -6,7 +6,6 @@ namespace SeichiPortalApiSchema;
 
 namespace Answers.Models {
   using Users.Models;
-  using Forms.Models;
   using Questions.Models;
   using Types;
 
@@ -22,7 +21,6 @@ namespace Answers.Models {
     @visibility(Lifecycle.Read)
     id: answerId;
 
-    form_id: formId;
     contents: Answer[];
 
     @visibility(Lifecycle.Read)

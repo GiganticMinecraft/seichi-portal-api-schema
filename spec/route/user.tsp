@@ -1,7 +1,7 @@
 import "@typespec/http";
 import "../models/forms/forms.tsp";
 import "../models/users.tsp";
-import "../interfaces/needs-authorization-templates.tsp";
+import "../models/errors.tsp";
 
 using TypeSpec.Http;
 
@@ -13,26 +13,67 @@ namespace SeichiPortalApiSchema;
 namespace Users.Router {
   using Users.Models;
 
-  alias UserRouter = NeedsAuthorizationTemplates<User>;
-
   @summary("ユーザーの一覧取得")
-  op ListUsers is UserRouter.list<{}>;
+  @get
+  op ListUsers():
+    | {
+        ...OkResponse;
+        @body body: User[];
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 
   @route("/me")
   @summary("自分のユーザー情報の取得")
-  op GetMe is UserRouter.get<{}>;
+  @get
+  op GetMe():
+    | {
+        ...OkResponse;
+        @body body: User;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 
   @route("/{id}")
   @summary("ユーザーの取得")
-  op GetUser is UserRouter.get<{
+  @get
+  op GetUser(
     @path
-    id: userId;
-  }>;
+    id: userId,
+  ):
+    | {
+        ...OkResponse;
+        @body body: User;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | InternalServerError;
 
   @route("/{id}")
   @summary("ユーザーの更新")
-  op UpdateUser is UserRouter.update<{
+  @patch
+  op UpdateUser(
     @path
-    id: userId;
-  }>;
+    id: userId,
+
+    @header
+    contentType: "application/merge-patch+json",
+
+    @body body: MergePatchUpdate<User>,
+  ):
+    | {
+        ...OkResponse;
+        @body body: User;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity;
 }

@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "../../models/forms/forms.tsp";
-import "../../interfaces/needs-authorization-templates.tsp";
 
 using TypeSpec.Http;
 
@@ -12,32 +11,82 @@ namespace SeichiPortalApiSchema;
 namespace Forms.Route {
   using Forms.Models;
 
-  alias FormRouter = NeedsAuthorizationTemplates<Form>;
-
   @summary("フォームの作成")
-  op CreateForm is FormRouter.create<{}>;
+  @post
+  op CreateForm(@body body: Form):
+    | {
+        ...CreatedResponse;
+        ...LocationHeader;
+        @body body: Form;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | UnprocessableEntity
+    | InternalServerError;
 
   @summary("フォームの一覧取得")
-  op ListForm is FormRouter.list<{}>;
+  @get
+  op ListForm():
+    | {
+        ...OkResponse;
+        @body body: Form[];
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | InternalServerError;
 
   @route("/{id}")
   @summary("フォームの取得")
-  op GetForm is FormRouter.get<{
+  @get
+  op GetForm(
     @path
-    id: formId;
-  }>;
+    id: formId,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Form;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | InternalServerError;
 
   @route("/{id}")
   @summary("フォームの更新")
-  op UpdateForm is FormRouter.update<{
+  @patch
+  op UpdateForm(
     @path
-    id: formId;
-  }>;
+    id: formId,
+
+    @body body: MergePatchUpdate<Form>,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Form;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | UnprocessableEntity
+    | InternalServerError;
 
   @route("/{id}")
   @summary("フォームの削除")
-  op DeleteForm is FormRouter.delete<{
+  @delete
+  op DeleteForm(
     @path
-    id: formId;
-  }>;
+    id: formId,
+  ):
+    | {
+        ...NoContentResponse;
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | InternalServerError;
 }
