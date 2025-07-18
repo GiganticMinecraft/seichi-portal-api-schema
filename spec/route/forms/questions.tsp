@@ -13,13 +13,21 @@ namespace Questions.Router {
   using Forms.Models;
   using Questions.Models;
 
-  alias QuestionRouter = NeedsAuthorizationTemplates<Question>;
-
   @summary("質問の一覧取得")
-  op ListQuestion is QuestionRouter.list<{
+  @get
+  op ListQuestion(
     @path
-    form_id: formId;
-  }>;
+    form_id: formId,
+  ):
+    | {
+        ...OkResponse;
+        @body body: Question[];
+      }
+    | BadRequest
+    | Unauthorized
+    | Forbidden
+    | NotFound
+    | InternalServerError;
 
   @summary("質問の上書き")
   @put
