@@ -61,6 +61,7 @@ namespace LabelForForm.Router {
       | InternalServerError;
 
     @summary("フォーム用ラベルを削除する")
+    @delete
     op DeleteLabelForForm(
       @path
       label_id: labelForFormId,
