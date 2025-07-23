@@ -52,6 +52,9 @@ jobs:
         run: |
           mkdir -p ./docs
           
+          # Jekyll による変換が行われないようにする
+          touch ./docs/.nojekyll
+
           # 各バージョンのディレクトリを作成し、ファイルをコピー
           for file in tsp-output/@typespec/openapi3/openapi.v*.yaml; do
             if [ -f "$file" ]; then
