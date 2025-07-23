@@ -55,6 +55,12 @@ jobs:
           # Jekyll による変換が行われないようにする
           touch ./docs/.nojekyll
 
+          cat > ./docs/_headers << 'EOF'
+          /*.yaml
+            Content-Type: text/yaml; charset=utf-8
+          
+          EOF
+
           # 各バージョンのディレクトリを作成し、ファイルをコピー
           for file in tsp-output/@typespec/openapi3/openapi.v*.yaml; do
             if [ -f "$file" ]; then
