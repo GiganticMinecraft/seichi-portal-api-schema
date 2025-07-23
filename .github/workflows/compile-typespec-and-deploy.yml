@@ -57,7 +57,7 @@ jobs:
 
           cat > ./docs/_headers << 'EOF'
           /*.yaml
-            Content-Type: text/yaml; charset=utf-8
+            Content-Disposition: attachment; filename="openapi.yaml"
           
           EOF
 
