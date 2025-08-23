@@ -73,7 +73,7 @@ jobs:
         run: redocly build-docs ${{ steps.find-file.outputs.file }} -o ./docs/index.html -t ./.github/template.hbs
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs
 
