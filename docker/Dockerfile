@@ -1,4 +1,4 @@
-FROM node:22-slim
+FROM node:24-slim
 
 ENV PAGE_TITLE=ReDoc
 ENV SPEC_URL=https://petstore3.swagger.io/api/v3/openapi.json
